@@ -1,0 +1,40 @@
+﻿@page
+@model ASP.NET.Pages.RegisterModel
+@{
+}
+  <body> 
+      <div class="container">
+          <h1>Register</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr />
+
+        <label asp-for="RegisterForm.FirstName">First name*</label>
+        <span asp-validation-for="RegisterForm.FirstName"></span>
+        <input asp-for="RegisterForm.FirstName" />
+
+        <label asp-for="RegisterForm.LastName">Last name*</label>
+        <span asp-validation-for="RegisterForm.LastName"></span>
+        <input asp-for="RegisterForm.LastName" />
+
+        <label asp-for="RegisterForm.Email">Email*</label>  
+        <span asp-validation-for="RegisterForm.Email"></span>
+        <input asp-for="RegisterForm.Email" />
+
+        <label asp-for="RegisterForm.Password">Password*</label>
+        <span asp-validation-for="RegisterForm.Password"></span>
+        <input asp-for="RegisterForm.Password" />
+
+        <label asp-for="RegisterForm.RepeatPassword">Repeat passwoed*</label>
+        <span asp-validation-for="RegisterForm.RepeatPassword"></span>
+        <input asp-for="RegisterForm.RepeatPassword" />
+
+        <hr />
+        <div style="text-align:center;">
+
+        <input type="submit" class="registerbtn">Register</input>
+        <div class="container signin">
+          <p>Already have an account?<a asp-area="" asp-page="/Index">Sign in</a>.</p>
+      </div>
+      </div>
+      <div>
+  </body>

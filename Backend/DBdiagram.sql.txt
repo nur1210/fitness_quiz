@@ -1,0 +1,38 @@
+CREATE TABLE `users` (
+  `id` int PRIMARY KEY,
+  `first_name` varchar(255),
+  `last_name` varchar(255),
+  `email` varchar(255),
+  `password` varchar(255)
+);
+
+CREATE TABLE `admins` (
+  `user_id` int PRIMARY KEY
+);
+
+CREATE TABLE `questions` (
+  `id` int PRIMARY KEY,
+  `description` varchar(255),
+  `answer_id` int
+);
+
+CREATE TABLE `answers` (
+  `id` int PRIMARY KEY,
+  `question_id` int,
+  `description` varchar(255),
+  `next_question_id` int,
+  `program_id` int
+);
+
+CREATE TABLE `programs` (
+  `id` int PRIMARY KEY,
+  `description` varchar(255)
+);
+
+ALTER TABLE `users` ADD FOREIGN KEY (`id`) REFERENCES `admins` (`user_id`);
+
+ALTER TABLE `answers` ADD FOREIGN KEY (`id`) REFERENCES `questions` (`answer_id`);
+
+ALTER TABLE `questions` ADD FOREIGN KEY (`id`) REFERENCES `answers` (`next_question_id`);
+
+ALTER TABLE `programs` ADD FOREIGN KEY (`id`) REFERENCES `answers` (`program_id`);
