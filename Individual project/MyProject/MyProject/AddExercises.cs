@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,14 +11,14 @@ using System.Windows.Forms;
 
 namespace MyProject
 {
-    public partial class AddExercises : Form
+    public partial class AddExercises : MaterialForm
     {
         private TrainigProgram _program;
         public AddExercises(TrainigProgram program)
         {
             InitializeComponent();
             _program = program;
-            lblExercises.Text = $"Exercises for program number {_program.ID}";
+            this.Text = $"Exercises for program number {_program.ID}";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -37,8 +38,6 @@ namespace MyProject
         private void btnComplete_Click(object sender, EventArgs e)
         {
             TrainigProgram fullProgram = new TrainigProgram(_program, this._program.ExerciseList);
-            Database.Programs.Add(fullProgram);
-            MessageBox.Show($"{Database.Programs.Count}");
             this.Close();
         }
 
@@ -46,5 +45,11 @@ namespace MyProject
         {
             this.Close();
         }
+
+        private void AddExercises_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

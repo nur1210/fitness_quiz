@@ -31,7 +31,6 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.lblInfo = new System.Windows.Forms.Label();
             this.lbxPrograms = new System.Windows.Forms.ListBox();
-            this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEdit
@@ -43,11 +42,12 @@
             this.btnEdit.TabIndex = 5;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(402, 56);
+            this.lblInfo.Location = new System.Drawing.Point(402, 77);
             this.lblInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(35, 20);
@@ -58,22 +58,12 @@
             // 
             this.lbxPrograms.FormattingEnabled = true;
             this.lbxPrograms.ItemHeight = 20;
-            this.lbxPrograms.Location = new System.Drawing.Point(54, 56);
+            this.lbxPrograms.Location = new System.Drawing.Point(52, 77);
             this.lbxPrograms.Margin = new System.Windows.Forms.Padding(2);
             this.lbxPrograms.Name = "lbxPrograms";
             this.lbxPrograms.Size = new System.Drawing.Size(305, 404);
             this.lbxPrograms.TabIndex = 3;
             this.lbxPrograms.SelectedIndexChanged += new System.EventHandler(this.lbxPrograms_SelectedIndexChanged);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(756, 12);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(94, 29);
-            this.btnClose.TabIndex = 17;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // EditProgram
             // 
@@ -81,11 +71,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(862, 515);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.lbxPrograms);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EditProgram";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -101,6 +89,5 @@
         private Button btnEdit;
         private Label lblInfo;
         private ListBox lbxPrograms;
-        private Button btnClose;
     }
 }

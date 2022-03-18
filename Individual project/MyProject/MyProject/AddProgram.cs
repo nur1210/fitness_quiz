@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace MyProject
 {
-    public partial class AddProgram : Form
+    public partial class AddProgram : MaterialForm
     {
         public AddProgram()
         {
@@ -37,5 +38,6 @@ namespace MyProject
         {
             this.Close();
         }
+
     }
 }

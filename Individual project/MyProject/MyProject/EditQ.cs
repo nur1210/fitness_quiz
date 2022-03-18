@@ -1,4 +1,5 @@
-﻿using MyProject.ManagerServices;
+﻿using MaterialSkin.Controls;
+using MyProject.ManagerServices;
 using MyProject.Questions;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace MyProject
 {
-    public partial class EditQ : Form
+    public partial class EditQ : MaterialForm
     {
         private Question _question;
         private AnswerManager _aM;
@@ -20,6 +21,7 @@ namespace MyProject
         public EditQ(Question question, AnswerManager aM, QuestionManager qM)
         {
             InitializeComponent();
+            this.Text = $"Edit question number: {_question.ID}";
             _question = question;
             _aM = aM;
             _qM = qM;
@@ -34,7 +36,6 @@ namespace MyProject
             textBoxes[2] = tbxAnswer3;
             textBoxes[3] = tbxAnswer4;
 
-            lblTitle.Text = $"Edit question number: {_question.ID}";
             tbxQuestion.Text = _question.Description;
             for (int i = 0; i < _aM.GetGetAllAnswersForQuestion(_question).Count; i++)
             {
@@ -42,12 +43,7 @@ namespace MyProject
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnChange_Click(object sender, EventArgs e)
+        private void btnSubmit_Click(object sender, EventArgs e)
         {
             string questionDescription = tbxQuestion.Text;
 

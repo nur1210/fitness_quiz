@@ -32,15 +32,13 @@
             this.lblAnswer3 = new System.Windows.Forms.Label();
             this.lblAnswer2 = new System.Windows.Forms.Label();
             this.lblAnswer1 = new System.Windows.Forms.Label();
-            this.btnChange = new System.Windows.Forms.Button();
             this.tbxAnswer4 = new System.Windows.Forms.TextBox();
             this.tbxAnswer3 = new System.Windows.Forms.TextBox();
             this.tbxAnswer2 = new System.Windows.Forms.TextBox();
             this.tbxAnswer1 = new System.Windows.Forms.TextBox();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.tbxQuestion = new System.Windows.Forms.TextBox();
             this.lblQuestion = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.btnSubmit = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // lblAnswer4
@@ -83,16 +81,6 @@
             this.lblAnswer1.TabIndex = 25;
             this.lblAnswer1.Text = "Answer 1:";
             // 
-            // btnChange
-            // 
-            this.btnChange.Location = new System.Drawing.Point(315, 364);
-            this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(139, 49);
-            this.btnChange.TabIndex = 24;
-            this.btnChange.Text = "Change";
-            this.btnChange.UseVisualStyleBackColor = true;
-            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
-            // 
             // tbxAnswer4
             // 
             this.tbxAnswer4.Location = new System.Drawing.Point(171, 311);
@@ -121,16 +109,6 @@
             this.tbxAnswer1.Size = new System.Drawing.Size(494, 27);
             this.tbxAnswer1.TabIndex = 20;
             // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.Location = new System.Drawing.Point(266, 55);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(247, 32);
-            this.lblTitle.TabIndex = 31;
-            this.lblTitle.Text = "Question Number **";
-            // 
             // tbxQuestion
             // 
             this.tbxQuestion.Location = new System.Drawing.Point(171, 108);
@@ -148,15 +126,25 @@
             this.lblQuestion.TabIndex = 32;
             this.lblQuestion.Text = "Question :";
             // 
-            // btnClose
+            // btnSubmit
             // 
-            this.btnClose.Location = new System.Drawing.Point(694, 12);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(94, 29);
-            this.btnClose.TabIndex = 33;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnSubmit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSubmit.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnSubmit.Depth = 0;
+            this.btnSubmit.HighEmphasis = true;
+            this.btnSubmit.Icon = null;
+            this.btnSubmit.Location = new System.Drawing.Point(339, 368);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnSubmit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnSubmit.Size = new System.Drawing.Size(75, 36);
+            this.btnSubmit.TabIndex = 33;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnSubmit.UseAccentColor = false;
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // EditQ
             // 
@@ -164,20 +152,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.lblQuestion);
-            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.tbxQuestion);
             this.Controls.Add(this.lblAnswer4);
             this.Controls.Add(this.lblAnswer3);
             this.Controls.Add(this.lblAnswer2);
             this.Controls.Add(this.lblAnswer1);
-            this.Controls.Add(this.btnChange);
             this.Controls.Add(this.tbxAnswer4);
             this.Controls.Add(this.tbxAnswer3);
             this.Controls.Add(this.tbxAnswer2);
             this.Controls.Add(this.tbxAnswer1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditQ";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditQ";
@@ -193,14 +178,12 @@
         private Label lblAnswer3;
         private Label lblAnswer2;
         private Label lblAnswer1;
-        private Button btnChange;
         private TextBox tbxAnswer4;
         private TextBox tbxAnswer3;
         private TextBox tbxAnswer2;
         private TextBox tbxAnswer1;
-        private Label lblTitle;
         private TextBox tbxQuestion;
         private Label lblQuestion;
-        private Button btnClose;
+        private MaterialSkin.Controls.MaterialButton btnSubmit;
     }
 }

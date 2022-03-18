@@ -34,11 +34,9 @@
             this.lbxExercises = new System.Windows.Forms.ListBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnComplete = new System.Windows.Forms.Button();
-            this.lblExercises = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblReps = new System.Windows.Forms.Label();
             this.lblSets = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbxName
@@ -91,16 +89,6 @@
             this.btnComplete.UseVisualStyleBackColor = true;
             this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
             // 
-            // lblExercises
-            // 
-            this.lblExercises.AutoSize = true;
-            this.lblExercises.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblExercises.Location = new System.Drawing.Point(386, 33);
-            this.lblExercises.Name = "lblExercises";
-            this.lblExercises.Size = new System.Drawing.Size(51, 20);
-            this.lblExercises.TabIndex = 6;
-            this.lblExercises.Text = "label1";
-            // 
             // lblName
             // 
             this.lblName.AutoSize = true;
@@ -131,27 +119,15 @@
             this.lblSets.TabIndex = 9;
             this.lblSets.Text = "No. of sets:";
             // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(794, 12);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(94, 29);
-            this.btnClose.TabIndex = 17;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // AddExercises
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(900, 450);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblSets);
             this.Controls.Add(this.lblReps);
             this.Controls.Add(this.lblName);
-            this.Controls.Add(this.lblExercises);
             this.Controls.Add(this.btnComplete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lbxExercises);
@@ -159,10 +135,10 @@
             this.Controls.Add(this.tbxReps);
             this.Controls.Add(this.tbxName);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddExercises";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddExercises";
+            this.Load += new System.EventHandler(this.AddExercises_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,10 +152,8 @@
         private ListBox lbxExercises;
         private Button btnAdd;
         private Button btnComplete;
-        private Label lblExercises;
         private Label lblName;
         private Label lblReps;
         private Label lblSets;
-        private Button btnClose;
     }
 }

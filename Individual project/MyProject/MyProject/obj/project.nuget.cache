@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GqnQ1j5vGqMx9nS73357MXFU8vOxhYov36BB7WQMVjnbVATwDFUWSOlLGcVHh07rdfrbrMXF44GCRWoZSGFAkw==",
+  "dgSpecHash": "rQ3T8F6BG1u76l9LUzP/+7LBynT33Lxu3Vo1JZkhwruQiQzfEAekk1Luzi6UHi4OeEeJrWFJiNFF5xGfBvOXbw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Backend\\MyProject\\MyProject\\MyProject.csproj",
+  "projectFilePath": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\MyProject\\MyProject\\MyProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
@@ -10,6 +10,7 @@
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\k4os.compression.lz4.streams\\1.2.6\\k4os.compression.lz4.streams.1.2.6.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\k4os.hash.xxhash\\1.0.6\\k4os.hash.xxhash.1.0.6.nupkg.sha512",
+    "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\materialskin.2\\2.3.1\\materialskin.2.2.3.1.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\mysql.data\\8.0.28\\mysql.data.8.0.28.nupkg.sha512",

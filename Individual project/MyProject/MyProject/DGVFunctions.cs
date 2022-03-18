@@ -26,6 +26,7 @@ namespace MyProject
             Editlink.HeaderText = "";
             Editlink.DataPropertyName = "lnkColumn";
             Editlink.LinkBehavior = LinkBehavior.SystemDefault;
+            Editlink.Name = "colEdit";
             Editlink.Text = "Edit";
 
             return Editlink;
@@ -38,6 +39,7 @@ namespace MyProject
             Deletelink.HeaderText = "";
             Deletelink.DataPropertyName = "lnkColumn";
             Deletelink.LinkBehavior = LinkBehavior.SystemDefault;
+            Deletelink.Name = "colDelete";
             Deletelink.Text = "Delete";
 
             return Deletelink;

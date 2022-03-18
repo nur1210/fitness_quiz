@@ -1,10 +1,12 @@
+using MaterialSkin;
+using MaterialSkin.Controls;
 using MyProject.ManagerServices;
 using MyProject.Programs;
 using MyProject.Questions;
 
 namespace MyProject
 {
-    public partial class MainForm : Form
+    public partial class MainForm : MaterialForm
     {
         private QuestionManager qM = new QuestionManager();
         private ProgramManager pM = new ProgramManager();
@@ -13,6 +15,11 @@ namespace MyProject
         public MainForm()
         {
             InitializeComponent();
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+
             //lblTotalPrograms.Text = $"Total programs: {pM.GetAllPrograms.Count}";
             lblTotalQuestions.Text = $"Total questions: {qM.GetAllQuestions().Count}";
             lblTotalUsers.Text = $"Total users: {uM.GetAllUsers().Count}";
@@ -34,15 +41,7 @@ namespace MyProject
             this.Hide();
         }
 
-        private void btnEditProgram_Click(object sender, EventArgs e)
-        {
-            EditProgram edit = new EditProgram();
-            edit.Show();
-            edit.FormClosed += (s, args) => this.Show();
-            this.Hide();
-        }
-
-        private void btnEditQuestion_Click(object sender, EventArgs e)
+        private void btnViewQuestion_Click(object sender, EventArgs e)
         {
             EditQuestion edit = new EditQuestion(this.qM, this.aM);
             edit.Show();
@@ -50,12 +49,15 @@ namespace MyProject
             this.Hide();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void btnViewPrograms_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            EditProgram edit = new EditProgram();
+            edit.Show();
+            edit.FormClosed += (s, args) => this.Show();
+            this.Hide();
         }
 
-        private void btnViewUsers_Click(object sender, EventArgs e)
+        private void btnViewUsers_Click_1(object sender, EventArgs e)
         {
             ViewUsers users = new ViewUsers();
             users.Show();

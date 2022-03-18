@@ -24,10 +24,10 @@ namespace MyProject
             Connection.OpenConn().Close();
         }
 
-        public static void DeleteQuestion(Question question)
+        public static void DeleteQuestion(int questionID)
         {
             string sql = "DELETE FROM questions WHERE id = @ID";
-            MySqlHelper.ExecuteNonQuery(Connection.OpenConn(), sql, new MySqlParameter[] { new MySqlParameter("ID", question.ID) });
+            MySqlHelper.ExecuteNonQuery(Connection.OpenConn(), sql, new MySqlParameter[] { new MySqlParameter("ID", questionID) });
             Connection.OpenConn().Close();
         }
 

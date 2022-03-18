@@ -9,15 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using MyProject.DB;
+using MaterialSkin.Controls;
+using MaterialSkin;
 
 namespace MyProject
 {
-    public partial class Login : Form
+    public partial class Login : MaterialForm
     {
         private DbLogin dbLogin;
         public Login()
         {
             InitializeComponent();
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             dbLogin = new DbLogin();
         }
 
@@ -74,7 +80,13 @@ namespace MyProject
             }
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+
+        private void btnPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogin_Click_1(object sender, EventArgs e)
         {
 
             /*if (tbxEmail.Text == String.Empty && tbxPassword.Text == String.Empty)
@@ -92,22 +104,13 @@ namespace MyProject
                 var id = dbLogin.Login(email, password);
                 if (id > -1)
                 {*/
-                    MainForm form = new MainForm();
-                    form.Show();
-                    form.Closed += (s, args) => this.Close();
-                    this.Hide();
-                //}
+            MainForm form = new MainForm();
+            form.Show();
+            form.Closed += (s, args) => this.Close();
+            this.Hide();
+            //}
             //}
         }
 
-        private void btnPassword_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

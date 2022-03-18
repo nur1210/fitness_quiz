@@ -12,7 +12,7 @@ namespace MyProject.Questions
 
         public void AddQuestion(Question q) => DbQuestions.AddQuestion(q);
         public void EditQuestion(Question q) => DbQuestions.UpdateQuestion(q);
-        public void RemoveQuestion(Question q) => DbQuestions.DeleteQuestion(q);
+        public void RemoveQuestion(int questionID) => DbQuestions.DeleteQuestion(questionID);
         public List<Question> GetAllQuestions() => DbQuestions.GetAllQuestions();
         public int GetNextQuestionID() => DbQuestions.GetNextQuestionID();
         public int GetInsertedQuestionID() => DbQuestions.GetInsertedQuestionID();

@@ -1,4 +1,5 @@
-﻿using MyProject.ManagerServices;
+﻿using MaterialSkin.Controls;
+using MyProject.ManagerServices;
 using MyProject.View;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace MyProject
 {
-    public partial class ViewUsers : Form
+    public partial class ViewUsers : MaterialForm
     {
         private UserViewManager manager = new UserViewManager();
         private DGVFunctions functions = new DGVFunctions();

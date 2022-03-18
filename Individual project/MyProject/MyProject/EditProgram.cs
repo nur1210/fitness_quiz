@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace MyProject
 {
-    public partial class EditProgram : Form
+    public partial class EditProgram : MaterialForm
     {
         public EditProgram()
         {
@@ -31,15 +32,17 @@ namespace MyProject
 
         private void EditProgram_Load(object sender, EventArgs e)
         {
-            var data = Database.Programs;
-            lbxPrograms.DataSource = data;
-            lbxPrograms.DisplayMember = "_description";
-            lbxPrograms.ValueMember = "id";
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

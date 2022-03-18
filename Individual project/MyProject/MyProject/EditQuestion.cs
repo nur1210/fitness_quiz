@@ -1,4 +1,5 @@
-﻿using MyProject.ManagerServices;
+﻿using MaterialSkin.Controls;
+using MyProject.ManagerServices;
 using MyProject.Questions;
 using MyProject.View;
 using System;
@@ -13,7 +14,7 @@ using System.Windows.Forms;
 
 namespace MyProject
 {
-    public partial class EditQuestion : Form
+    public partial class EditQuestion : MaterialForm
     {
         private QuestionManager _qM;
         private AnswerManager _aM;
@@ -31,38 +32,7 @@ namespace MyProject
 
         private void EditQuestion_Load(object sender, EventArgs e)
         {
-            DataSet ds = DGVFunctions.CreateQuestionSchema();                     
-            DataTable questions = ds.Tables["Question"];             
-            DataTable answers = ds.Tables["Answer"];           
-            bsQ.DataSource = ds;                                     
-            bsA.DataSource = ds;                                     
-            bsQ.DataMember = questions.TableName;                    
-            bsA.DataMember = answers.TableName;                   
-
-            List<DataRow> rows = new List<DataRow>();
-            for (int i = 0; i < _qM.GetAllQuestions().Count; i++)
-            {
-                rows.Add(questions.Rows.Add(_qM.GetAllQuestions()[i].ID, _qM.GetAllQuestions()[i].Description));
-            }
-            foreach (var question in _qM.GetAllQuestions())
-            {
-                for (int i = 0; i < _aM.GetGetAllAnswersForQuestion(question).Count; i++)
-                {
-                    answers.Rows.Add(null, question.ID, _aM.GetGetAllAnswersForQuestion(question)[i].Description);
-                }
-            }        
-
-            dgvQuestions.DataSource = bsQ;
-            dgvQuestions.AutoGenerateColumns = true;
-            dgvQuestions.Columns.Add(DGVFunctions.Edit());
-            dgvQuestions.Columns.Add(DGVFunctions.Delete());
-            dgvQuestions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            bsA.DataSource = bsQ;
-            bsA.DataMember = "Question_Answer";                  
-            lbxQuestions.DataSource = bsA;
-            lbxQuestions.DisplayMember = "Description";
-
+            UpdateDataGridView();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -79,8 +49,47 @@ namespace MyProject
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            var question = (Question)lbxQuestions.SelectedItem;
-            DbQuestions.DeleteQuestion(question);
+            var i = dgvQuestions.CurrentCell.RowIndex;
+            if (i > 0)
+            {
+                int questionID = Convert.ToInt32(dgvQuestions.Rows[i].Cells[0].Value);
+                DbQuestions.DeleteQuestion(questionID);
+                UpdateDataGridView();
+            }
+        }
+
+        public void UpdateDataGridView()
+        {
+            //I will clean it and move it to a diffrent class later on
+            DataSet ds = DGVFunctions.CreateQuestionSchema();
+            DataTable questions = ds.Tables["Question"];
+            DataTable answers = ds.Tables["Answer"];
+            bsQ.DataSource = ds;
+            bsA.DataSource = ds;
+            bsQ.DataMember = questions.TableName;
+            bsA.DataMember = answers.TableName;
+
+            List<DataRow> rows = new List<DataRow>();
+            for (int i = 0; i < _qM.GetAllQuestions().Count; i++)
+            {
+                rows.Add(questions.Rows.Add(_qM.GetAllQuestions()[i].ID, _qM.GetAllQuestions()[i].Description));
+            }
+            foreach (var question in _qM.GetAllQuestions())
+            {
+                for (int i = 0; i < _aM.GetGetAllAnswersForQuestion(question).Count; i++)
+                {
+                    answers.Rows.Add(null, question.ID, _aM.GetGetAllAnswersForQuestion(question)[i].Description);
+                }
+            }
+
+            dgvQuestions.DataSource = bsQ;
+            dgvQuestions.AutoGenerateColumns = true;
+            dgvQuestions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            bsA.DataSource = bsQ;
+            bsA.DataMember = "Question_Answer";
+            lbxQuestions.DataSource = bsA;
+            lbxQuestions.DisplayMember = "Description";
         }
     }
 }

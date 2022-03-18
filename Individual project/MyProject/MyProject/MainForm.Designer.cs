@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAddQuestion = new System.Windows.Forms.Button();
-            this.btnEditQuestion = new System.Windows.Forms.Button();
-            this.btnAddProgram = new System.Windows.Forms.Button();
-            this.btnEditProgram = new System.Windows.Forms.Button();
             this.gbxStatistics = new System.Windows.Forms.GroupBox();
             this.lblFemales = new System.Windows.Forms.Label();
             this.lblMale = new System.Windows.Forms.Label();
@@ -44,61 +40,16 @@
             this.lblUnder20 = new System.Windows.Forms.Label();
             this.lblTotalQuestions = new System.Windows.Forms.Label();
             this.lblTotalPrograms = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnViewUsers = new System.Windows.Forms.Button();
+            this.btnViewQuestion = new MaterialSkin.Controls.MaterialButton();
+            this.btnViewPrograms = new MaterialSkin.Controls.MaterialButton();
+            this.btnViewUsers = new MaterialSkin.Controls.MaterialButton();
             this.gbxStatistics.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnAddQuestion
-            // 
-            this.btnAddQuestion.Location = new System.Drawing.Point(646, 138);
-            this.btnAddQuestion.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAddQuestion.Name = "btnAddQuestion";
-            this.btnAddQuestion.Size = new System.Drawing.Size(166, 41);
-            this.btnAddQuestion.TabIndex = 0;
-            this.btnAddQuestion.Text = "Add question";
-            this.btnAddQuestion.UseVisualStyleBackColor = true;
-            this.btnAddQuestion.Click += new System.EventHandler(this.btnAddQuestion_Click);
-            // 
-            // btnEditQuestion
-            // 
-            this.btnEditQuestion.Location = new System.Drawing.Point(646, 202);
-            this.btnEditQuestion.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEditQuestion.Name = "btnEditQuestion";
-            this.btnEditQuestion.Size = new System.Drawing.Size(166, 41);
-            this.btnEditQuestion.TabIndex = 1;
-            this.btnEditQuestion.Text = "Edit question";
-            this.btnEditQuestion.UseVisualStyleBackColor = true;
-            this.btnEditQuestion.Click += new System.EventHandler(this.btnEditQuestion_Click);
-            // 
-            // btnAddProgram
-            // 
-            this.btnAddProgram.Location = new System.Drawing.Point(646, 374);
-            this.btnAddProgram.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAddProgram.Name = "btnAddProgram";
-            this.btnAddProgram.Size = new System.Drawing.Size(166, 41);
-            this.btnAddProgram.TabIndex = 2;
-            this.btnAddProgram.Text = "Add program";
-            this.btnAddProgram.UseVisualStyleBackColor = true;
-            this.btnAddProgram.Click += new System.EventHandler(this.btnAddProgram_Click);
-            // 
-            // btnEditProgram
-            // 
-            this.btnEditProgram.Location = new System.Drawing.Point(646, 438);
-            this.btnEditProgram.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEditProgram.Name = "btnEditProgram";
-            this.btnEditProgram.Size = new System.Drawing.Size(166, 41);
-            this.btnEditProgram.TabIndex = 3;
-            this.btnEditProgram.Text = "Edit program";
-            this.btnEditProgram.UseVisualStyleBackColor = true;
-            this.btnEditProgram.Click += new System.EventHandler(this.btnEditProgram_Click);
-            // 
             // gbxStatistics
             // 
-            this.gbxStatistics.Controls.Add(this.btnViewUsers);
             this.gbxStatistics.Controls.Add(this.lblFemales);
             this.gbxStatistics.Controls.Add(this.lblMale);
-            this.gbxStatistics.Controls.Add(this.lblTotalUsers);
             this.gbxStatistics.Controls.Add(this.lbl60Plus);
             this.gbxStatistics.Controls.Add(this.lbl5060);
             this.gbxStatistics.Controls.Add(this.lbl4050);
@@ -106,7 +57,7 @@
             this.gbxStatistics.Controls.Add(this.lbl2030);
             this.gbxStatistics.Controls.Add(this.lblUnder20);
             this.gbxStatistics.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.gbxStatistics.Location = new System.Drawing.Point(69, 42);
+            this.gbxStatistics.Location = new System.Drawing.Point(527, 94);
             this.gbxStatistics.Margin = new System.Windows.Forms.Padding(2);
             this.gbxStatistics.Name = "gbxStatistics";
             this.gbxStatistics.Padding = new System.Windows.Forms.Padding(2);
@@ -141,7 +92,7 @@
             // 
             this.lblTotalUsers.AutoSize = true;
             this.lblTotalUsers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotalUsers.Location = new System.Drawing.Point(50, 61);
+            this.lblTotalUsers.Location = new System.Drawing.Point(205, 253);
             this.lblTotalUsers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalUsers.Name = "lblTotalUsers";
             this.lblTotalUsers.Size = new System.Drawing.Size(107, 28);
@@ -218,7 +169,7 @@
             // 
             this.lblTotalQuestions.AutoSize = true;
             this.lblTotalQuestions.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotalQuestions.Location = new System.Drawing.Point(646, 67);
+            this.lblTotalQuestions.Location = new System.Drawing.Point(205, 124);
             this.lblTotalQuestions.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalQuestions.Name = "lblTotalQuestions";
             this.lblTotalQuestions.Size = new System.Drawing.Size(147, 28);
@@ -229,34 +180,75 @@
             // 
             this.lblTotalPrograms.AutoSize = true;
             this.lblTotalPrograms.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotalPrograms.Location = new System.Drawing.Point(646, 311);
+            this.lblTotalPrograms.Location = new System.Drawing.Point(205, 190);
             this.lblTotalPrograms.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalPrograms.Name = "lblTotalPrograms";
             this.lblTotalPrograms.Size = new System.Drawing.Size(148, 28);
             this.lblTotalPrograms.TabIndex = 15;
             this.lblTotalPrograms.Text = "Total programs:";
             // 
-            // btnClose
+            // btnViewQuestion
             // 
-            this.btnClose.Location = new System.Drawing.Point(991, 12);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(94, 29);
-            this.btnClose.TabIndex = 16;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnViewQuestion.AutoSize = false;
+            this.btnViewQuestion.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnViewQuestion.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnViewQuestion.Depth = 0;
+            this.btnViewQuestion.HighEmphasis = true;
+            this.btnViewQuestion.Icon = null;
+            this.btnViewQuestion.Location = new System.Drawing.Point(7, 123);
+            this.btnViewQuestion.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnViewQuestion.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnViewQuestion.Name = "btnViewQuestion";
+            this.btnViewQuestion.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnViewQuestion.Size = new System.Drawing.Size(140, 36);
+            this.btnViewQuestion.TabIndex = 18;
+            this.btnViewQuestion.Text = "view questions";
+            this.btnViewQuestion.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnViewQuestion.UseAccentColor = false;
+            this.btnViewQuestion.UseVisualStyleBackColor = true;
+            this.btnViewQuestion.Click += new System.EventHandler(this.btnViewQuestion_Click);
+            // 
+            // btnViewPrograms
+            // 
+            this.btnViewPrograms.AutoSize = false;
+            this.btnViewPrograms.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnViewPrograms.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnViewPrograms.Depth = 0;
+            this.btnViewPrograms.HighEmphasis = true;
+            this.btnViewPrograms.Icon = null;
+            this.btnViewPrograms.Location = new System.Drawing.Point(6, 189);
+            this.btnViewPrograms.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnViewPrograms.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnViewPrograms.Name = "btnViewPrograms";
+            this.btnViewPrograms.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnViewPrograms.Size = new System.Drawing.Size(141, 36);
+            this.btnViewPrograms.TabIndex = 19;
+            this.btnViewPrograms.Text = "view programs";
+            this.btnViewPrograms.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnViewPrograms.UseAccentColor = false;
+            this.btnViewPrograms.UseVisualStyleBackColor = true;
+            this.btnViewPrograms.Click += new System.EventHandler(this.btnViewPrograms_Click);
             // 
             // btnViewUsers
             // 
-            this.btnViewUsers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnViewUsers.Location = new System.Drawing.Point(50, 410);
-            this.btnViewUsers.Margin = new System.Windows.Forms.Padding(2);
+            this.btnViewUsers.AutoSize = false;
+            this.btnViewUsers.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnViewUsers.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnViewUsers.Depth = 0;
+            this.btnViewUsers.HighEmphasis = true;
+            this.btnViewUsers.Icon = null;
+            this.btnViewUsers.Location = new System.Drawing.Point(6, 252);
+            this.btnViewUsers.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnViewUsers.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnViewUsers.Name = "btnViewUsers";
-            this.btnViewUsers.Size = new System.Drawing.Size(166, 41);
-            this.btnViewUsers.TabIndex = 17;
-            this.btnViewUsers.Text = "View users";
+            this.btnViewUsers.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnViewUsers.Size = new System.Drawing.Size(141, 36);
+            this.btnViewUsers.TabIndex = 20;
+            this.btnViewUsers.Text = "view users";
+            this.btnViewUsers.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnViewUsers.UseAccentColor = false;
             this.btnViewUsers.UseVisualStyleBackColor = true;
-            this.btnViewUsers.Click += new System.EventHandler(this.btnViewUsers_Click);
+            this.btnViewUsers.Click += new System.EventHandler(this.btnViewUsers_Click_1);
             // 
             // MainForm
             // 
@@ -264,18 +256,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1097, 598);
-            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnViewUsers);
+            this.Controls.Add(this.btnViewPrograms);
+            this.Controls.Add(this.lblTotalUsers);
+            this.Controls.Add(this.btnViewQuestion);
             this.Controls.Add(this.lblTotalPrograms);
             this.Controls.Add(this.lblTotalQuestions);
             this.Controls.Add(this.gbxStatistics);
-            this.Controls.Add(this.btnEditProgram);
-            this.Controls.Add(this.btnAddProgram);
-            this.Controls.Add(this.btnEditQuestion);
-            this.Controls.Add(this.btnAddQuestion);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Welcome!";
             this.gbxStatistics.ResumeLayout(false);
             this.gbxStatistics.PerformLayout();
             this.ResumeLayout(false);
@@ -284,11 +274,6 @@
         }
 
         #endregion
-
-        private Button btnAddQuestion;
-        private Button btnEditQuestion;
-        private Button btnAddProgram;
-        private Button btnEditProgram;
         private GroupBox gbxStatistics;
         private Label lblUnder20;
         private Label lbl60Plus;
@@ -301,7 +286,8 @@
         private Label lblTotalUsers;
         private Label lblTotalQuestions;
         private Label lblTotalPrograms;
-        private Button btnClose;
-        private Button btnViewUsers;
+        private MaterialSkin.Controls.MaterialButton btnViewQuestion;
+        private MaterialSkin.Controls.MaterialButton btnViewPrograms;
+        private MaterialSkin.Controls.MaterialButton btnViewUsers;
     }
 }

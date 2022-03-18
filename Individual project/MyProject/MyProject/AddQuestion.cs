@@ -1,4 +1,5 @@
-﻿using MyProject.ManagerServices;
+﻿using MaterialSkin.Controls;
+using MyProject.ManagerServices;
 using MyProject.Questions;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace MyProject
 {
-    public partial class AddQuestion : Form
+    public partial class AddQuestion : MaterialForm
     {
         private QuestionManager _qM;
         private AnswerManager _aM;
@@ -21,6 +22,8 @@ namespace MyProject
             InitializeComponent();
             _qM = qM;
             _aM = aM;
+            this.Text = $"Add question number: {(_qM.GetAllQuestions().Count) + 1}";
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -28,12 +31,7 @@ namespace MyProject
             this.Close();
         }
 
-        private void AddQuestion_Load(object sender, EventArgs e)
-        {
-            lblTitle.Text = $"Add question number: {(_qM.GetAllQuestions().Count)+1}";
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnSubmit_Click(object sender, EventArgs e)
         {
             string questionDescription = tbxQuestion.Text;
             string answer1 = tbxAnswer1.Text;
