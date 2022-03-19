@@ -96,5 +96,12 @@ namespace MyProject
             lbxQuestions.DataSource = bsA;
             lbxQuestions.DisplayMember = "Description";
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddQuestion add = new AddQuestion(_qM, _aM);
+            add.ShowDialog();
+            this.Hide();
+        }
     }
 }

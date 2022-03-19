@@ -17,11 +17,13 @@ namespace MyProject
     {
         private QuestionManager _qM;
         private AnswerManager _aM;
-        public AddQuestion(QuestionManager qM, AnswerManager aM)
+        private EditQuestion _eQ;
+        public AddQuestion(QuestionManager qM, AnswerManager aM, EditQuestion eQ)
         {
             InitializeComponent();
             _qM = qM;
             _aM = aM;
+            _eQ = eQ;
             this.Text = $"Add question number: {(_qM.GetAllQuestions().Count) + 1}";
 
         }
@@ -52,11 +54,8 @@ namespace MyProject
             _aM.AddAnswer(a3);
             _aM.AddAnswer(a4);
 
-            tbxQuestion.Clear();
-            tbxAnswer1.Clear();
-            tbxAnswer2.Clear();
-            tbxAnswer3.Clear();
-            tbxAnswer4.Clear();
+            _eQ.UpdateDataGridView();
+            this.Close();
         }
     }
 }

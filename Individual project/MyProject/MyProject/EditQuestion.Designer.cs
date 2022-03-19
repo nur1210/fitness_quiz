@@ -32,6 +32,7 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvQuestions = new System.Windows.Forms.DataGridView();
+            this.btnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuestions)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +48,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(711, 467);
+            this.btnEdit.Location = new System.Drawing.Point(255, 472);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(108, 34);
@@ -58,7 +59,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(603, 467);
+            this.btnDelete.Location = new System.Drawing.Point(363, 472);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(108, 34);
@@ -77,12 +78,24 @@
             this.dgvQuestions.Size = new System.Drawing.Size(562, 384);
             this.dgvQuestions.TabIndex = 19;
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(143, 472);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(108, 34);
+            this.btnAdd.TabIndex = 20;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // EditQuestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(862, 515);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvQuestions);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
@@ -103,5 +116,6 @@
         private Button btnEdit;
         private Button btnDelete;
         private DataGridView dgvQuestions;
+        private Button btnAdd;
     }
 }
