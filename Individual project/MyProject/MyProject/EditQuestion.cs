@@ -37,9 +37,14 @@ namespace MyProject
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            var question = (Question)lbxQuestions.SelectedItem;
-            EditQ edit = new EditQ(question, this._aM, this._qM);
-            edit.Show();
+            var i = dgvQuestions.CurrentCell.RowIndex;
+            if (i != -1)
+            {
+                int questionID = Convert.ToInt32(dgvQuestions.Rows[i].Cells[0].Value);
+                EditQ edit = new EditQ(_qM.GetQuestionByID(questionID), this._aM, this._qM, this);
+                edit.Show();
+            }
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -50,7 +55,7 @@ namespace MyProject
         private void btnDelete_Click(object sender, EventArgs e)
         {
             var i = dgvQuestions.CurrentCell.RowIndex;
-            if (i > 0)
+            if (i != -1)
             {
                 int questionID = Convert.ToInt32(dgvQuestions.Rows[i].Cells[0].Value);
                 DbQuestions.DeleteQuestion(questionID);

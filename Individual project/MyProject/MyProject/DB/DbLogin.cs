@@ -11,25 +11,30 @@ namespace MyProject.DB
     {
         public int Login(string email, string password)
         {
-
+            var conn = Connection.OpenConn();
             string query = "SELECT id, password FROM `users` WHERE email = @Email";
             try
             {
-                var userInfo = MySqlHelper.ExecuteReader(Connection.OpenConn(), query, new MySqlParameter[] { new MySqlParameter("Email", email) });
+                var userInfo = MySqlHelper.ExecuteReader(conn, query, new MySqlParameter[] { new MySqlParameter("Email", email) });
                 userInfo.Read();
                 int id = (int)userInfo.GetInt64(0);
                 if (Hashing.ValidatePassword(password, userInfo.GetString(1)))
                 {
+                    conn.Close();
                     return id;
                 }
-                else return -1;
+                else
+                {
+                    conn.Close();
+                    return -1; 
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            conn.Close();
             return -1;
-            Connection.OpenConn().Close();
         }
     }
 }

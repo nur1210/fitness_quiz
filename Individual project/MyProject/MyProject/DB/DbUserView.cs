@@ -12,9 +12,10 @@ namespace MyProject.DB
     {
         public static List<UserView> GetAllUsersForView()
         {
+            var conn = Connection.OpenConn();
             List<UserView> users = new List<UserView>();
             string sql = "SELECT id, first_name, last_name, email FROM users;";
-            var rdr = MySqlHelper.ExecuteReader(Connection.OpenConn(), sql);
+            var rdr = MySqlHelper.ExecuteReader(conn, sql);
             while (rdr.Read())
             {
                 UserView user = new UserView(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2), rdr.GetString(3));
@@ -24,7 +25,7 @@ namespace MyProject.DB
                 }
             }
             rdr.Close();
-            Connection.OpenConn().Close();
+            conn.Close();
             return users;
         }
     }

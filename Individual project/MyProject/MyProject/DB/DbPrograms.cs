@@ -12,23 +12,26 @@ namespace MyProject
     {
         public static void AddProgram(TrainigProgram program)
         {
+            var conn = Connection.OpenConn();
             string sql = "INSERT INTO programs (`description`) VALUES (@Description)";
-            MySqlHelper.ExecuteNonQuery(Connection.OpenConn(), sql, new MySqlParameter[] { new MySqlParameter("Description", program.Description) });
-            Connection.OpenConn().Close();
+            MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("Description", program.Description) });
+            conn.Close();
         }
 
         public static void UpdateProgram(TrainigProgram program)
         {
+            var conn = Connection.OpenConn();
             string sql = "UPDATE programs SET description = @Description WHERE id = @ID ";
-            MySqlHelper.ExecuteNonQuery(Connection.OpenConn(), sql, new MySqlParameter[] { new MySqlParameter("Description", program.Description), new MySqlParameter("ID", program.Description) });
-            Connection.OpenConn().Close();
+            MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("Description", program.Description), new MySqlParameter("ID", program.Description) });
+            conn.Close();
         }
 
         public static void DeleteProgram(TrainigProgram program)
         {
+            var conn = Connection.OpenConn();
             string sql = "DELETE FROM programs WHERE id = @ID";
-            MySqlHelper.ExecuteNonQuery(Connection.OpenConn(), sql, new MySqlParameter[] { new MySqlParameter("ID", program.ID) });
-            Connection.OpenConn().Close();
+            MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", program.ID) });
+            conn.Close();
         }
 
         /*public List<TrainigProgram> GetAllPrograms()

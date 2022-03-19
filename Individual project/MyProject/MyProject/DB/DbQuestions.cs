@@ -12,32 +12,36 @@ namespace MyProject
     {
         public static void AddQuestion(Question question)
         {
+            var conn = Connection.OpenConn();
             string sql = "INSERT INTO questions (`description`) VALUES (@Description);";
-            MySqlHelper.ExecuteReader(Connection.OpenConn(), sql, new MySqlParameter[] { new MySqlParameter("Description", question.Description) });
-            Connection.OpenConn().Close();
+            MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("Description", question.Description) });
+            conn.Close();
         }
 
-        public static void UpdateQuestion(Question question)
+        public static void UpdateQuestion(int questionID, string questionDescription)
         {
+            var conn = Connection.OpenConn();
             string sql = "UPDATE questions SET description = @Description WHERE id = @ID ";
-            MySqlHelper.ExecuteNonQuery(Connection.OpenConn(), sql, new MySqlParameter[] { new MySqlParameter("Description", question.Description), new MySqlParameter("ID", question.ID) });
-            Connection.OpenConn().Close();
+            MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("Description", questionDescription), new MySqlParameter("ID", questionID) });
+            conn.Close();
         }
 
         public static void DeleteQuestion(int questionID)
         {
+            var conn = Connection.OpenConn();
             string sql = "DELETE FROM questions WHERE id = @ID";
-            MySqlHelper.ExecuteNonQuery(Connection.OpenConn(), sql, new MySqlParameter[] { new MySqlParameter("ID", questionID) });
-            Connection.OpenConn().Close();
+            MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", questionID) });
+            conn.Close();
         }
 
 
         public static List<Question> GetAllQuestions()
         {
+            var conn = Connection.OpenConn();
             List<Question> list = new List<Question>();
 
             string sql = "SELECT * FROM questions ORDER BY id;";
-            var rdr = MySqlHelper.ExecuteReader(Connection.OpenConn(), sql);
+            var rdr = MySqlHelper.ExecuteReader(conn, sql);
 
             while (rdr.Read())
             {
@@ -48,34 +52,53 @@ namespace MyProject
                 }
             }
             rdr.Close();
-            Connection.OpenConn().Close(); 
+            conn.Close(); 
             return list;
         }
 
         public static int GetNextQuestionID()
         {
+            var conn = Connection.OpenConn();
             string sql = "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'project_db' AND TABLE_NAME = 'questions';";
-            var result = MySqlHelper.ExecuteScalar(Connection.OpenConn(), sql);
+            var result = MySqlHelper.ExecuteScalar(conn, sql);
             int id = -1;
             if (result != null)
             {
                 id = Convert.ToInt32(result);
             }
-            Connection.OpenConn().Close();
+            conn.Close();
             return id;
         }
 
         public static int GetInsertedQuestionID()
         {
+            var conn = Connection.OpenConn();
             string sql = "SELECT id FROM questions ORDER BY id DESC LIMIT 1;";
-            var result = MySqlHelper.ExecuteScalar(Connection.OpenConn(), sql);
+            var result = MySqlHelper.ExecuteScalar(conn, sql);
             int id = -1;
                 if (result is not null)
                 {
                     id = Convert.ToInt32(result);
                 }
-            Connection.OpenConn().Close();
+            conn.Close();
             return id;
+        }
+
+        public static Question GetQuestionByID(int questionID)
+        {
+            var conn = Connection.OpenConn();
+            string sql = "SELECT id, description FROM questions WHERE id = @ID";
+            var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] {new MySqlParameter("ID", questionID) });
+
+            while (rdr.Read())
+            {
+                if (rdr is not null)
+                {
+                    return new Question(rdr.GetInt32(0), rdr.GetString(1));
+                }
+            }
+            conn.Close();
+            return null;
         }
     }
 }

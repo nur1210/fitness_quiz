@@ -10,10 +10,35 @@ namespace MyProject.DB
 {
     public static class DbQuestionView
     {
+        public static void AddQuestionView(QuestionView question)
+        {
+            var conn = Connection.OpenConn();
+            string sql = "INSERT INTO questions (`description`) VALUES (@Description);";
+            MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("Description", question.Description) });
+            Connection.OpenConn().Close();
+        }
+
+        public static void UpdateQuestionView(QuestionView question)
+        {
+            var conn = Connection.OpenConn();
+            string sql = "UPDATE questions SET description = @Description WHERE id = @ID;";
+            string sql2 = "UPDATE answers SET description = @Descriptiom WHERE id = @ID;";
+            MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("Description", question.Description), new MySqlParameter("ID", question.ID) });
+            Connection.OpenConn().Close();
+        }
+
+        public static void DeleteQuestionView(int questionID)
+        {
+            var conn = Connection.OpenConn();
+            string sql = "DELETE FROM questions WHERE id = @ID";
+            MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", questionID) });
+            Connection.OpenConn().Close();
+        }
         public static List<QuestionView> GetAllQuestionsForView()
         {
+            var conn = Connection.OpenConn();
             string sql = "SELECT q.id, q.description, a.description FROM questions AS q INNER JOIN answers AS a ON q.id = a.question_id;";
-            var rdr = MySqlHelper.ExecuteReader(Connection.OpenConn(), sql);
+            var rdr = MySqlHelper.ExecuteReader(conn, sql);
 
             List<QuestionView> list = new List<QuestionView>();
 
@@ -43,7 +68,7 @@ namespace MyProject.DB
                 }
             }
             rdr.Close();
-            Connection.OpenConn().Close();
+            conn.Close();
             return list;
         }
     }

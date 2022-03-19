@@ -11,11 +11,12 @@ namespace MyProject.Questions
     {
 
         public void AddQuestion(Question q) => DbQuestions.AddQuestion(q);
-        public void EditQuestion(Question q) => DbQuestions.UpdateQuestion(q);
+        public void EditQuestion(int questionID, string descpription) => DbQuestions.UpdateQuestion(questionID, descpription);
         public void RemoveQuestion(int questionID) => DbQuestions.DeleteQuestion(questionID);
         public List<Question> GetAllQuestions() => DbQuestions.GetAllQuestions();
         public int GetNextQuestionID() => DbQuestions.GetNextQuestionID();
         public int GetInsertedQuestionID() => DbQuestions.GetInsertedQuestionID();
+        public Question GetQuestionByID(int questionID) => DbQuestions.GetQuestionByID(questionID);
 
     }
 }

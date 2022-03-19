@@ -12,31 +12,35 @@ namespace MyProject
     {
         public static void AddExercise(Exercise exercise)
         {
+            var conn = Connection.OpenConn();
             string sql = "INSERT INTO exercises (`program_id`, `name`, `reps`, `sets`) VALUES (@ProgramID, @Name, @Reps, @Sets)";
-            MySqlHelper.ExecuteNonQuery(Connection.OpenConn(), sql, new MySqlParameter[] { new MySqlParameter("ProgramID", exercise.ProgramID), new MySqlParameter("Name", exercise.Name), new MySqlParameter("Reps", exercise.Reps), new MySqlParameter("Sets", exercise.Sets) });
-            Connection.OpenConn().Close();
+            MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ProgramID", exercise.ProgramID), new MySqlParameter("Name", exercise.Name), new MySqlParameter("Reps", exercise.Reps), new MySqlParameter("Sets", exercise.Sets) });
+            conn.Close();
         }
 
         public static void UpdateExercise(Exercise exercise)
         {
+            var conn = Connection.OpenConn();
             string sql = "UPDATE exercises SET name = @Name, reps = @Reps, sets = @Sets WHERE id = @ID ";
-            MySqlHelper.ExecuteNonQuery(Connection.OpenConn(), sql, new MySqlParameter[] { new MySqlParameter("ID", exercise.ID), new MySqlParameter("Name", exercise.Name), new MySqlParameter("Reps", exercise.Reps), new MySqlParameter("Sets", exercise.Sets) });
-            Connection.OpenConn().Close();
+            MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", exercise.ID), new MySqlParameter("Name", exercise.Name), new MySqlParameter("Reps", exercise.Reps), new MySqlParameter("Sets", exercise.Sets) });
+            conn.Close();
         }
 
         public static void DeleteExercise(Exercise exercise)
         {
+            var conn = Connection.OpenConn();
             string sql = "DELETE FROM exercises WHERE id = @id";
-            MySqlHelper.ExecuteNonQuery(Connection.OpenConn(), sql, new MySqlParameter[] { new MySqlParameter("ID", exercise.ID) });
-            Connection.OpenConn().Close();
+            MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", exercise.ID) });
+            conn.Close();
         }
 
         public static List<Exercise> GetAllExercises()
         {
+            var conn = Connection.OpenConn();
             List<Exercise> list = new List<Exercise>();
 
             string sql = "SELECT * FROM exercises ORDER BY id;";
-            var rdr = MySqlHelper.ExecuteReader(Connection.OpenConn(), sql);
+            var rdr = MySqlHelper.ExecuteReader(conn, sql);
 
             while (rdr.Read())
             {
@@ -47,7 +51,7 @@ namespace MyProject
                 }
             }
             rdr.Close();
-            Connection.OpenConn().Close();
+            conn.Close();
             return list;
         }
     }
