@@ -15,16 +15,15 @@ namespace MyProject.DB
             var conn = Connection.OpenConn();
             string sql = "INSERT INTO questions (`description`) VALUES (@Description);";
             MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("Description", question.Description) });
-            Connection.OpenConn().Close();
+            conn.Close();
         }
 
         public static void UpdateQuestionView(QuestionView question)
         {
             var conn = Connection.OpenConn();
             string sql = "UPDATE questions SET description = @Description WHERE id = @ID;";
-            string sql2 = "UPDATE answers SET description = @Descriptiom WHERE id = @ID;";
             MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("Description", question.Description), new MySqlParameter("ID", question.ID) });
-            Connection.OpenConn().Close();
+            conn.Close();
         }
 
         public static void DeleteQuestionView(int questionID)
@@ -32,7 +31,7 @@ namespace MyProject.DB
             var conn = Connection.OpenConn();
             string sql = "DELETE FROM questions WHERE id = @ID";
             MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", questionID) });
-            Connection.OpenConn().Close();
+            conn.Close();
         }
         public static List<QuestionView> GetAllQuestionsForView()
         {

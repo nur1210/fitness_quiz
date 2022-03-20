@@ -17,21 +17,16 @@ namespace MyProject
     {
         private QuestionManager _qM;
         private AnswerManager _aM;
-        private EditQuestion _eQ;
-        public AddQuestion(QuestionManager qM, AnswerManager aM, EditQuestion eQ)
+        private ViewQuestions _eQ;
+        public AddQuestion(QuestionManager qM, AnswerManager aM, ViewQuestions eQ)
         {
             InitializeComponent();
             _qM = qM;
             _aM = aM;
             _eQ = eQ;
             this.Text = $"Add question number: {(_qM.GetAllQuestions().Count) + 1}";
-
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {

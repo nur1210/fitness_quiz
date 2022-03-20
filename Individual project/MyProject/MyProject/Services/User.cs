@@ -14,6 +14,7 @@ namespace MyProject
         private string _email;
         private string _password;
         private bool _isAdmin;
+        private bool _isBlocked;
 
         public int ID { get=> _id; set=> _id = value; }
         public string FirstName { get=> _firstName; set=> _firstName = value; }
@@ -21,9 +22,10 @@ namespace MyProject
         public string Email { get=> _email; set=> _email = value; }
         public string Password { get=> _password; set=> _password = value; }
         public bool IsAdmin { get=> _isAdmin; set=> _isAdmin = value; }
+        public bool IsBlocked { get=> _isBlocked; set=> _isBlocked = value; }
 
 
-
+        //Create new user
         public User(string firstName, string lastName, string email, string password)
         {
             _firstName = firstName;
@@ -31,9 +33,11 @@ namespace MyProject
             _email = email;
             _password = password;
             _isAdmin = false;
+            _isBlocked = false;
         }
 
-        public User(int id, string firstName, string lastName, string email, string password, bool isAdmin)
+        //Get\set user from\to the database
+        public User(int id, string firstName, string lastName, string email, string password, bool isAdmin, bool isBlocked)
         {
             _id = id;
             _firstName = firstName;
@@ -41,6 +45,7 @@ namespace MyProject
             _email = email;
             _password = password;
             _isAdmin = isAdmin;
+            _isBlocked = isBlocked;
         }
     }
 }

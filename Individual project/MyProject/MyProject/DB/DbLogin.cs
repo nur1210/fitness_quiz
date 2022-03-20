@@ -12,21 +12,26 @@ namespace MyProject.DB
         public int Login(string email, string password)
         {
             var conn = Connection.OpenConn();
-            string query = "SELECT id, password FROM `users` WHERE email = @Email";
+            string sql = "SELECT id, password, is_admin FROM users WHERE email = @Email";
             try
             {
-                var userInfo = MySqlHelper.ExecuteReader(conn, query, new MySqlParameter[] { new MySqlParameter("Email", email) });
+                var userInfo = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("Email", email) });
                 userInfo.Read();
-                int id = (int)userInfo.GetInt64(0);
-                if (Hashing.ValidatePassword(password, userInfo.GetString(1)))
+                if (!userInfo.GetBoolean(2))
                 {
-                    conn.Close();
-                    return id;
+                    MessageBox.Show("This application is for admin use only");
                 }
                 else
                 {
-                    conn.Close();
-                    return -1; 
+                    int id = userInfo.GetInt32(0);
+                    if (Hashing.ValidatePassword(password, userInfo.GetString(1)))
+                    {
+                        return id;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
                 }
             }
             catch (Exception ex)

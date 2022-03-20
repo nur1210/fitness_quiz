@@ -89,7 +89,7 @@ namespace MyProject
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
 
-            /*if (tbxEmail.Text == String.Empty && tbxPassword.Text == String.Empty)
+            if (tbxEmail.Text == "E-mail" || tbxPassword.Text == "Password")
             {
                 MessageBox.Show("Fill all fields!", "Not all fields are filled", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -103,13 +103,13 @@ namespace MyProject
                 var password = tbxPassword.Text;
                 var id = dbLogin.Login(email, password);
                 if (id > -1)
-                {*/
-            MainForm form = new MainForm();
-            form.Show();
-            form.Closed += (s, args) => this.Close();
-            this.Hide();
-            //}
-            //}
+                {
+                    MainForm form = new MainForm();
+                    form.Show();
+                    form.Closed += (s, args) => this.Close();
+                    this.Hide();
+                }
+            }
         }
 
     }

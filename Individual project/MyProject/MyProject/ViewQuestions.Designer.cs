@@ -1,6 +1,6 @@
 ﻿namespace MyProject
 {
-    partial class EditQuestion
+    partial class ViewQuestions
     {
         /// <summary>
         /// Required designer variable.

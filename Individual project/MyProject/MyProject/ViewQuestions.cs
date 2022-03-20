@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace MyProject
 {
-    public partial class EditQuestion : MaterialForm
+    public partial class ViewQuestions : MaterialForm
     {
         private QuestionManager _qM;
         private AnswerManager _aM;
@@ -22,7 +22,7 @@ namespace MyProject
         BindingSource bsQ = new BindingSource(); // Questions
         BindingSource bsA = new BindingSource(); // Answers
 
-        public EditQuestion(QuestionManager qM, AnswerManager aM)
+        public ViewQuestions(QuestionManager qM, AnswerManager aM)
         {
             InitializeComponent();
             _aM = aM;
@@ -99,8 +99,9 @@ namespace MyProject
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddQuestion add = new AddQuestion(_qM, _aM);
-            add.ShowDialog();
+            AddQuestion add = new AddQuestion(_qM, _aM, this);
+            add.Show();
+            add.Closed += (s, args) => this.Show();
             this.Hide();
         }
     }

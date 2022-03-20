@@ -87,7 +87,6 @@ C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-proje
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\MyProject.AddQuestion.resources
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\MyProject.EditProgram.resources
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\MyProject.EditQ.resources
-C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\MyProject.EditQuestion.resources
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\MyProject.Login.resources
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\MyProject.MainForm.resources
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\MyProject.ViewUsers.resources
@@ -103,3 +102,4 @@ C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-proje
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\MyProject.genruntimeconfig.cache
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\ref\MyProject.dll
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\MaterialSkin.dll
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\MyProject.ViewQuestions.resources

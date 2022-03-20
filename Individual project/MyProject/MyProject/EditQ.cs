@@ -19,8 +19,8 @@ namespace MyProject
         private Question _question;
         private AnswerManager _aM;
         private QuestionManager _qM;
-        private EditQuestion _eQ;
-        public EditQ(Question question, AnswerManager aM, QuestionManager qM, EditQuestion eQ)
+        private ViewQuestions _eQ;
+        public EditQ(Question question, AnswerManager aM, QuestionManager qM, ViewQuestions eQ)
         {
             InitializeComponent();
             _question = question;

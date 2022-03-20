@@ -25,14 +25,6 @@ namespace MyProject
             lblTotalUsers.Text = $"Total users: {uM.GetAllUsers().Count}";
         }
 
-        private void btnAddQuestion_Click(object sender, EventArgs e)
-        {
-            AddQuestion question = new AddQuestion(this.qM, this.aM);
-            question.Show();
-            question.Closed += (s, args) => this.Show();
-            this.Hide();
-        }
-
         private void btnAddProgram_Click(object sender, EventArgs e)
         {
             AddProgram program = new AddProgram();
@@ -43,7 +35,7 @@ namespace MyProject
 
         private void btnViewQuestion_Click(object sender, EventArgs e)
         {
-            EditQuestion edit = new EditQuestion(this.qM, this.aM);
+            ViewQuestions edit = new ViewQuestions(this.qM, this.aM);
             edit.Show();
             edit.FormClosed += (s, args) => this.Show();
             this.Hide();
@@ -64,5 +56,6 @@ namespace MyProject
             users.FormClosed += (s, args) => this.Show();
             this.Hide();
         }
+
     }
 }

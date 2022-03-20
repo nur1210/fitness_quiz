@@ -16,7 +16,7 @@
     <Compile Update="EditQ.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="EditQuestion.cs">
+    <Compile Update="ViewQuestions.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Login.cs">
