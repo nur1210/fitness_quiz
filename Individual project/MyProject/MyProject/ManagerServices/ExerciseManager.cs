@@ -12,5 +12,7 @@ namespace MyProject.ManagerServices
         public void EditExercise(Exercise e) => DbExercises.UpdateExercise(e);
         public void RemoveExercise(Exercise e) => DbExercises.DeleteExercise(e);
         public List<Exercise> GetAllExercises() => DbExercises.GetAllExercises();
+        public List<Exercise> GetAllExercisesForProgram(TrainigProgram p) => DbExercises.GetAllExercisesForProgram(p);
+        public Exercise GetExerciseByID(int id) => DbExercises.GetProgramByID(id);
     }
 }

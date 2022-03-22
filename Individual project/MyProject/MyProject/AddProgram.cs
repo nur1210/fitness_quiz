@@ -1,4 +1,6 @@
 ﻿using MaterialSkin.Controls;
+using MyProject.ManagerServices;
+using MyProject.Programs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,31 +15,34 @@ namespace MyProject
 {
     public partial class AddProgram : MaterialForm
     {
-        public AddProgram()
+        private ProgramTypeManager manager = new ProgramTypeManager();
+        private ProgramManager _pM;
+        private ExerciseManager _eM;
+        private ViewPrograms _vp;
+        public AddProgram(ProgramManager pM, ExerciseManager eM, ViewPrograms vp)
         {
             InitializeComponent();
-            cbxType.Items.Add(ProgramType.WEIGHTLOSS);
-            cbxType.Items.Add(ProgramType.WEIGHTGAIN);
-            cbxType.Items.Add(ProgramType.STRENGHT);
-            cbxType.Items.Add(ProgramType.BEACTIVE);
+            _pM = pM;
+            _eM = eM;
+            _vp = vp;
+            for (int i = 0; i < manager.GetAllProgramTypes().Count; i++)
+            {
+                cbxType.Items.Add(manager.GetAllProgramTypes()[i].Name);
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string description = tbxDescription.Text;
-            ProgramType type = (ProgramType)cbxType.SelectedItem;
+            int typeID = ++cbxType.SelectedIndex;
             
-            TrainigProgram program = new TrainigProgram(description, type);
-            AddExercises exercises = new AddExercises(program);
+            TrainigProgram program = new TrainigProgram(description, typeID);
+            _pM.AddProgram(program);
+            AddExercises exercises = new AddExercises(program, _eM, _pM);
             exercises.ShowDialog();
             tbxDescription.Clear();
             cbxType.SelectedIndex = -1;
+            _vp.Refresh();
         }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
     }
 }

@@ -9,8 +9,9 @@ namespace MyProject
     public partial class MainForm : MaterialForm
     {
         private QuestionManager qM = new QuestionManager();
-        private ProgramManager pM = new ProgramManager();
         private AnswerManager aM = new AnswerManager();
+        private ProgramManager pM = new ProgramManager();
+        private ExerciseManager eM = new ExerciseManager();
         private UserManager uM = new UserManager();
         public MainForm()
         {
@@ -20,40 +21,32 @@ namespace MyProject
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
 
-            //lblTotalPrograms.Text = $"Total programs: {pM.GetAllPrograms.Count}";
+            lblTotalPrograms.Text = $"Total programs: {pM.GetAllPrograms().Count}";
             lblTotalQuestions.Text = $"Total questions: {qM.GetAllQuestions().Count}";
             lblTotalUsers.Text = $"Total users: {uM.GetAllUsers().Count}";
         }
 
-        private void btnAddProgram_Click(object sender, EventArgs e)
-        {
-            AddProgram program = new AddProgram();
-            program.Show();
-            program.FormClosed += (s, args) => this.Show();
-            this.Hide();
-        }
-
         private void btnViewQuestion_Click(object sender, EventArgs e)
         {
-            ViewQuestions edit = new ViewQuestions(this.qM, this.aM);
-            edit.Show();
-            edit.FormClosed += (s, args) => this.Show();
+            ViewQuestions view = new ViewQuestions(this.qM, this.aM);
+            view.Show();
+            view.FormClosed += (s, args) => this.Show();
             this.Hide();
         }
 
         private void btnViewPrograms_Click(object sender, EventArgs e)
         {
-            EditProgram edit = new EditProgram();
-            edit.Show();
-            edit.FormClosed += (s, args) => this.Show();
+            ViewPrograms view = new ViewPrograms(this.pM, this.eM);
+            view.Show();
+            view.FormClosed += (s, args) => this.Show();
             this.Hide();
         }
 
         private void btnViewUsers_Click_1(object sender, EventArgs e)
         {
-            ViewUsers users = new ViewUsers();
-            users.Show();
-            users.FormClosed += (s, args) => this.Show();
+            ViewUsers view = new ViewUsers();
+            view.Show();
+            view.FormClosed += (s, args) => this.Show();
             this.Hide();
         }
 

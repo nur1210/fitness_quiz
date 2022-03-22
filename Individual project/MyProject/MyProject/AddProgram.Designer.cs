@@ -40,7 +40,7 @@
             // 
             this.lblProgram.AutoSize = true;
             this.lblProgram.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblProgram.Location = new System.Drawing.Point(260, 39);
+            this.lblProgram.Location = new System.Drawing.Point(89, 104);
             this.lblProgram.Name = "lblProgram";
             this.lblProgram.Size = new System.Drawing.Size(244, 32);
             this.lblProgram.TabIndex = 7;
@@ -48,7 +48,7 @@
             // 
             // tbxDescription
             // 
-            this.tbxDescription.Location = new System.Drawing.Point(168, 101);
+            this.tbxDescription.Location = new System.Drawing.Point(166, 177);
             this.tbxDescription.Name = "tbxDescription";
             this.tbxDescription.Size = new System.Drawing.Size(195, 27);
             this.tbxDescription.TabIndex = 8;
@@ -57,7 +57,7 @@
             // 
             this.cbxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxType.FormattingEnabled = true;
-            this.cbxType.Location = new System.Drawing.Point(168, 154);
+            this.cbxType.Location = new System.Drawing.Point(166, 230);
             this.cbxType.Name = "cbxType";
             this.cbxType.Size = new System.Drawing.Size(195, 28);
             this.cbxType.TabIndex = 9;
@@ -66,7 +66,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblName.Location = new System.Drawing.Point(44, 104);
+            this.lblName.Location = new System.Drawing.Point(42, 180);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(117, 20);
             this.lblName.TabIndex = 10;
@@ -76,7 +76,7 @@
             // 
             this.lblType.AutoSize = true;
             this.lblType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblType.Location = new System.Drawing.Point(44, 157);
+            this.lblType.Location = new System.Drawing.Point(42, 233);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(109, 20);
             this.lblType.TabIndex = 11;
@@ -84,7 +84,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(168, 211);
+            this.btnAdd.Location = new System.Drawing.Point(150, 295);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(109, 42);
             this.btnAdd.TabIndex = 12;
@@ -97,7 +97,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(428, 383);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.lblName);

@@ -1,4 +1,6 @@
 ﻿using MaterialSkin.Controls;
+using MyProject.ManagerServices;
+using MyProject.Programs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +16,15 @@ namespace MyProject
     public partial class AddExercises : MaterialForm
     {
         private TrainigProgram _program;
-        public AddExercises(TrainigProgram program)
+        private ExerciseManager _eM;
+        private ProgramManager _pM;
+        public AddExercises(TrainigProgram program, ExerciseManager eM, ProgramManager pM)
         {
             InitializeComponent();
             _program = program;
-            this.Text = $"Exercises for program number {_program.ID}";
+            _eM = eM;
+            _pM = pM;
+            this.Text = $"Exercises for program number {_pM.GetInsertedProgramID()}";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -27,8 +33,8 @@ namespace MyProject
             int reps = Convert.ToInt32(tbxReps.Text);
             int sets = Convert.ToInt32(tbxSets.Text);
 
-            Exercise exercise = new Exercise(_program.ID, name, reps, sets);
-            _program.ExerciseList.Add(exercise);
+            Exercise exercise = new Exercise(_pM.GetInsertedProgramID(), name, reps, sets);
+            _eM.AddExercise(exercise);
             lbxExercises.Items.Add(exercise.Name);
             tbxName.Clear();
             tbxReps.Clear();
@@ -36,12 +42,6 @@ namespace MyProject
         }
 
         private void btnComplete_Click(object sender, EventArgs e)
-        {
-            TrainigProgram fullProgram = new TrainigProgram(_program, this._program.ExerciseList);
-            this.Close();
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }

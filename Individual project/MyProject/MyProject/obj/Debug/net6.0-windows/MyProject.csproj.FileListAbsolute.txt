@@ -103,3 +103,5 @@ C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-proje
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\ref\MyProject.dll
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\MaterialSkin.dll
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\MyProject.ViewQuestions.resources
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\MyProject.ViewPrograms.resources
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\MyProject.EditExercise.resources

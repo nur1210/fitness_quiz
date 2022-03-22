@@ -37,7 +37,7 @@ namespace MyProject
         public static List<Exercise> GetAllExercises()
         {
             var conn = Connection.OpenConn();
-            List<Exercise> list = new List<Exercise>();
+            List<Exercise> exercisesList = new List<Exercise>();
 
             string sql = "SELECT * FROM exercises ORDER BY id;";
             var rdr = MySqlHelper.ExecuteReader(conn, sql);
@@ -47,12 +47,49 @@ namespace MyProject
                 var line = rdr;
                 if (line is not null)
                 {
-                    list.Add(new Exercise(rdr.GetInt32("id"),rdr.GetInt32("program_id"), rdr.GetString("name"),rdr.GetInt32("reps"), rdr.GetInt32("set")));
+                    exercisesList.Add(new Exercise(rdr.GetInt32("id"),rdr.GetInt32("program_id"), rdr.GetString("name"),rdr.GetInt32("reps"), rdr.GetInt32("set")));
                 }
             }
             rdr.Close();
             conn.Close();
-            return list;
+            return exercisesList;
+        }
+
+        public static List<Exercise> GetAllExercisesForProgram(TrainigProgram program)
+        {
+            var conn = Connection.OpenConn();
+            List<Exercise> exercisesList = new List<Exercise>();
+
+            string sql = "SELECT * FROM exercises WHERE program_id = @ID";
+            var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", program.ID) });
+
+            while (rdr.Read())
+            {
+                if (rdr is not null)
+                {
+                    exercisesList.Add(new Exercise(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetString(2), rdr.GetInt32(3), rdr.GetInt32(4)));
+                }
+            }
+            rdr.Close();
+            conn.Close();
+            return exercisesList;
+        }
+
+        public static Exercise GetProgramByID(int exerciseID)
+        {
+            var conn = Connection.OpenConn();
+            string sql = "SELECT * FROM exercises WHERE id = @ID";
+            var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", exerciseID) });
+
+            while (rdr.Read())
+            {
+                if (rdr is not null)
+                {
+                    return new Exercise(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetString(2), rdr.GetInt32(3), rdr.GetInt32(4));
+                }
+            }
+            conn.Close();
+            return null;
         }
     }
 }

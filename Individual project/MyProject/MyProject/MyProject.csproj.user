@@ -10,10 +10,16 @@
     <Compile Update="AddQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="EditExercise.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="EditProgram.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="EditQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ViewPrograms.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="ViewQuestions.cs">
