@@ -1,6 +1,6 @@
 ﻿using MaterialSkin.Controls;
-using MyProject.ManagerServices;
-using MyProject.Programs;
+using ClassLibrary.Logic;
+using ClassLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,7 +70,7 @@ namespace MyProject
             bsE.DataSource = bsP;
             bsE.DataMember = "Program_Exercise";
             lbxExercises.DataSource = bsE;
-            lbxExercises.DisplayMember = "Name";
+            lbxExercises.DisplayMember = "name";
         }
 
         private DataSet CreateQuestionSchema()

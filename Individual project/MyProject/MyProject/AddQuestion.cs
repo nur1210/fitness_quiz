@@ -1,6 +1,6 @@
 ﻿using MaterialSkin.Controls;
-using MyProject.ManagerServices;
-using MyProject.Questions;
+using ClassLibrary.Logic;
+using ClassLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -1,6 +1,6 @@
 ﻿using MaterialSkin.Controls;
-using MyProject.ManagerServices;
-using MyProject.View;
+using ClassLibrary.Logic;
+using ClassLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassLibrary.View;
 
 namespace MyProject
 {

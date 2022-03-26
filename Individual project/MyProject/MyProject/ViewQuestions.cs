@@ -1,7 +1,6 @@
 ﻿using MaterialSkin.Controls;
-using MyProject.ManagerServices;
-using MyProject.Questions;
-using MyProject.View;
+using ClassLibrary.Logic;
+using ClassLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassLibrary.DB;
 
 namespace MyProject
 {
@@ -73,7 +73,7 @@ namespace MyProject
             bsA.DataSource = ds;
             bsQ.DataMember = questions.TableName;
             bsA.DataMember = answers.TableName;
-
+            //assign var to _qMGetAll
             List<DataRow> rows = new List<DataRow>();
             for (int i = 0; i < _qM.GetAllQuestions().Count; i++)
             {

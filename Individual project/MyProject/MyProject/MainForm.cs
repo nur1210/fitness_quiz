@@ -1,8 +1,7 @@
 using MaterialSkin;
 using MaterialSkin.Controls;
-using MyProject.ManagerServices;
-using MyProject.Programs;
-using MyProject.Questions;
+using ClassLibrary.Logic;
+using ClassLibrary.Models;
 
 namespace MyProject
 {
@@ -36,7 +35,7 @@ namespace MyProject
 
         private void btnViewPrograms_Click(object sender, EventArgs e)
         {
-            ViewPrograms view = new ViewPrograms(this.pM, this.eM);
+            ViewPrograms view = new ViewPrograms(pM, eM);
             view.Show();
             view.FormClosed += (s, args) => this.Show();
             this.Hide();
@@ -50,5 +49,9 @@ namespace MyProject
             this.Hide();
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

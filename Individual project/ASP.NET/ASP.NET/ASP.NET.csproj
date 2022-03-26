@@ -7,13 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Pages\Registration\Registration.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="DB\" />
     <Folder Include="Manager\" />
     <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj" />
   </ItemGroup>
 
 </Project>

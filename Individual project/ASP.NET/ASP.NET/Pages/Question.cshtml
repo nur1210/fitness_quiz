@@ -1,0 +1,19 @@
+﻿@page
+@model ASP.NET.Pages.QuestionModel
+@{
+}
+<body>
+      <div class="container">
+          <form method="post">
+          <h1>Question</h1>
+        <p>@Model.question.QuestionManager.GetQuestionByID(2).Description.</p>
+        <hr />
+                @foreach (var answer in @Model.question.answerManager.GetGetAllAnswersForQuestion(@Model.question.QuestionManager.GetQuestionByID(2)))
+                {
+                    <input type="submit" class="form-control" value="@answer.Description"/>
+                }
+
+            <hr />
+          </form>
+        </div>
+      </body>

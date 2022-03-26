@@ -1,6 +1,6 @@
 ﻿using MaterialSkin.Controls;
-using MyProject.ManagerServices;
-using MyProject.Programs;
+using ClassLibrary.Logic;
+using ClassLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +25,7 @@ namespace MyProject
             _pM = pM;
             _eM = eM;
             _vp = vp;
+            lblProgram.Text = $"Program number {_pM.GetAllPrograms().Count+1}";
             for (int i = 0; i < manager.GetAllProgramTypes().Count; i++)
             {
                 cbxType.Items.Add(manager.GetAllProgramTypes()[i].Name);

@@ -12,9 +12,12 @@ namespace ASP.NET.Pages.Account
         {
         }
 
-        public void onPost()
+        public void OnPost()
         {
+            if (ModelState.IsValid)
+            {
 
+            }
         }
 
         public class Credential

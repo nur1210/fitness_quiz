@@ -8,9 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using MyProject.DB;
+using ClassLibrary.Logic;
+using ClassLibrary.Models;
 using MaterialSkin.Controls;
 using MaterialSkin;
+using ClassLibrary.DB;
 
 namespace MyProject
 {
