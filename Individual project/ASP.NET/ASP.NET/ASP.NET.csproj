@@ -7,23 +7,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<COMReference Include="{1ea4dbf0-3c3b-11cf-810c-00aa00389b71}">
-			<WrapperTool>tlbimp</WrapperTool>
-			<VersionMinor>1</VersionMinor>
-			<VersionMajor>1</VersionMajor>
-			<Guid>1ea4dbf0-3c3b-11cf-810c-00aa00389b71</Guid>
-		</COMReference>
-	</ItemGroup>
-
-	<ItemGroup>
 		<Folder Include="DB\" />
 		<Folder Include="Manager\" />
 		<Folder Include="wwwroot\images\" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\MyProject\MyProject\MyProject.csproj" />
 		<ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj" />
 	</ItemGroup>
 
 </Project>
+
