@@ -14,29 +14,32 @@ namespace ASP.NET.Pages
         {
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
             if (ModelState.IsValid)
             {
                 var conn = Connection.OpenConn();
-                string sql = "SELECT id, password FROM users WHERE email = @Email";
-                var resault = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] {new MySqlParameter("Email", credential.Email)});
+                string sql = "SELECT id, password, is_blocked FROM users WHERE email = @Email";
+                var resault = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] 
+                {new MySqlParameter("Email", credential.Email)});
                 resault.Read();
                 if (resault is not null)
                 {
                     var match = Hashing.ValidatePassword(credential.Password, resault.GetString(1));
-                    if (match)
+                    if (match && !resault.GetBoolean(2))
                     {
                         int id = resault.GetInt32(0);
+                        return RedirectToPage("/Question");
                     }
                 }
-            //duhsu
             }
+            return Page();
         }
 
         public class Credential
         {
             [Required]
+            [DataType(DataType.EmailAddress)]
             public string Email { get; set; }
 
             [Required]

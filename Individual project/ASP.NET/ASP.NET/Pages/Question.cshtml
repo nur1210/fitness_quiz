@@ -3,17 +3,24 @@
 @{
 }
 <body>
-      <div class="container">
-          <form method="post">
-          <h1>Question</h1>
-        <p>@Model.question.QuestionManager.GetQuestionByID(2).Description.</p>
-        <hr />
-                @foreach (var answer in @Model.question.answerManager.GetGetAllAnswersForQuestion(@Model.question.QuestionManager.GetQuestionByID(2)))
-                {
-                    <input type="submit" class="form-control" value="@answer.Description"/>
-                }
+	<div class="container">
+		<form method="post">
+			<div style="text-align:center;">
+				@for (var i = 0; i < Model.question.QuestionManager.GetAllQuestions().Count; i++)
+				{
+					@if (Model.question.QuestionManager.GetAllQuestions()[i] is not null)
+					{
+						<h1>@Model.question.QuestionManager.GetAllQuestions()[i].Description</h1>
+						<hr />
+						@foreach (var answer in Model.question.answerManager.GetGetAllAnswersForQuestion(Model.question.QuestionManager.GetAllQuestions()[i]))
+						{
+							<input type="submit" class="btn" value="@answer.Description" name="answers"/>
+						}
+						<hr />
+					}
+				}
 
-            <hr />
-          </form>
-        </div>
-      </body>
+			</div>
+		</form>
+	</div>
+</body>

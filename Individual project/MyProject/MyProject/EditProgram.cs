@@ -16,22 +16,23 @@ namespace MyProject
     public partial class EditProgram : MaterialForm
     {
         private TrainigProgram _program;
-        private ProgramManager _pM;
-        private ExerciseManager _eM;
+        private ProgramManager _programManager;
+        private ExerciseManager _exerciseManager;
         private ProgramTypeManager manager = new ProgramTypeManager();
 
         public EditProgram(TrainigProgram program, ProgramManager pM, ExerciseManager eM)
         {
             InitializeComponent();
             _program = program;
-            _pM = pM;
-            _eM = eM;
+            _programManager = pM;
+            _exerciseManager = eM;
 
             lblProgram.Text = $"Program Number {_program.ID}";
 
-            for (int i = 0; i < manager.GetAllProgramTypes().Count; i++)
+            var programs = manager.GetAllProgramTypes();
+            for (int i = 0; i < programs.Count; i++)
             {
-                cbxType.Items.Add(manager.GetAllProgramTypes()[i].Name);
+                cbxType.Items.Add(programs[i].Name);
             }
         }
 
@@ -39,7 +40,7 @@ namespace MyProject
         {
             _program.Description = tbxDescription.Text;
             _program.TypeID = ++cbxType.SelectedIndex;
-            _pM.EditProgram(_program);
+            _programManager.EditProgram(_program);
         }
 
         private void EditProgram_Load(object sender, EventArgs e)
@@ -64,13 +65,14 @@ namespace MyProject
         private void btnEdit_Click(object sender, EventArgs e)
         {
             int exerciseID = Convert.ToInt32(lbxExercises.SelectedValue);
-            EditExercise edit = new EditExercise(_eM.GetExerciseByID(exerciseID), _eM, this);
+            EditExercise edit = new EditExercise(_exerciseManager.GetExerciseByID(exerciseID), _exerciseManager, this);
             edit.Show();
         }
 
         public void Refresh()
         {
-            lbxExercises.DataSource = _eM.GetAllExercisesForProgram(_program);
+            var exercises = _exerciseManager.GetAllExercisesForProgram(_program);
+            lbxExercises.DataSource = exercises;
             lbxExercises.DisplayMember = "Name";
             lbxExercises.ValueMember = "ID";
         }

@@ -16,19 +16,21 @@ namespace MyProject
     public partial class AddProgram : MaterialForm
     {
         private ProgramTypeManager manager = new ProgramTypeManager();
-        private ProgramManager _pM;
-        private ExerciseManager _eM;
-        private ViewPrograms _vp;
-        public AddProgram(ProgramManager pM, ExerciseManager eM, ViewPrograms vp)
+        private ProgramManager _programManager;
+        private ExerciseManager _exerciseManager;
+        private ViewPrograms _viewPrograms;
+        public AddProgram(ProgramManager programManager, ExerciseManager exerciseManager, ViewPrograms viewPrograms)
         {
             InitializeComponent();
-            _pM = pM;
-            _eM = eM;
-            _vp = vp;
-            lblProgram.Text = $"Program number {_pM.GetAllPrograms().Count+1}";
-            for (int i = 0; i < manager.GetAllProgramTypes().Count; i++)
+            _programManager = programManager;
+            _exerciseManager = exerciseManager;
+            _viewPrograms = viewPrograms;
+            lblProgram.Text = $"Program number {_programManager.GetAllPrograms().Count+1}";
+
+            var programs = manager.GetAllProgramTypes();
+            for (int i = 0; i < programs.Count; i++)
             {
-                cbxType.Items.Add(manager.GetAllProgramTypes()[i].Name);
+                cbxType.Items.Add(programs[i].Name);
             }
         }
 
@@ -38,12 +40,12 @@ namespace MyProject
             int typeID = ++cbxType.SelectedIndex;
             
             TrainigProgram program = new TrainigProgram(description, typeID);
-            _pM.AddProgram(program);
-            AddExercises exercises = new AddExercises(program, _eM, _pM);
+            _programManager.AddProgram(program);
+            AddExercises exercises = new AddExercises(program, _exerciseManager, _programManager);
             exercises.ShowDialog();
             tbxDescription.Clear();
             cbxType.SelectedIndex = -1;
-            _vp.Refresh();
+            _viewPrograms.Refresh();
         }
     }
 }

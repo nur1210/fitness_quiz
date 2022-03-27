@@ -16,15 +16,15 @@ namespace MyProject
     public partial class AddExercises : MaterialForm
     {
         private TrainigProgram _program;
-        private ExerciseManager _eM;
-        private ProgramManager _pM;
-        public AddExercises(TrainigProgram program, ExerciseManager eM, ProgramManager pM)
+        private ExerciseManager _exerciseManager;
+        private ProgramManager _programManager;
+        public AddExercises(TrainigProgram program, ExerciseManager exerciseManager, ProgramManager programManager)
         {
             InitializeComponent();
             _program = program;
-            _eM = eM;
-            _pM = pM;
-            this.Text = $"Exercises for program number {_pM.GetInsertedProgramID()}";
+            _exerciseManager = exerciseManager;
+            _programManager = programManager;
+            this.Text = $"Exercises for program number {_programManager.GetInsertedProgramID()}";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -33,23 +33,12 @@ namespace MyProject
             int reps = Convert.ToInt32(tbxReps.Text);
             int sets = Convert.ToInt32(tbxSets.Text);
 
-            Exercise exercise = new Exercise(_pM.GetInsertedProgramID(), name, reps, sets);
-            _eM.AddExercise(exercise);
+            Exercise exercise = new Exercise(_programManager.GetInsertedProgramID(), name, reps, sets);
+            _exerciseManager.AddExercise(exercise);
             lbxExercises.Items.Add(exercise.Name);
             tbxName.Clear();
             tbxReps.Clear();
             tbxSets.Clear();
         }
-
-        private void btnComplete_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void AddExercises_Load(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

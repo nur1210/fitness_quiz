@@ -297,6 +297,16 @@
         "runtime": {
           "bin/placeholder/ClassLibrary.dll": {}
         }
+      },
+      "MyProject/1.0.0": {
+        "type": "project",
+        "framework": "Unsupported,Version=v0.0",
+        "compile": {
+          "bin/placeholder/MyProject.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyProject.dll": {}
+        }
       }
     }
   },
@@ -896,11 +906,17 @@
       "type": "project",
       "path": "../ClassLibrary/ClassLibrary.csproj",
       "msbuildProject": "../ClassLibrary/ClassLibrary.csproj"
+    },
+    "MyProject/1.0.0": {
+      "type": "project",
+      "path": "../../MyProject/MyProject/MyProject.csproj",
+      "msbuildProject": "../../MyProject/MyProject/MyProject.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "ClassLibrary >= 1.0.0"
+      "ClassLibrary >= 1.0.0",
+      "MyProject >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -932,6 +948,9 @@
           "projectReferences": {
             "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ClassLibrary\\ClassLibrary.csproj": {
               "projectPath": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ClassLibrary\\ClassLibrary.csproj"
+            },
+            "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\MyProject\\MyProject\\MyProject.csproj": {
+              "projectPath": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\MyProject\\MyProject\\MyProject.csproj"
             }
           }
         }
@@ -955,16 +974,19 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
-          "Microsoft.NETCore.App": {
-            "privateAssets": "all"
-          }
-        },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project MyProject is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Project MyProject supports: net6.0-windows7.0 (.NETCoreApp,Version=v6.0)",
+      "libraryId": "MyProject",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

@@ -15,15 +15,15 @@ namespace MyProject
 {
     public partial class ViewPrograms : MaterialForm
     {
-        BindingSource bsP = new BindingSource(); // Programs
-        BindingSource bsE = new BindingSource(); // Exercises
-        private ProgramManager _pM;
-        private ExerciseManager _eM;
+        BindingSource bindingSourcePrograms = new BindingSource();
+        BindingSource bindingSourceExercises = new BindingSource();
+        private ProgramManager _programManager;
+        private ExerciseManager _exercisesManager;
         public ViewPrograms(ProgramManager pM, ExerciseManager eM)
         {
             InitializeComponent();
-            _pM = pM;
-            _eM = eM;
+            _programManager = pM;
+            _exercisesManager = eM;
         }
 
         private void ViewPrograms_Load(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace MyProject
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddProgram add = new AddProgram(_pM, _eM, this);
+            AddProgram add = new AddProgram(_programManager, _exercisesManager, this);
             add.Show();
             add.FormClosed += (s, args) => this.Show();
             this.Hide();
@@ -45,31 +45,34 @@ namespace MyProject
             DataSet ds = CreateQuestionSchema();
             DataTable programs = ds.Tables["Program"];
             DataTable exercises = ds.Tables["Exercise"];
-            bsP.DataSource = ds;
-            bsE.DataSource = ds;
-            bsP.DataMember = programs.TableName;
-            bsE.DataMember = exercises.TableName;
+            bindingSourcePrograms.DataSource = ds;
+            bindingSourceExercises.DataSource = ds;
+            bindingSourcePrograms.DataMember = programs.TableName;
+            bindingSourceExercises.DataMember = exercises.TableName;
 
             List<DataRow> rows = new List<DataRow>();
-            for (int i = 0; i < _pM.GetAllPrograms().Count; i++)
+            var programsList = _programManager.GetAllPrograms();
+
+            for (int i = 0; i < programsList.Count; i++)
             {
-                rows.Add(programs.Rows.Add(_pM.GetAllPrograms()[i].ID, _pM.GetAllPrograms()[i].Description, _pM.GetAllPrograms()[i].TypeID));
+                rows.Add(programs.Rows.Add(programsList[i].ID, programsList[i].Description, programsList[i].TypeID));
             }
-            foreach (var program in _pM.GetAllPrograms())
+            foreach (var program in programsList)
             {
-                for (int i = 0; i < _eM.GetAllExercisesForProgram(program).Count; i++)
+                var exercisesList = _exercisesManager.GetAllExercisesForProgram(program);
+                for (int i = 0; i < exercisesList.Count; i++)
                 {
-                    exercises.Rows.Add(null, program.ID, _eM.GetAllExercisesForProgram(program)[i].Name);
+                    exercises.Rows.Add(null, program.ID, exercisesList[i].Name);
                 }
             }
 
-            dgvPrograms.DataSource = bsP;
+            dgvPrograms.DataSource = bindingSourcePrograms;
             dgvPrograms.AutoGenerateColumns = true;
             dgvPrograms.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            bsE.DataSource = bsP;
-            bsE.DataMember = "Program_Exercise";
-            lbxExercises.DataSource = bsE;
+            bindingSourceExercises.DataSource = bindingSourcePrograms;
+            bindingSourceExercises.DataMember = "Program_Exercise";
+            lbxExercises.DataSource = bindingSourceExercises;
             lbxExercises.DisplayMember = "name";
         }
 
@@ -102,7 +105,7 @@ namespace MyProject
             if (i != -1)
             {
                 int programID = Convert.ToInt32(dgvPrograms.Rows[i].Cells[0].Value);
-                EditProgram edit = new EditProgram(_pM.GetProgramByID(programID) ,_pM, _eM);
+                EditProgram edit = new EditProgram(_programManager.GetProgramByID(programID) ,_programManager, _exercisesManager);
                 edit.Show();
                 edit.FormClosed += (s, args) => this.Show();
                 this.Hide();

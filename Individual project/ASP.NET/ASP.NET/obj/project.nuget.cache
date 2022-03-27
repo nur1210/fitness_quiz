@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "y0LPu1Vs7brO6QBtGl465QPXB4fx+nA/didrIiAf1K248c6LEKIIs8oRorUPhZ/g+AhExZGIo8rG4SiGWWSAbg==",
-  "success": true,
+  "dgSpecHash": "FyT2oLOzaXkqvdB4an2VjSXAwibL6+yLEzXGHP52FlxggVf0ECt9cZCKPlYn7f4oneW9xB4Q95AInD3k+8jK1Q==",
+  "success": false,
   "projectFilePath": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ASP.NET\\ASP.NET.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
@@ -25,5 +25,15 @@
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\system.text.encoding.codepages\\4.4.0\\system.text.encoding.codepages.4.4.0.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project MyProject is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Project MyProject supports: net6.0-windows7.0 (.NETCoreApp,Version=v6.0)",
+      "libraryId": "MyProject",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

@@ -18,7 +18,6 @@ namespace MyProject
     {
         private UserViewManager manager = new UserViewManager();
         private UserManager userManager = new UserManager();
-        private DGVFunctions functions = new DGVFunctions();
         BindingSource source = new BindingSource();
 
 
@@ -84,14 +83,15 @@ namespace MyProject
             if (i != -1)
             {
                 int userID = Convert.ToInt32(dgvUsers.Rows[i].Cells[0].Value);
-                if (!userManager.GetUserById(userID).IsAdmin)
+                var user = userManager.GetUserById(userID);
+                if (!user.IsAdmin)
                 {
                     userManager.MakeAdmin(userID);
-                    MessageBox.Show($"{userManager.GetUserById(userID).FirstName} is now admin");
+                    MessageBox.Show($"{user.FirstName} is now admin");
                 }
-                else if (userManager.GetUserById(userID).IsAdmin)
+                else if (user.IsAdmin)
                 {
-                    MessageBox.Show($"{userManager.GetUserById(userID).FirstName} is already admin");
+                    MessageBox.Show($"{user.FirstName} is already admin");
                 }
                 UpdateGridView();
             }
@@ -103,20 +103,21 @@ namespace MyProject
             if (i != -1)
             {
                 int userID = Convert.ToInt32(dgvUsers.Rows[i].Cells[0].Value);
-                if (userManager.GetUserById(userID).IsAdmin)
+                var user = userManager.GetUserById(userID);
+                if (user.IsAdmin)
                 {
-                    MessageBox.Show($"{userManager.GetUserById(userID).FirstName} is admin, Unable to block");
+                    MessageBox.Show($"{user.FirstName} is admin, Unable to block");
                 }
                 else
                 {
-                    if (!userManager.GetUserById(userID).IsBlocked)
+                    if (!user.IsBlocked)
                     {
                         userManager.BlockUser(userID);
-                        MessageBox.Show($"{userManager.GetUserById(userID).FirstName} is now blocked");
+                        MessageBox.Show($"{user.FirstName} is now blocked");
                     }
-                    else if (userManager.GetUserById(userID).IsBlocked)
+                    else if (user.IsBlocked)
                     {
-                        MessageBox.Show($"{userManager.GetUserById(userID).FirstName} is already blocked");
+                        MessageBox.Show($"{user.FirstName} is already blocked");
                     }
                 }
                 UpdateGridView();

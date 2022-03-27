@@ -16,17 +16,16 @@ namespace MyProject
 {
     public partial class ViewQuestions : MaterialForm
     {
-        private QuestionManager _qM;
-        private AnswerManager _aM;
-        private QuestionViewManager _qvM = new QuestionViewManager();
-        BindingSource bsQ = new BindingSource(); // Questions
-        BindingSource bsA = new BindingSource(); // Answers
+        private QuestionManager _questionManager;
+        private AnswerManager _answerManager;
+        BindingSource bindingSourceQuestions = new BindingSource(); 
+        BindingSource bindingSourceAnswers = new BindingSource(); 
 
         public ViewQuestions(QuestionManager qM, AnswerManager aM)
         {
             InitializeComponent();
-            _aM = aM;
-            _qM = qM;   
+            _answerManager = aM;
+            _questionManager = qM;   
         }
 
 
@@ -41,7 +40,7 @@ namespace MyProject
             if (i != -1)
             {
                 int questionID = Convert.ToInt32(dgvQuestions.Rows[i].Cells[0].Value);
-                EditQ edit = new EditQ(_qM.GetQuestionByID(questionID), this._aM, this._qM, this);
+                EditQ edit = new EditQ(_questionManager.GetQuestionByID(questionID), this._answerManager, this._questionManager, this);
                 edit.Show();
             }
 
@@ -69,37 +68,39 @@ namespace MyProject
             DataSet ds = DGVFunctions.CreateQuestionSchema();
             DataTable questions = ds.Tables["Question"];
             DataTable answers = ds.Tables["Answer"];
-            bsQ.DataSource = ds;
-            bsA.DataSource = ds;
-            bsQ.DataMember = questions.TableName;
-            bsA.DataMember = answers.TableName;
-            //assign var to _qMGetAll
+            bindingSourceQuestions.DataSource = ds;
+            bindingSourceAnswers.DataSource = ds;
+            bindingSourceQuestions.DataMember = questions.TableName;
+            bindingSourceAnswers.DataMember = answers.TableName;
+
             List<DataRow> rows = new List<DataRow>();
-            for (int i = 0; i < _qM.GetAllQuestions().Count; i++)
+            var questionsList = _questionManager.GetAllQuestions();
+            for (int i = 0; i < questionsList.Count; i++)
             {
-                rows.Add(questions.Rows.Add(_qM.GetAllQuestions()[i].ID, _qM.GetAllQuestions()[i].Description));
+                rows.Add(questions.Rows.Add(questionsList[i].ID, questionsList[i].Description));
             }
-            foreach (var question in _qM.GetAllQuestions())
+            foreach (var question in questionsList)
             {
-                for (int i = 0; i < _aM.GetGetAllAnswersForQuestion(question).Count; i++)
+                var answersList = _answerManager.GetGetAllAnswersForQuestion(question);
+                for (int i = 0; i < answersList.Count; i++)
                 {
-                    answers.Rows.Add(null, question.ID, _aM.GetGetAllAnswersForQuestion(question)[i].Description);
+                    answers.Rows.Add(null, question.ID, answersList[i].Description);
                 }
             }
 
-            dgvQuestions.DataSource = bsQ;
+            dgvQuestions.DataSource = bindingSourceQuestions;
             dgvQuestions.AutoGenerateColumns = true;
             dgvQuestions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            bsA.DataSource = bsQ;
-            bsA.DataMember = "Question_Answer";
-            lbxQuestions.DataSource = bsA;
+            bindingSourceAnswers.DataSource = bindingSourceQuestions;
+            bindingSourceAnswers.DataMember = "Question_Answer";
+            lbxQuestions.DataSource = bindingSourceAnswers;
             lbxQuestions.DisplayMember = "Description";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddQuestion add = new AddQuestion(_qM, _aM, this);
+            AddQuestion add = new AddQuestion(_questionManager, _answerManager, this);
             add.Show();
             add.Closed += (s, args) => this.Show();
             this.Hide();

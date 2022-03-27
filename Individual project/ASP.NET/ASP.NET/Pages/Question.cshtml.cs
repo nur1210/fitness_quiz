@@ -19,7 +19,11 @@ namespace ASP.NET.Pages
 
         public void OnPost()
         {
+            question = new QuestionViewModel();
+            question.QuestionManager = new QuestionManager();
+            question.answerManager = new AnswerManager();
 
+            var allQuestions = question.QuestionManager.GetAllQuestions();
         }
     }
 

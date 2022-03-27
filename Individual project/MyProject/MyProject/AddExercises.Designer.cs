@@ -87,7 +87,6 @@
             this.btnComplete.TabIndex = 5;
             this.btnComplete.Text = "Complete";
             this.btnComplete.UseVisualStyleBackColor = true;
-            this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
             // 
             // lblName
             // 
@@ -138,7 +137,6 @@
             this.Name = "AddExercises";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddExercises";
-            this.Load += new System.EventHandler(this.AddExercises_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -15,16 +15,16 @@ namespace MyProject
 {
     public partial class AddQuestion : MaterialForm
     {
-        private QuestionManager _qM;
-        private AnswerManager _aM;
-        private ViewQuestions _eQ;
-        public AddQuestion(QuestionManager qM, AnswerManager aM, ViewQuestions eQ)
+        private QuestionManager _questionManager;
+        private AnswerManager _answerManager;
+        private ViewQuestions _viewQuestions;
+        public AddQuestion(QuestionManager questionManager, AnswerManager answerManager, ViewQuestions viewQuestions)
         {
             InitializeComponent();
-            _qM = qM;
-            _aM = aM;
-            _eQ = eQ;
-            this.Text = $"Add question number: {(_qM.GetAllQuestions().Count) + 1}";
+            _questionManager = questionManager;
+            _answerManager = answerManager;
+            _viewQuestions = viewQuestions;
+            this.Text = $"Add question number: {_questionManager.GetAllQuestions().Count+ 1}";
         }
 
 
@@ -37,19 +37,20 @@ namespace MyProject
             string answer4 = tbxAnswer4.Text;
 
             Question question = new Question(questionDescription);
-            _qM.AddQuestion(question);
+            _questionManager.AddQuestion(question);
 
-            Answer a1 = new Answer(_qM.GetInsertedQuestionID(), answer1);
-            Answer a2 = new Answer(_qM.GetInsertedQuestionID(), answer2);
-            Answer a3 = new Answer(_qM.GetInsertedQuestionID(), answer3);
-            Answer a4 = new Answer(_qM.GetInsertedQuestionID(), answer4);
+            var questionID = _questionManager.GetInsertedQuestionID();
+            Answer a1 = new Answer(questionID, answer1);
+            Answer a2 = new Answer(questionID, answer2);
+            Answer a3 = new Answer(questionID, answer3);
+            Answer a4 = new Answer(questionID, answer4);
 
-            _aM.AddAnswer(a1);
-            _aM.AddAnswer(a2);
-            _aM.AddAnswer(a3);
-            _aM.AddAnswer(a4);
+            _answerManager.AddAnswer(a1);
+            _answerManager.AddAnswer(a2);
+            _answerManager.AddAnswer(a3);
+            _answerManager.AddAnswer(a4);
 
-            _eQ.UpdateDataGridView();
+            _viewQuestions.UpdateDataGridView();
             this.Close();
         }
     }
