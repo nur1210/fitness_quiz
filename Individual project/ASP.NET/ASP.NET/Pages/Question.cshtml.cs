@@ -7,29 +7,27 @@ using System.ComponentModel.DataAnnotations;
 namespace ASP.NET.Pages
 {
     public class QuestionModel : PageModel
-    {
+    {        
+        private static QuestionViewModel model = new QuestionViewModel();
         [BindProperty]
-        public QuestionViewModel question { get; set; }
+        public QuestionViewModel question { get=> model; set=> model = value; }
+        public int index { get; set; }
+		public static int seeder { get; set; }
+        public int AnswerID { get; set; }
         public void OnGet()
         {
-            question = new QuestionViewModel();
-            question.QuestionManager = new QuestionManager();
-            question.answerManager = new AnswerManager();
         }
 
         public void OnPost()
         {
-            question = new QuestionViewModel();
-            question.QuestionManager = new QuestionManager();
-            question.answerManager = new AnswerManager();
-
-            var allQuestions = question.QuestionManager.GetAllQuestions();
+            index = seeder++;
         }
     }
 
     public class QuestionViewModel
     {
-        public QuestionManager QuestionManager { get; set; }
-        public AnswerManager answerManager { get; set; }
+        public QuestionManager QuestionManager { get; set; } = new QuestionManager();
+        public AnswerManager answerManager { get; set; } = new AnswerManager();
+
     }
 }

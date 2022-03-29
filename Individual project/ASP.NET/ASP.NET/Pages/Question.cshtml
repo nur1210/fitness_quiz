@@ -4,23 +4,26 @@
 }
 <body>
 	<div class="container">
-		<form method="post">
-			<div style="text-align:center;">
-				@for (var i = 0; i < Model.question.QuestionManager.GetAllQuestions().Count; i++)
-				{
-					@if (Model.question.QuestionManager.GetAllQuestions()[i] is not null)
-					{
-						<h1>@Model.question.QuestionManager.GetAllQuestions()[i].Description</h1>
-						<hr />
-						@foreach (var answer in Model.question.answerManager.GetGetAllAnswersForQuestion(Model.question.QuestionManager.GetAllQuestions()[i]))
-						{
-							<input type="submit" class="btn" value="@answer.Description" name="answers"/>
-						}
-						<hr />
-					}
+		<div style="text-align:center;">
+			<h1>@Model.question.QuestionManager.GetAllQuestions()[@Model.index].Description</h1>
+			<hr />
+			<form method="post" id="answer-form">
+			<input asp-for="AnswerID" type="hidden" id="answer-input" class="btn" />
+			<script>
+				const submitAnswer = (answerId) => {
+					const input = document.getElementById("answer-input")
+					const form = document.getElementById("answer-form")
+					input.nodeValue = answerId
+					form.submit()
 				}
-
-			</div>
-		</form>
+			</script>
+			@foreach (var answer in Model.question.answerManager.GetGetAllAnswersForQuestion(Model.question.QuestionManager.GetAllQuestions()[@Model.index]))
+			{
+					<button class="btn" onclick="submitAnswer(@answer.ID)">@answer.Description</button>
+			}
+			</form>
+			
+			<hr />
+		</div>
 	</div>
 </body>

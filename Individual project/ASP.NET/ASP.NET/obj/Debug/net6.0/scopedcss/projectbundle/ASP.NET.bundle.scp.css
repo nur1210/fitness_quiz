@@ -49,26 +49,4 @@ button.accept-policy[b-xvqhcf3ma8] {
     line-height: 60px;
 }
 
-.menu-bar[b-xvqhcf3ma8] {
-    background-color: #1988f7;
-    display: flex;
-    justify-content: space-between;
-    box-sizing: border-box;
-}
 
-.item[b-xvqhcf3ma8] {
-    color: white;
-    background-color: transparent;
-    font-size: 18px;
-    display: inline-block;
-    box-sizing: border-box;
-    padding: 14px 20px;
-}
-
-    .item.title[b-xvqhcf3ma8] {
-        font-weight: 600;
-    }
-
-    .item:hover[b-xvqhcf3ma8] {
-        background-color: rgba(0, 0, 0, 0.1);
-    }
