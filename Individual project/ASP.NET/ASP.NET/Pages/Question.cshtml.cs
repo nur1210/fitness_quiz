@@ -12,7 +12,8 @@ namespace ASP.NET.Pages
         [BindProperty]
         public QuestionViewModel question { get=> model; set=> model = value; }
         public int index { get; set; }
-		public static int seeder { get; set; }
+		public static int seeder { get; set; } = 1;
+        [BindProperty]
         public int AnswerID { get; set; }
         public void OnGet()
         {
@@ -21,6 +22,7 @@ namespace ASP.NET.Pages
         public void OnPost()
         {
             index = seeder++;
+            var id = AnswerID;
         }
     }
 
@@ -28,6 +30,13 @@ namespace ASP.NET.Pages
     {
         public QuestionManager QuestionManager { get; set; } = new QuestionManager();
         public AnswerManager answerManager { get; set; } = new AnswerManager();
+        public Question? Q { get; set; }
+
+
+        public QuestionViewModel()
+        {
+
+        }
 
     }
 }
