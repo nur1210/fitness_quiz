@@ -6,7 +6,6 @@ namespace ClassLibrary.Models
     {
         private int _id;
         private string _description;
-        private QuestionManager _qM = new QuestionManager();
 
         public int ID { get => _id; set => _id = value; }
         public string Description { get => _description; set => _description = value; }

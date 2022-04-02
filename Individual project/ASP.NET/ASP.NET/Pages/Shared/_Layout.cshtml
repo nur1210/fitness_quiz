@@ -12,8 +12,10 @@
 			<a class="item title">Site Title</a>
 		</div>
 		<div class="group">
-			<a class="item">Link 1</a>
-			<a class="item">Link 2</a>
+			@if (User.Identity.IsAuthenticated)
+			{
+				<a asp-page="Logout" class="item">Logout</a>
+			}
 		</div>
 	</nav>
 </head>
@@ -24,13 +26,6 @@
 		</main>
 	</div>
 	<footer class="footer-distributed">
-		<div class="footer-right">
-			<a href="#"><i class="fa fa-facebook"></i></a>
-			<a href="#"><i class="fa fa-twitter"></i></a>
-			<a href="#"><i class="fa fa-linkedin"></i></a>
-			<a href="#"><i class="fa fa-github"></i></a>
-		</div>
-
 		<div class="footer-left">
 			<p class="footer-links">
 				<a class="link-1" href="#">Home</a>

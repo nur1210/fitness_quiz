@@ -15,12 +15,21 @@
 					</tr>
 					@foreach (var user in Model.UserView.UserManager.GetAllUsersForView())
 					{
-						<tr>
-							<td>@user.ID</td>
-							<td>@user.FirstName</td>
-							<td>@user.LastName</td>
-							<td>@user.Email</td>
+						<tr id="row-@user.ID">
+							<td><a asp-page="/UsersView" asp-fragment="row-@user.ID" asp-route-SelectedRow="@user.ID" class="td-link">@user.ID</a></td>
+							<td><a asp-page="/UsersView" asp-fragment="row-@user.ID" asp-route-SelectedRow="@user.ID" class="td-link">@user.FirstName</a></td>
+							<td><a asp-page="/UsersView" asp-fragment="row-@user.ID" asp-route-SelectedRow="@user.ID" class="td-link">@user.LastName</a></td>
+							<td><a asp-page="/UsersView" asp-fragment="row-@user.ID" asp-route-SelectedRow="@user.ID" class="td-link">@user.Email</a></td>
 						</tr>
+						@if(Model.SelectedRow == @user.ID)
+						{
+							<tr>
+								<td>
+							SUCK MEIN COCK
+							</td>
+						</tr>
+						}
+						
 					}
 				</table>
 			</div>

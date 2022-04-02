@@ -8,7 +8,7 @@
 			<h1>@Model.question.QuestionManager.GetAllQuestions()[@Model.index].Description</h1>
 			<hr />
 			<form method="post" id="answer-form">
-			<input asp-for="AnswerID"  id="answer-input" class="btn" />
+			<input asp-for="AnswerID" id="answer-input" class="btn" />
 			<script>
 				const submitAnswer = (answerId) => {
 					const input = document.getElementById("answer-input")
