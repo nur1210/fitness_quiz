@@ -1,6 +1,7 @@
 ﻿@page
 @model ASP.NET.Pages.UsersViewModel
 @{
+	string btnBlock(bool IsBlocked) => IsBlocked ? "Unblock" : "Block";
 }
 <body>
 	<div class="container">
@@ -12,24 +13,31 @@
 						<th>First name</th>
 						<th>Last name</th>
 						<th>Email</th>
+						<th>Block/Unblock</th>
+						<th>Make admin</th>
 					</tr>
-					@foreach (var user in Model.UserView.UserManager.GetAllUsersForView())
+					@foreach (var user in Model.UserViewManager.GetAllUsersForView())
 					{
+						var usr = @Model.UserManager.GetUserById(user.ID);
+						bool IsBlocked = usr.IsBlocked;
+
 						<tr id="row-@user.ID">
 							<td><a asp-page="/UsersView" asp-fragment="row-@user.ID" asp-route-SelectedRow="@user.ID" class="td-link">@user.ID</a></td>
 							<td><a asp-page="/UsersView" asp-fragment="row-@user.ID" asp-route-SelectedRow="@user.ID" class="td-link">@user.FirstName</a></td>
 							<td><a asp-page="/UsersView" asp-fragment="row-@user.ID" asp-route-SelectedRow="@user.ID" class="td-link">@user.LastName</a></td>
 							<td><a asp-page="/UsersView" asp-fragment="row-@user.ID" asp-route-SelectedRow="@user.ID" class="td-link">@user.Email</a></td>
+							<td><button class="btn fullwidth" type="submit" a asp-page="/UsersView" asp-route-SelectedRow="@user.ID">@btnBlock(IsBlocked)</button></td>
+							@{
+								if (!usr.IsAdmin)
+								{
+									<td><button class="btn fullwidth" type="submit" a asp-page="/UsersView" asp-route-SelectedRow="@user.ID">Make admin</button></td>								
+								}
+								else if(usr.IsAdmin)
+								{
+									<td>Already admin</td>
+								}
+							}
 						</tr>
-						@if(Model.SelectedRow == @user.ID)
-						{
-							<tr>
-								<td>
-							SUCK MEIN COCK
-							</td>
-						</tr>
-						}
-						
 					}
 				</table>
 			</div>

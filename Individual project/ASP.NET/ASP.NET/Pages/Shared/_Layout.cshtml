@@ -4,8 +4,8 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>@ViewData["Title"] - ASP.NET</title>
-	<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
-	<link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
 	<nav class="menu-bar">
 		<div class="group">
@@ -14,7 +14,7 @@
 		<div class="group">
 			@if (User.Identity.IsAuthenticated)
 			{
-				<a asp-page="Logout" class="item">Logout</a>
+				<a asp-page="Logout" asp-route-returnUrl="@Context.Request.Path" class="item">Logout</a>
 			}
 		</div>
 	</nav>

@@ -1,3 +1,4 @@
+/* _content/ASP.NET/Pages/Account/Register.cshtml.rz.scp.css */
 /* _content/ASP.NET/Pages/Shared/_Layout.cshtml.rz.scp.css */
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
@@ -50,3 +51,10 @@ button.accept-policy[b-xvqhcf3ma8] {
 }
 
 
+/* _content/ASP.NET/Pages/UsersView.cshtml.rz.scp.css */
+body[b-st6hph9v03] {
+}
+
+.btn[b-st6hph9v03] {
+    width: 100%;
+}

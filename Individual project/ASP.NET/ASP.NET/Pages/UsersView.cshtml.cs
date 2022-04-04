@@ -9,28 +9,37 @@ namespace ASP.NET.Pages
     public class UsersViewModel : PageModel
     {
         [BindProperty]
-		public UserViewModel UserView { get; set; }
-
+        public UserViewManager UserViewManager { get; set; }
+        [BindProperty]
+        public UserManager UserManager { get; set; }
         [BindProperty(SupportsGet = true)]
+		public bool IsBlocked { get; set; }
+        [BindProperty(SupportsGet = true)]  
+		public bool IsAdmin { get; set; }
+
+		[BindProperty(SupportsGet = true)]
         public int SelectedRow { get; set; }
+
+        public UsersViewModel(UserManager uM, UserViewManager uVM)
+        {
+            UserViewManager = uVM;
+            UserManager = uM;
+        }
 
 		public void OnGet()
         {
-            UserView = new UserViewModel();
-            UserView.UserManager = new UserViewManager();
+
         }
 
 		public void OnPost() 
         {
+            var id = SelectedRow;
+            if (!UserManager.GetUserById(id).IsBlocked)
+            {
+                UserManager.BlockUser(id);
+                return;
+            }
+            UserManager.UnblockUser(id);
         }
     }
-
-    public class UserViewModel
-	{
-		public UserViewManager UserManager { get; set; }
-        public UserViewModel()
-        {
-
-        }
-	}
 }

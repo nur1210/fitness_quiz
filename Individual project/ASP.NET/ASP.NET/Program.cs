@@ -1,3 +1,5 @@
+using ASP.NET.Pages;
+using ClassLibrary.Logic;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,9 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<UserViewManager>();
+builder.Services.AddSingleton<UserManager>();
+
 
 var app = builder.Build();
 

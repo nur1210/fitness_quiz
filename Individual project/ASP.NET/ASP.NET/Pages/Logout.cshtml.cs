@@ -7,8 +7,17 @@ namespace ASP.NET.Pages
 {
     public class LogoutModel : PageModel
     {
-        public async Task<IActionResult> OnGet()
+        [BindProperty(SupportsGet = true)]
+        public string? ReturnUrl { get; set; }
+        public void OnGet()
         {
+        }
+        public async Task<IActionResult> OnPost()
+        {
+            if (ReturnUrl is not null)
+            {
+                return LocalRedirect(ReturnUrl);
+            }
             if (HttpContext.User.Identity?.IsAuthenticated == true)
             {
                 await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

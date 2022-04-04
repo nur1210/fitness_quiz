@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OyUeJlZgozxmZV04dKrKtOqcsO0dsNTOwjAmd9exszY=",
+  "Hash": "cjQdz0XR2MDopgcmLAPo2UB/vGmGhLthX4tBOlO8JCg=",
   "Source": "ASP.NET",
   "BasePath": "_content/ASP.NET",
   "Mode": "Default",
@@ -51,40 +51,6 @@
       "OriginalItemSpec": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ASP.NET\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ASP.NET.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ASP.NET\\wwwroot\\css\\login.css",
-      "SourceId": "ASP.NET",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ASP.NET\\wwwroot\\",
-      "BasePath": "_content/ASP.NET",
-      "RelativePath": "css/login.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\login.css"
-    },
-    {
-      "Identity": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ASP.NET\\wwwroot\\css\\register.css",
-      "SourceId": "ASP.NET",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ASP.NET\\wwwroot\\",
-      "BasePath": "_content/ASP.NET",
-      "RelativePath": "css/register.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\register.css"
-    },
-    {
       "Identity": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ASP.NET\\wwwroot\\css\\site.css",
       "SourceId": "ASP.NET",
       "SourceType": "Discovered",
@@ -100,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ASP.NET\\wwwroot\\css\\style.css",
+      "SourceId": "ASP.NET",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ASP.NET\\wwwroot\\",
+      "BasePath": "_content/ASP.NET",
+      "RelativePath": "css/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
       "Identity": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ASP.NET\\wwwroot\\favicon.ico",

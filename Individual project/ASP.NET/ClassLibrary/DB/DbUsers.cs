@@ -81,6 +81,14 @@ namespace ClassLibrary.DB
             MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("IsBlocked", true), new MySqlParameter("ID", userID) });
             conn.Close();
         }
+
+        public static void UnblockUser(int userID)
+        {
+            var conn = Connection.OpenConn();
+            string sql = "UPDATE users SET is_blocked = @IsBlocked WHERE id = @ID ";
+            MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("IsBlocked", false), new MySqlParameter("ID", userID) });
+            conn.Close();
+        }
         public static void MakeAdmin(int userID)
         {
             var conn = Connection.OpenConn();
