@@ -26,14 +26,15 @@
 							<td><a asp-page="/UsersView" asp-fragment="row-@user.ID" asp-route-SelectedRow="@user.ID" class="td-link">@user.FirstName</a></td>
 							<td><a asp-page="/UsersView" asp-fragment="row-@user.ID" asp-route-SelectedRow="@user.ID" class="td-link">@user.LastName</a></td>
 							<td><a asp-page="/UsersView" asp-fragment="row-@user.ID" asp-route-SelectedRow="@user.ID" class="td-link">@user.Email</a></td>
-							<td><button class="btn fullwidth" type="submit" a asp-page="/UsersView" asp-route-SelectedRow="@user.ID">@btnBlock(IsBlocked)</button></td>
 							@{
 								if (!usr.IsAdmin)
 								{
-									<td><button class="btn fullwidth" type="submit" a asp-page="/UsersView" asp-route-SelectedRow="@user.ID">Make admin</button></td>								
+									<td><button class="btn fullwidth" type="submit" asp-page-handler="block" a asp-page="/UsersView" asp-route-SelectedRow="@user.ID">@btnBlock(IsBlocked)</button></td>
+									<td><button class="btn fullwidth" type="submit" asp-page-handler="admin" a asp-page="/UsersView" asp-route-SelectedRow="@user.ID">Make admin</button></td>
 								}
-								else if(usr.IsAdmin)
+								else if (usr.IsAdmin)
 								{
+									<td>User is admin</td>
 									<td>Already admin</td>
 								}
 							}

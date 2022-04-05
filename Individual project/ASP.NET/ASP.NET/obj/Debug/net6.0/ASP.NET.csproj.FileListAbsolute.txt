@@ -100,4 +100,3 @@ C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-proje
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\ASP.NET\ASP.NET\bin\Debug\net6.0\ClassLibrary.pdb
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\ASP.NET\ASP.NET\obj\Debug\net6.0\ASP.NET.csproj.CopyComplete
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\ASP.NET\ASP.NET\obj\Debug\net6.0\scopedcss\Pages\Account\Register.cshtml.rz.scp.css
-C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\ASP.NET\ASP.NET\obj\Debug\net6.0\scopedcss\Pages\UsersView.cshtml.rz.scp.css

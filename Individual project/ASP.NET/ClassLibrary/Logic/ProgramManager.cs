@@ -17,6 +17,7 @@ namespace ClassLibrary.Logic
         public List<TrainigProgram> GetAllPrograms() => DbPrograms.GetAllPrograms();
         public int GetInsertedProgramID() => DbPrograms.GetInsertedProgramID();
         public TrainigProgram GetProgramByID(int id) => DbPrograms.GetProgramByID(id);
+        public List<Answer> GetAllAnswersReferncedByProgram(int programID) => DbPrograms.GetAllAnswersReferncedByProgram(programID);
 
     }
 }

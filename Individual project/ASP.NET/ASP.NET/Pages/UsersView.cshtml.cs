@@ -41,5 +41,10 @@ namespace ASP.NET.Pages
             }
             UserManager.UnblockUser(id);
         }
+        public void OnPostAdmin()
+        {
+            var id = SelectedRow;
+            UserManager.MakeAdmin(id);
+        }
     }
 }

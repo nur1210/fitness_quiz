@@ -13,63 +13,67 @@ namespace ClassLibrary.DB
     {
         public static void AddQuestionView(QuestionView question)
         {
-            var conn = Connection.OpenConn();
-            string sql = "INSERT INTO questions (`description`) VALUES (@Description);";
-            MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("Description", question.Description) });
-            conn.Close();
+            using (var conn = Connection.OpenConn())
+            {
+                string sql = "INSERT INTO questions (`description`) VALUES (@Description);";
+                MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("Description", question.Description) });
+            }
         }
 
         public static void UpdateQuestionView(QuestionView question)
         {
-            var conn = Connection.OpenConn();
-            string sql = "UPDATE questions SET description = @Description WHERE id = @ID;";
-            MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("Description", question.Description), new MySqlParameter("ID", question.ID) });
-            conn.Close();
+            using (var conn = Connection.OpenConn())
+            {
+                string sql = "UPDATE questions SET description = @Description WHERE id = @ID;";
+                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("Description", question.Description), new MySqlParameter("ID", question.ID) });
+            }
         }
 
         public static void DeleteQuestionView(int questionID)
         {
-            var conn = Connection.OpenConn();
-            string sql = "DELETE FROM questions WHERE id = @ID";
-            MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", questionID) });
-            conn.Close();
+            using (var conn = Connection.OpenConn())
+            {
+                string sql = "DELETE FROM questions WHERE id = @ID";
+                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", questionID) });
+            }
         }
         public static List<QuestionView> GetAllQuestionsForView()
         {
-            var conn = Connection.OpenConn();
-            string sql = "SELECT q.id, q.description, a.description FROM questions AS q INNER JOIN answers AS a ON q.id = a.question_id;";
-            var rdr = MySqlHelper.ExecuteReader(conn, sql);
-
-            List<QuestionView> list = new List<QuestionView>();
-
-            while (rdr.Read())
+            using (var conn = Connection.OpenConn())
             {
-                var line = rdr;
-                if (line is not null)
+                string sql = "SELECT q.id, q.description, a.description FROM questions AS q INNER JOIN answers AS a ON q.id = a.question_id;";
+                var rdr = MySqlHelper.ExecuteReader(conn, sql);
+
+                List<QuestionView> list = new List<QuestionView>();
+
+                while (rdr.Read())
                 {
-                    if (list.Count == 0)
+                    var line = rdr;
+                    if (line is not null)
                     {
-                        list.Add(new QuestionView(line.GetInt32(0), line.GetString(1), new List<Answer>() { new Answer(line.GetInt32(0), line.GetString(2)) }));
-                    }
-                    else
-                    {
-                        foreach (var item in list.ToList())
+                        if (list.Count == 0)
                         {
-                            if (line.GetInt32(0) != item.ID)
+                            list.Add(new QuestionView(line.GetInt32(0), line.GetString(1), new List<Answer>() { new Answer(line.GetInt32(0), line.GetString(2)) }));
+                        }
+                        else
+                        {
+                            foreach (var item in list.ToList())
                             {
-                                list.Add(new QuestionView(line.GetInt32(0), line.GetString(1), new List<Answer>() { new Answer(item.ID, line.GetString(2)) }));
-                            }
-                            else
-                            {
-                                item.Answers.Add(new Answer(item.ID, line.GetString(2)));
+                                if (line.GetInt32(0) != item.ID)
+                                {
+                                    list.Add(new QuestionView(line.GetInt32(0), line.GetString(1), new List<Answer>() { new Answer(item.ID, line.GetString(2)) }));
+                                }
+                                else
+                                {
+                                    item.Answers.Add(new Answer(item.ID, line.GetString(2)));
+                                }
                             }
                         }
                     }
                 }
+                rdr.Close();
+                return list;
             }
-            rdr.Close();
-            conn.Close();
-            return list;
         }
     }
 }

@@ -15,5 +15,7 @@ namespace ClassLibrary.Logic
         public void EditAnswer(Answer a) => DbAnswers.UpdateAnswer(a);
         public List<Answer> GetAllAnswers() => DbAnswers.GetAllAnsers();
         public List<Answer> GetGetAllAnswersForQuestion(Question q) => DbAnswers.GetAllAnswersForQuestion(q);
+        public void AddProgramReference(int answerID, int programID) => DbAnswers.AddProgramReference(answerID, programID);
+        public void RemoveProgramReference(int answerID) => DbAnswers.RemoveProgramReference(answerID);
     }
 }

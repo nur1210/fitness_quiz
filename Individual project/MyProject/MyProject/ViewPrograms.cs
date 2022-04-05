@@ -112,5 +112,61 @@ namespace MyProject
             }
 
         }
+
+        private void btnReference_Click(object sender, EventArgs e)
+        {
+            var i = dgvPrograms.CurrentCell.RowIndex;
+            if (i != -1)
+            {
+                int programID = Convert.ToInt32(dgvPrograms.Rows[i].Cells[0].Value);
+                AssignProgramToAnswer assign = new AssignProgramToAnswer(programID);
+                assign.Show();
+                assign.FormClosed += (s, args) => this.Show();
+                this.Hide();
+            }
+        }
+
+        private void btnRemoveReference_Click(object sender, EventArgs e)
+        {
+            var i = dgvPrograms.CurrentCell.RowIndex;
+            if (i != -1)
+            {
+                int programID = Convert.ToInt32(dgvPrograms.Rows[i].Cells[0].Value);
+                UnassignProgramFromAnswer unassign = new UnassignProgramFromAnswer(programID);
+                unassign.Show();
+                unassign.FormClosed += (s, args) => this.Show();
+                this.Hide();
+            }
+        }
+
+        private void DisplayLabel()
+        {
+            var i = dgvPrograms.CurrentCell.RowIndex;
+            if (i != -1)
+            {
+                int programID = Convert.ToInt32(dgvPrograms.Rows[i].Cells[0].Value);
+                var assignedAnswers = _programManager.GetAllAnswersReferncedByProgram(programID);
+                if (assignedAnswers.Count > 0)
+                {
+                    lblAssigned.Visible = true;
+                    string info = "";
+                    foreach (var answer in assignedAnswers)
+                    {
+                        string description = answer.Description;
+                        info += $"{description}, ";
+                    }
+                    lblAssigned.Text = $"Assigned asnwers: {info}";
+                }
+                else
+                {
+                    lblAssigned.Visible=false;
+                }
+            }
+        }
+
+        private void dgvPrograms_SelectionChanged(object sender, EventArgs e)
+        {
+            DisplayLabel();
+        }
     }
 }

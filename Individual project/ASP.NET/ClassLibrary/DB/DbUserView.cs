@@ -12,21 +12,22 @@ namespace ClassLibrary.DB
     {
         public static List<UserView> GetAllUsersForView()
         {
-            var conn = Connection.OpenConn();
-            List<UserView> users = new List<UserView>();
-            string sql = "SELECT id, first_name, last_name, email FROM users;";
-            var rdr = MySqlHelper.ExecuteReader(conn, sql);
-            while (rdr.Read())
+            using (var conn = Connection.OpenConn())
             {
-                UserView user = new UserView(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2), rdr.GetString(3));
-                if (user is not null)
+                List<UserView> users = new List<UserView>();
+                string sql = "SELECT id, first_name, last_name, email FROM users;";
+                var rdr = MySqlHelper.ExecuteReader(conn, sql);
+                while (rdr.Read())
                 {
-                    users.Add(user);
+                    UserView user = new UserView(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2), rdr.GetString(3));
+                    if (user is not null)
+                    {
+                        users.Add(user);
+                    }
                 }
+                rdr.Close();
+                return users;
             }
-            rdr.Close();
-            conn.Close();
-            return users;
         }
     }
 }

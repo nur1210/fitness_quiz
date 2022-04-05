@@ -12,23 +12,24 @@ namespace ClassLibrary.DB
     {
         public static List<ProgramType> GetAllProgramTypes()
         {
-            var conn = Connection.OpenConn();
-            List<ProgramType> list = new List<ProgramType>();
-
-            string sql = "SELECT * FROM program_type ORDER BY id;";
-            var rdr = MySqlHelper.ExecuteReader(conn, sql);
-
-            while (rdr.Read())
+            using (var conn = Connection.OpenConn())
             {
-                var line = rdr;
-                if (line is not null)
+                List<ProgramType> list = new List<ProgramType>();
+
+                string sql = "SELECT * FROM program_type ORDER BY id;";
+                var rdr = MySqlHelper.ExecuteReader(conn, sql);
+
+                while (rdr.Read())
                 {
-                    list.Add(new ProgramType(rdr.GetInt32(0), rdr.GetString(1)));
+                    var line = rdr;
+                    if (line is not null)
+                    {
+                        list.Add(new ProgramType(rdr.GetInt32(0), rdr.GetString(1)));
+                    }
                 }
+                rdr.Close();
+                return list;
             }
-            rdr.Close();
-            conn.Close();
-            return list;
         }
     }
 }

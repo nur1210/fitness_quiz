@@ -10,6 +10,9 @@
     <Compile Update="AddQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="AssignProgramToAnswer.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="EditExercise.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -17,6 +20,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="EditQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UnassignProgramFromAnswer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="ViewPrograms.cs">

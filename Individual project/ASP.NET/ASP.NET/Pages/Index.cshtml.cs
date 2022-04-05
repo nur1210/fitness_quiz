@@ -44,11 +44,14 @@ namespace ASP.NET.Pages
                         HttpContext.SignInAsync(new ClaimsPrincipal(claimsidentity));
                         if (credential.IsAdmin)
                         {
+                            conn.Close();
                             return RedirectToPage("/UsersView");
                         }
+                        conn.Close();
                         return RedirectToPage("/Question");
                     }
                 }
+                conn.Close();
             }
             return Page();
         }

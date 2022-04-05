@@ -11,35 +11,36 @@ namespace ClassLibrary.DB
     {
         public int Login(string email, string password)
         {
-            var conn = Connection.OpenConn();
-            string sql = "SELECT id, password, is_admin FROM users WHERE email = @Email";
-            try
+            using (var conn = Connection.OpenConn())
             {
-                var userInfo = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("Email", email) });
-                userInfo.Read();
-                if (!userInfo.GetBoolean(2))
+                string sql = "SELECT id, password, is_admin FROM users WHERE email = @Email";
+                try
                 {
-                    //MessageBox.Show("This application is for admin use only");
-                }
-                else
-                {
-                    int id = userInfo.GetInt32(0);
-                    if (Hashing.ValidatePassword(password, userInfo.GetString(1)))
+                    var userInfo = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("Email", email) });
+                    userInfo.Read();
+                    if (!userInfo.GetBoolean(2))
                     {
-                        return id;
+                        //MessageBox.Show("This application is for admin use only");
                     }
                     else
                     {
-                        return -1;
+                        int id = userInfo.GetInt32(0);
+                        if (Hashing.ValidatePassword(password, userInfo.GetString(1)))
+                        {
+                            return id;
+                        }
+                        else
+                        {
+                            return -1;
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show(ex.Message);
+                }
+                return -1;
             }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.Message);
-            }
-            conn.Close();
-            return -1;
         }
     }
 }

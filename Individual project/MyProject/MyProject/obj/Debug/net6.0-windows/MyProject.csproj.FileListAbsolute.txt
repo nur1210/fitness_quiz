@@ -107,3 +107,5 @@ C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-proje
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\MyProject.EditExercise.resources
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\ClassLibrary.dll
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\ClassLibrary.pdb
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\MyProject.AssignProgramToAnswer.resources
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\MyProject.UnassignProgramFromAnswer.resources
