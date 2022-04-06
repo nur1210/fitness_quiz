@@ -1,5 +1,6 @@
 using ASP.NET.Pages;
 using ClassLibrary.Logic;
+using ClassLibrary.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,12 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<UserViewManager>();
 builder.Services.AddSingleton<UserManager>();
+builder.Services.AddSingleton<QuestionManager>();
+builder.Services.AddSingleton<AnswerManager>();
+builder.Services.AddSingleton<ProgramManager>();
+builder.Services.AddSingleton<AnswerStatisticManager>();
+builder.Services.AddSingleton<TrainigProgram>();
+
 
 
 var app = builder.Build();

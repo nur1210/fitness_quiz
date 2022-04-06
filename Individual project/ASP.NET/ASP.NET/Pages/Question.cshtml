@@ -5,25 +5,32 @@
 <body>
 	<div class="container">
 		<div style="text-align:center;">
-			<h1>@Model.question.QuestionManager.GetAllQuestions()[@Model.index].Description</h1>
+			<h1>@Model.QuestionManager.GetAllQuestions()[@Model.index].Description</h1>
 			<hr />
 			<form method="post" id="answer-form">
-			<input asp-for="AnswerID" id="answer-input" class="btn" />
-			<script>
-				const submitAnswer = (answerId) => {
-					const input = document.getElementById("answer-input")
-					const form = document.getElementById("answer-form")
-					input.value= answerId
-					console.log(answerId);
-					form.submit()
+				<input asp-for="AnswerID" id="answer-input" class="btn" />
+				<script>
+					const submitAnswer = (answerId) => {
+						const input = document.getElementById("answer-input")
+						const form = document.getElementById("answer-form")
+						input.value= answerId
+						console.log(answerId);
+						form.submit()
+					}
+				</script>
+				@foreach (var answer in Model.AnswerManager.GetGetAllAnswersForQuestion(Model.QuestionManager.GetAllQuestions()[@Model.index]))
+				{
+					if (Model.AnswerManager.HasProgramReference(answer.ID))
+					{
+						<button asp-page="Programs" asp-route-programID="@Model.AnswerManager.GetProgramReference(answer.ID)" 
+						class="btn">@answer.Description</button>
+					}
+					else
+					{
+						<button class="btn" onclick="submitAnswer(@answer.ID)">@answer.Description</button>
+					}
 				}
-			</script>
-			@foreach (var answer in Model.question.answerManager.GetGetAllAnswersForQuestion(Model.question.QuestionManager.GetAllQuestions()[@Model.index]))
-			{
-					<button class="btn" onclick="submitAnswer(@answer.ID)">@answer.Description</button>
-			}
 			</form>
-			
 			<hr />
 		</div>
 	</div>

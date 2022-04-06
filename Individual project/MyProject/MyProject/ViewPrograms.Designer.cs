@@ -135,6 +135,7 @@
             this.btnRemoveReference.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnRemoveReference.UseAccentColor = false;
             this.btnRemoveReference.UseVisualStyleBackColor = true;
+            this.btnRemoveReference.Visible = false;
             this.btnRemoveReference.Click += new System.EventHandler(this.btnRemoveReference_Click);
             // 
             // questionManagerBindingSource

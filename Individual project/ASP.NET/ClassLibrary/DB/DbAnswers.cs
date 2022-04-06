@@ -67,7 +67,7 @@ namespace ClassLibrary.DB
             {
                 List<Answer> answers = new List<Answer>();
 
-                string sql = "SELECT * FROM answers WHERE question_id = @ID";
+                string sql = "SELECT id, question_id, description FROM answers WHERE question_id = @ID;";
                 var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", question.ID) });
 
                 while (rdr.Read())
@@ -75,17 +75,17 @@ namespace ClassLibrary.DB
                     var line = rdr;
                     if (line is not null)
                     {
-                        var programID = line?.GetFieldValue<System.DBNull>(3);
-                        if (programID is not System.DBNull)
-                        {
-                            answers.Add(new Answer(rdr.GetInt32("id"), rdr.GetInt32("question_id"),
-                                rdr.GetString("description"), Convert.ToInt32(programID)));
-                        }
-                        else
-                        {
+                        //var programID = line?.GetFieldValue<System.DBNull>(3);
+                        //if (programID is not System.DBNull)
+                        //{
+                        //    answers.Add(new Answer(rdr.GetInt32("id"), rdr.GetInt32("question_id"),
+                        //        rdr.GetString("description"), Convert.ToInt32(programID)));
+                        //}
+                        //else
+                        //{
                             answers.Add(new Answer(rdr.GetInt32("id"), rdr.GetInt32("question_id"),
                                 rdr.GetString("description")));
-                        }
+                        //}
                     }
                 }
                 rdr.Close();
@@ -97,7 +97,7 @@ namespace ClassLibrary.DB
         {
             using (var conn = Connection.OpenConn())
             {
-                string sql = "UPDATE answers SET program_id = @ProgramID WHERE id = @ID ";
+                string sql = "UPDATE answers SET program_id = @ProgramID WHERE id = @ID;";
                 MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ProgramID", programID),
                     new MySqlParameter("ID", answerID) });
             }
@@ -107,9 +107,41 @@ namespace ClassLibrary.DB
         {
             using (var conn = Connection.OpenConn())
             {
-                string sql = "UPDATE answers SET program_id = @ProgramID WHERE id = @ID ";
+                string sql = "UPDATE answers SET program_id = @ProgramID WHERE id = @ID;";
                 MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ProgramID", null),
                     new MySqlParameter("ID", answerID) });
+            }
+        }
+
+        public static bool HasReference(int answerID)
+        {
+            using (var conn = Connection.OpenConn())
+            {
+                string sql = "SELECT program_id FROM answers WHERE id = @ID;";
+                var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", answerID)});
+                while (rdr.Read())
+                {
+                    if (rdr.GetValue(0) is int)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+
+        public static int GetReferencedProgramID(int answerID)
+        {
+            using (var conn = Connection.OpenConn())
+            {
+                string sql = "SELECT program_id FROM answers WHERE id = @ID;";
+                var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", answerID) });
+                int id = -1;
+                while (rdr.Read())
+                {
+                    id = rdr.GetInt32(0);
+                }
+                return id;
             }
         }
     }

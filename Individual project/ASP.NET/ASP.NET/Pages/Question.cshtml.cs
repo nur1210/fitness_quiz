@@ -12,13 +12,21 @@ namespace ASP.NET.Pages
     [Authorize]
     public class QuestionModel : PageModel
     {        
-        private static QuestionViewModel model = new QuestionViewModel();
-        [BindProperty]
-        public QuestionViewModel question { get=> model; set=> model = value; }
-        public int index { get; set; }
+        [BindProperty] public int index { get; set; }
 		public static int seeder { get; set; } = 1;
-        [BindProperty]
-        public int AnswerID { get; set; }
+        [BindProperty] public int AnswerID { get; set; }
+
+        [BindProperty] public QuestionManager QuestionManager { get; set; }
+        [BindProperty] public AnswerManager AnswerManager { get; set; }
+        [BindProperty] public AnswerStatisticManager AnswerStatisticManager { get; set; }
+
+        public QuestionModel(QuestionManager qM, AnswerManager aM, AnswerStatisticManager aSM)
+        {
+            QuestionManager = qM;
+            AnswerManager = aM;
+            AnswerStatisticManager = aSM;
+        }
+
         public void OnGet()
         {
             if (HttpContext.User.Identity.IsAuthenticated)
@@ -30,22 +38,9 @@ namespace ASP.NET.Pages
         public void OnPost()
         {
             var answerID = AnswerID;
-            var questionID = question.QuestionManager.GetAllQuestions().ElementAt(index).ID;
+            var questionID = QuestionManager.GetAllQuestions().ElementAt(index).ID;
             //question.Statistics.AddAnswerStatistic(answerID, questionID);
             index = seeder++;
         }
-    }
-
-    public class QuestionViewModel
-    {
-        public QuestionManager QuestionManager { get; set; } = new QuestionManager();
-        public AnswerManager answerManager { get; set; } = new AnswerManager();
-        public AnswerStatisticManager Statistics { get; set; } = new AnswerStatisticManager();
-
-        public QuestionViewModel()
-        {
-
-        }
-
     }
 }

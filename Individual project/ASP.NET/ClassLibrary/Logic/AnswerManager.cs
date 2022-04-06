@@ -17,5 +17,7 @@ namespace ClassLibrary.Logic
         public List<Answer> GetGetAllAnswersForQuestion(Question q) => DbAnswers.GetAllAnswersForQuestion(q);
         public void AddProgramReference(int answerID, int programID) => DbAnswers.AddProgramReference(answerID, programID);
         public void RemoveProgramReference(int answerID) => DbAnswers.RemoveProgramReference(answerID);
+        public bool HasProgramReference(int answerID) => DbAnswers.HasReference(answerID);
+        public int GetProgramReference(int answerID) => DbAnswers.GetReferencedProgramID(answerID);
     }
 }

@@ -17,11 +17,13 @@ namespace MyProject
     {
         private int _programID;
         private AnswerManager answerManager = new AnswerManager();
-        private ProgramManager programManager = new ProgramManager();   
-        public UnassignProgramFromAnswer(int programID)
+        private ProgramManager programManager = new ProgramManager();
+        private ViewPrograms _viewPrograms;
+        public UnassignProgramFromAnswer(int programID, ViewPrograms vP)
         {
             InitializeComponent();
             _programID = programID;
+            _viewPrograms = vP;
             Refresh();
         }
 
@@ -37,7 +39,7 @@ namespace MyProject
 
         private void Refresh()
         {
-            var assignedAnswers = programManager.GetAllAnswersReferncedByProgram(programID);
+            var assignedAnswers = programManager.GetAllAnswersReferncedByProgram(_programID);
             lbxAssignedAnswers.DataSource = assignedAnswers;
             lbxAssignedAnswers.DisplayMember = "Description";
             lbxAssignedAnswers.ValueMember = "ID";
@@ -45,6 +47,7 @@ namespace MyProject
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            _viewPrograms.DisplayLabel();    
             this.Close();
         }
     }

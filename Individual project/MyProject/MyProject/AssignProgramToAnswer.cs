@@ -18,10 +18,12 @@ namespace MyProject
         private int _programID;
         private QuestionManager questionManager = new QuestionManager();
         private AnswerManager answerManager = new AnswerManager();
-        public AssignProgramToAnswer(int programID)
+        private ViewPrograms _viewPrograms;
+        public AssignProgramToAnswer(int programID, ViewPrograms vP)
         {
             InitializeComponent();
             _programID = programID;
+            _viewPrograms = vP;
             var questions = questionManager.GetAllQuestions();
             cbxQuestion.DataSource = questions;
             cbxQuestion.DisplayMember = "Description";
@@ -42,6 +44,7 @@ namespace MyProject
             {
                 var answerID = Convert.ToInt32(cbxAnswer.SelectedValue);
                 answerManager.AddProgramReference(answerID, _programID);
+                _viewPrograms.DisplayLabel();
                 this.Close();
             }
             

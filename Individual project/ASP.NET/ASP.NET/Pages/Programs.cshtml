@@ -1,0 +1,6 @@
+﻿@page
+@model ASP.NET.Pages.ProgramsModel
+@{
+	var program = Model.Program = Model.ProgramManager.GetProgramByID(Model.ProgramID);
+}
+<h1>@program.Description</h1>

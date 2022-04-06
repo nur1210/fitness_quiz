@@ -16,6 +16,11 @@ namespace ClassLibrary.Models
         public string Description { get => _description; set => _description = value; }
         public int TypeID { get => _typeID; set => _typeID = value; }
 
+        public TrainigProgram()
+        {
+
+        }
+
         public TrainigProgram(string description, int typeID)
         {
             _description = description;
