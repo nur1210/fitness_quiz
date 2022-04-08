@@ -15,10 +15,10 @@ namespace MyProject
 {
     public partial class AddExercises : MaterialForm
     {
-        private TrainigProgram _program;
+        private TrainingProgram _program;
         private ExerciseManager _exerciseManager;
         private ProgramManager _programManager;
-        public AddExercises(TrainigProgram program, ExerciseManager exerciseManager, ProgramManager programManager)
+        public AddExercises(TrainingProgram program, ExerciseManager exerciseManager, ProgramManager programManager)
         {
             InitializeComponent();
             _program = program;

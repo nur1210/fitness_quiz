@@ -83,8 +83,8 @@ namespace ClassLibrary.DB
                         //}
                         //else
                         //{
-                            answers.Add(new Answer(rdr.GetInt32("id"), rdr.GetInt32("question_id"),
-                                rdr.GetString("description")));
+                            answers.Add(new Answer(line.GetInt32(0), line.GetInt32(1),
+                                line.GetString(2)));
                         //}
                     }
                 }

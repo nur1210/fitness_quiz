@@ -12,12 +12,14 @@ namespace ASP.NET.Pages
         [BindProperty(SupportsGet = true)]
         public int ProgramID { get; set; }
 
-        [BindProperty] public TrainigProgram Program { get; set; }
+        [BindProperty] public TrainingProgram Program { get; set; }
         [BindProperty] public ProgramManager ProgramManager { get; set; }
-        public ProgramsModel(ProgramManager pM, TrainigProgram tP)
+        [BindProperty] public ExerciseManager ExerciseManager { get; set; }
+        public ProgramsModel(ProgramManager pM, TrainingProgram tP, ExerciseManager eM)
         {
             ProgramManager = pM;
             Program = tP;
+            ExerciseManager = eM;
         }
         public void OnGet()
         {

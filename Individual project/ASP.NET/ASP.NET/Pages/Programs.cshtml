@@ -3,4 +3,27 @@
 @{
 	var program = Model.Program = Model.ProgramManager.GetProgramByID(Model.ProgramID);
 }
-<h1>@program.Description</h1>
+
+<div class="program-form">
+		<h1>The quiz result shows @program.Description is the best program for you!</h1>
+		<h2>Here is your exercise list:</h2>
+	<div>
+		<table>
+			<tr>
+				<th>Exercise</th>
+				<th>Reps</th>
+				<th>Sets</th>
+			</tr>
+			@foreach (var exercise in Model.ExerciseManager.GetAllExercisesForProgram(program))
+			{
+				<tr>
+					<td>@exercise.Name</td>
+					<td>@exercise.Sets</td>
+					<td>@exercise.Reps</td>
+				</tr>
+			}
+		</table>
+
+	</div>
+
+</div>

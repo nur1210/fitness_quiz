@@ -10,12 +10,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
 
 namespace MyProject
 {
     public partial class AddProgram : MaterialForm
     {
-        private ProgramTypeManager manager = new ProgramTypeManager();
+        
+        private ProgramTypeManager _programTypeManager = new ProgramTypeManager();
         private ProgramManager _programManager;
         private ExerciseManager _exerciseManager;
         private ViewPrograms _viewPrograms;
@@ -25,21 +27,27 @@ namespace MyProject
             _programManager = programManager;
             _exerciseManager = exerciseManager;
             _viewPrograms = viewPrograms;
-            lblProgram.Text = $"Program number {_programManager.GetAllPrograms().Count+1}";
+            lblProgram.Text = $"Program number {_programManager.GetAllPrograms().Count + 1}";
 
-            var programs = manager.GetAllProgramTypes();
-            for (int i = 0; i < programs.Count; i++)
-            {
-                cbxType.Items.Add(programs[i].Name);
-            }
+            cbxType.DataSource = _programTypeManager.GetAllProgramTypes();
+            cbxType.DisplayMember = "Name";
+            cbxType.ValueMember = "ID";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string description = tbxDescription.Text;
-            int typeID = ++cbxType.SelectedIndex;
-            
-            TrainigProgram program = new TrainigProgram(description, typeID);
+            int typeID = Convert.ToInt32(cbxType.SelectedValue);
+            //Add map later?
+            TrainingProgram program = typeID switch
+            {
+                1 =>  new WeightLossProgram(description, typeID),
+                2 =>  new MuscleGainProgram(description, typeID),
+                3 =>  new StrenghtProgram(description, typeID),
+                4 => new BeActiveProgram(description, typeID),
+                _ => new BeActiveProgram(description, typeID)
+            };
+
             _programManager.AddProgram(program);
             AddExercises exercises = new AddExercises(program, _exerciseManager, _programManager);
             exercises.ShowDialog();

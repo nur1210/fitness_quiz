@@ -105,7 +105,7 @@ namespace MyProject
             if (i != -1)
             {
                 int programID = Convert.ToInt32(dgvPrograms.Rows[i].Cells[0].Value);
-                EditProgram edit = new EditProgram(_programManager.GetProgramByID(programID) ,_programManager, _exercisesManager);
+                EditProgram edit = new EditProgram(_programManager.GetProgramByID(programID) ,_programManager, _exercisesManager, this);
                 edit.Show();
                 edit.FormClosed += (s, args) => this.Show();
                 this.Hide();
@@ -141,10 +141,10 @@ namespace MyProject
 
         public void DisplayLabel()
         {
-            var i = dgvPrograms.CurrentCell.RowIndex;
-            if (i != -1)
+            int? i = dgvPrograms.CurrentCell?.RowIndex;
+            if (i is int idx && idx > -1)
             {
-                int programID = Convert.ToInt32(dgvPrograms.Rows[i].Cells[0].Value);
+                int programID = Convert.ToInt32(dgvPrograms.Rows[idx].Cells[0].Value);
                 var assignedAnswers = _programManager.GetAllAnswersReferncedByProgram(programID);
                 if (assignedAnswers.Count > 0)
                 {

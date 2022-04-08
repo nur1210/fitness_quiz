@@ -11,12 +11,12 @@ namespace ClassLibrary.Logic
 {
     public class ProgramManager
     {
-        public void AddProgram(TrainigProgram program) => DbPrograms.AddProgram(program);
-        public void EditProgram(TrainigProgram program) => DbPrograms.UpdateProgram(program);
-        public void RemoveProgram(TrainigProgram program) => DbPrograms.DeleteProgram(program);
-        public List<TrainigProgram> GetAllPrograms() => DbPrograms.GetAllPrograms();
+        public void AddProgram(TrainingProgram program) => DbPrograms.AddProgram(program);
+        public void EditProgram(TrainingProgram program) => DbPrograms.UpdateProgram(program);
+        public void RemoveProgram(TrainingProgram program) => DbPrograms.DeleteProgram(program);
+        public List<TrainingProgram> GetAllPrograms() => DbPrograms.GetAllPrograms();
         public int GetInsertedProgramID() => DbPrograms.GetInsertedProgramID();
-        public TrainigProgram GetProgramByID(int id) => DbPrograms.GetProgramByID(id);
+        public TrainingProgram GetProgramByID(int id) => DbPrograms.GetProgramByID(id);
         public List<Answer> GetAllAnswersReferncedByProgram(int programID) => DbPrograms.GetAllAnswersReferncedByProgram(programID);
 
     }

@@ -60,7 +60,7 @@ namespace ClassLibrary.DB
             }
         }
 
-        public static List<Exercise> GetAllExercisesForProgram(TrainigProgram program)
+        public static List<Exercise> GetAllExercisesForProgram(TrainingProgram program)
         {
             using (var conn = Connection.OpenConn())
             {

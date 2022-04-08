@@ -114,5 +114,10 @@ namespace MyProject
             }
         }
 
+        private void Login_Load(object sender, EventArgs e)
+        {
+            tbxEmail.Text = "nur@gmail.com";
+            tbxPassword.Text = "password";
+        }
     }
 }

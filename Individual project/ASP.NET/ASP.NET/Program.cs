@@ -18,9 +18,11 @@ builder.Services.AddSingleton<UserViewManager>();
 builder.Services.AddSingleton<UserManager>();
 builder.Services.AddSingleton<QuestionManager>();
 builder.Services.AddSingleton<AnswerManager>();
+builder.Services.AddSingleton<ExerciseManager>();
 builder.Services.AddSingleton<ProgramManager>();
 builder.Services.AddSingleton<AnswerStatisticManager>();
-builder.Services.AddSingleton<TrainigProgram>();
+builder.Services.AddSingleton<TrainingProgram>();
+
 
 
 

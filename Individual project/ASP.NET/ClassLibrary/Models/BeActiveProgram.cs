@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.Models
 {
-    public class BeActiveProgram : TrainigProgram
+    public class BeActiveProgram : TrainingProgram
     {
+        public BeActiveProgram( string description, int typeID, int id = 0) : base(id, description, typeID)
+        {
+            RestBetweenSets = 45;
+            RepRange = Enumerable.Range(15, 5);
+            AgeRange = Enumerable.Range(0, 101);
+        }
 
+        public override string GetName()
+        {
+            return "Be active";
+        }
     }
 }

@@ -15,38 +15,53 @@ namespace MyProject
 {
     public partial class EditProgram : MaterialForm
     {
-        private TrainigProgram _program;
+        private TrainingProgram _program;
         private ProgramManager _programManager;
         private ExerciseManager _exerciseManager;
-        private ProgramTypeManager manager = new ProgramTypeManager();
+        private ProgramTypeManager _programTypeManager = new ProgramTypeManager();
+        private ViewPrograms _viewPrograms;
 
-        public EditProgram(TrainigProgram program, ProgramManager pM, ExerciseManager eM)
+        public EditProgram(TrainingProgram program, ProgramManager pM, ExerciseManager eM, ViewPrograms vP)
         {
             InitializeComponent();
             _program = program;
             _programManager = pM;
             _exerciseManager = eM;
+            _viewPrograms = vP;
 
             lblProgram.Text = $"Program Number {_program.ID}";
 
-            var programs = manager.GetAllProgramTypes();
-            for (int i = 0; i < programs.Count; i++)
-            {
-                cbxType.Items.Add(programs[i].Name);
-            }
+            cbxType.DataSource = _programTypeManager.GetAllProgramTypes();
+            cbxType.DisplayMember = "Name";
+            cbxType.ValueMember = "ID";
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             _program.Description = tbxDescription.Text;
-            _program.TypeID = ++cbxType.SelectedIndex;
+            _program.TypeID = Convert.ToInt32(cbxType.SelectedValue);
+            _program = _program.TypeID switch
+            {
+                1 => _program.ToBeWeightLossProgram(),
+                2 => _program.ToBeMuscleGainProgram(),
+                3 => _program.ToBeStrengthProgram(),
+                4 => _program.ToBeActiveProgram(),
+                _ => _program
+            };
             _programManager.EditProgram(_program);
+            this.Close();
         }
 
         private void EditProgram_Load(object sender, EventArgs e)
         {
             tbxDescription.Text = _program.Description;
-            cbxType.SelectedIndex = (_program.TypeID-1);
+            foreach (var type in _programTypeManager.GetAllProgramTypes())
+            {
+                if (_program.TypeID == type.ID)
+                {
+                    cbxType.SelectedValue = type.ID;
+                }
+            }
             Refresh();
         }
 
@@ -75,6 +90,14 @@ namespace MyProject
             lbxExercises.DataSource = exercises;
             lbxExercises.DisplayMember = "Name";
             lbxExercises.ValueMember = "ID";
+        }
+
+        public IEnumerable<string> GetAllProgramNames()
+        {
+            foreach (var value in Enum.GetValues(typeof(ProgramType)))
+            {
+                yield return Enum.GetName(typeof(ProgramType), value)!;
+            }
         }
     }
 }

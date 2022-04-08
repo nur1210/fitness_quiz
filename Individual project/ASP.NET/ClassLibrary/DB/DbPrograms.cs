@@ -11,25 +11,31 @@ namespace ClassLibrary.DB
 {
     public static class DbPrograms
     {
-        public static void AddProgram(TrainigProgram program)
+        public static void AddProgram(TrainingProgram program)
         {
             using (var conn = Connection.OpenConn())
             {
-                string sql = "INSERT INTO programs (description, type_id) VALUES (@Description, @TypeID)";
-                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("Description", program.Description), new MySqlParameter("TypeID", program.TypeID) });
+                string sql = "INSERT INTO programs (description, program_type, rest_between_sets, min_age, max_age) VALUES (@Description, @Type, @Rest, @MinAge, @MaxAge)";
+                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("Description", program.Description), 
+                    new MySqlParameter("Type", program.TypeID), new MySqlParameter("Rest", program.RestBetweenSets), 
+                    new MySqlParameter("MinAge", program.AgeRange.Min()), new MySqlParameter("MaxAge", program.AgeRange.Max()) });
             }
         }
 
-        public static void UpdateProgram(TrainigProgram program)
+        public static void UpdateProgram(TrainingProgram program)
         {
             using (var conn = Connection.OpenConn())
             {
-                string sql = "UPDATE programs SET description = @Description, type_id = @TypeID WHERE id = @ID ";
-                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("Description", program.Description), new MySqlParameter("TypeID", program.TypeID), new MySqlParameter("ID", program.ID) });
+                string sql = "UPDATE programs SET description = @Description, program_type = @Type, rest_between_sets = @Rest, " +
+                    "min_age = @MinAge, max_age = @MaxAge WHERE id = @ID ";
+                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("Description", program.Description),
+                    new MySqlParameter("Type", program.TypeID), new MySqlParameter("Rest", program.RestBetweenSets), 
+                    new MySqlParameter("MinAge", program.AgeRange.Min()), new MySqlParameter("MaxAge", program.AgeRange.Max()), 
+                    new MySqlParameter("ID", program.ID) });
             }
         }
 
-        public static void DeleteProgram(TrainigProgram program)
+        public static void DeleteProgram(TrainingProgram program)
         {
             using (var conn = Connection.OpenConn())
             {
@@ -38,13 +44,13 @@ namespace ClassLibrary.DB
             }
         }
 
-        public static List<TrainigProgram> GetAllPrograms()
+        public static List<TrainingProgram> GetAllPrograms()
         {
-            List<TrainigProgram> list = new List<TrainigProgram>();
+            List<TrainingProgram> list = new List<TrainingProgram>();
 
             using (var conn = Connection.OpenConn())
             {
-                string sql = "SELECT * FROM programs ORDER BY id;";
+                string sql = "SELECT id, description, program_type FROM programs ORDER BY id;";
                 var rdr = MySqlHelper.ExecuteReader(conn, sql);
 
                 while (rdr.Read())
@@ -52,7 +58,7 @@ namespace ClassLibrary.DB
                     var line = rdr;
                     if (line is not null)
                     {
-                        list.Add(new TrainigProgram(rdr.GetInt32(0), rdr.GetString(1), rdr.GetInt32(2)));
+                        list.Add(new TrainingProgram(rdr.GetInt32(0), rdr.GetString(1), rdr.GetInt32(2)));
                     }
                 }
                 rdr.Close();
@@ -75,18 +81,18 @@ namespace ClassLibrary.DB
             }
         }
 
-        public static TrainigProgram GetProgramByID(int programID)
+        public static TrainingProgram GetProgramByID(int programID)
         {
             using (var conn = Connection.OpenConn())
             {
-                string sql = "SELECT * FROM programs WHERE id = @ID";
+                string sql = "SELECT id, description, program_type FROM programs WHERE id = @ID";
                 var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", programID) });
 
                 while (rdr.Read())
                 {
                     if (rdr is not null)
                     {
-                        return new TrainigProgram(rdr.GetInt32(0), rdr.GetString(1), rdr.GetInt32(2));
+                        return new TrainingProgram(rdr.GetInt32(0), rdr.GetString(1), rdr.GetInt32(2));
                     }
                 }
                 return null;
