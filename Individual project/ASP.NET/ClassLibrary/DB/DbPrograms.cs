@@ -105,7 +105,7 @@ namespace ClassLibrary.DB
 
             using (var conn = Connection.OpenConn())
             {
-                string sql = "SELECT a.id, a.question_id, a.description, a.program_id FROM answers as a inner join programs as p " +
+                string sql = "SELECT a.id, a.question_id, a.description, a.program_id FROM question_options as a inner join programs as p " +
                     "on a.program_id = p.id WHERE p.id = @ID;";
                 var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] {new MySqlParameter("ID", programID)});
 

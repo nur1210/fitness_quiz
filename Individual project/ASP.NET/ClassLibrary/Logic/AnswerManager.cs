@@ -13,7 +13,7 @@ namespace ClassLibrary.Logic
         public void AddAnswer(Answer a) => DbAnswers.AddAnswer(a);
         public void RemoveAnswer(Answer a) => DbAnswers.DeleteAnswer(a);
         public void EditAnswer(Answer a) => DbAnswers.UpdateAnswer(a);
-        public List<Answer> GetAllAnswers() => DbAnswers.GetAllAnsers();
+        public List<Answer> GetAllAnswers() => DbAnswers.GetAllAnswers();
         public List<Answer> GetGetAllAnswersForQuestion(Question q) => DbAnswers.GetAllAnswersForQuestion(q);
         public void AddProgramReference(int answerID, int programID) => DbAnswers.AddProgramReference(answerID, programID);
         public void RemoveProgramReference(int answerID) => DbAnswers.RemoveProgramReference(answerID);

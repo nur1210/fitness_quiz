@@ -105,7 +105,7 @@
             // 
             this.lblTotalQuestions.AutoSize = true;
             this.lblTotalQuestions.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotalQuestions.Location = new System.Drawing.Point(222, 249);
+            this.lblTotalQuestions.Location = new System.Drawing.Point(223, 122);
             this.lblTotalQuestions.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalQuestions.Name = "lblTotalQuestions";
             this.lblTotalQuestions.Size = new System.Drawing.Size(147, 28);
@@ -116,7 +116,7 @@
             // 
             this.lblTotalPrograms.AutoSize = true;
             this.lblTotalPrograms.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotalPrograms.Location = new System.Drawing.Point(222, 315);
+            this.lblTotalPrograms.Location = new System.Drawing.Point(223, 195);
             this.lblTotalPrograms.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalPrograms.Name = "lblTotalPrograms";
             this.lblTotalPrograms.Size = new System.Drawing.Size(148, 28);
@@ -127,7 +127,7 @@
             // 
             this.lblTotalUsers.AutoSize = true;
             this.lblTotalUsers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotalUsers.Location = new System.Drawing.Point(222, 378);
+            this.lblTotalUsers.Location = new System.Drawing.Point(223, 258);
             this.lblTotalUsers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalUsers.Name = "lblTotalUsers";
             this.lblTotalUsers.Size = new System.Drawing.Size(107, 28);

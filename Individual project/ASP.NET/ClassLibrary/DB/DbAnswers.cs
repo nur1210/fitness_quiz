@@ -15,7 +15,7 @@ namespace ClassLibrary.DB
         {
             using (var conn = Connection.OpenConn())
             {
-                string sql = "INSERT INTO answers(`question_id`, `description`) VALUES (@QuestionID, @Description)";
+                string sql = "INSERT INTO question_options(`question_id`, `description`) VALUES (@QuestionID, @Description)";
                 MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("QuestionID", answer.QuestionId), new MySqlParameter("Description", answer.Description) });
             }
         }
@@ -24,7 +24,7 @@ namespace ClassLibrary.DB
         {
             using (var conn = Connection.OpenConn())
             {
-                string sql = "UPDATE answers SET description = @Description WHERE id = @ID ";
+                string sql = "UPDATE question_options SET description = @Description WHERE id = @ID ";
                 MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("Description", answer.Description), new MySqlParameter("ID", answer.ID) });
             }
         }
@@ -33,18 +33,18 @@ namespace ClassLibrary.DB
         {
             using (var conn = Connection.OpenConn())
             {
-                string sql = "DELETE FROM answers WHERE id = @ID";
+                string sql = "DELETE FROM question_options WHERE id = @ID";
                 MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", answer.ID) });
             }
         }
 
-        public static List<Answer> GetAllAnsers()
+        public static List<Answer> GetAllAnswers()
         {
             using (var conn = Connection.OpenConn())
             {
                 List<Answer> list = new List<Answer>();
 
-                string sql = "SELECT * FROM answers ORDER BY id;";
+                string sql = "SELECT * FROM question_options ORDER BY id;";
                 var rdr = MySqlHelper.ExecuteReader(conn, sql);
 
                 while (rdr.Read())
@@ -67,7 +67,7 @@ namespace ClassLibrary.DB
             {
                 List<Answer> answers = new List<Answer>();
 
-                string sql = "SELECT id, question_id, description FROM answers WHERE question_id = @ID;";
+                string sql = "SELECT id, question_id, description FROM question_options WHERE question_id = @ID;";
                 var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", question.ID) });
 
                 while (rdr.Read())
@@ -97,7 +97,7 @@ namespace ClassLibrary.DB
         {
             using (var conn = Connection.OpenConn())
             {
-                string sql = "UPDATE answers SET program_id = @ProgramID WHERE id = @ID;";
+                string sql = "UPDATE question_options SET program_id = @ProgramID WHERE id = @ID;";
                 MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ProgramID", programID),
                     new MySqlParameter("ID", answerID) });
             }
@@ -107,7 +107,7 @@ namespace ClassLibrary.DB
         {
             using (var conn = Connection.OpenConn())
             {
-                string sql = "UPDATE answers SET program_id = @ProgramID WHERE id = @ID;";
+                string sql = "UPDATE question_options SET program_id = @ProgramID WHERE id = @ID;";
                 MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ProgramID", null),
                     new MySqlParameter("ID", answerID) });
             }
@@ -117,7 +117,7 @@ namespace ClassLibrary.DB
         {
             using (var conn = Connection.OpenConn())
             {
-                string sql = "SELECT program_id FROM answers WHERE id = @ID;";
+                string sql = "SELECT program_id FROM question_options WHERE id = @ID;";
                 var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", answerID)});
                 while (rdr.Read())
                 {
@@ -134,7 +134,7 @@ namespace ClassLibrary.DB
         {
             using (var conn = Connection.OpenConn())
             {
-                string sql = "SELECT program_id FROM answers WHERE id = @ID;";
+                string sql = "SELECT program_id FROM question_options WHERE id = @ID;";
                 var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", answerID) });
                 int id = -1;
                 while (rdr.Read())

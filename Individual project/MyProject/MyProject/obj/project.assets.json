@@ -941,9 +941,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\MyProject\\MyProject\\MyProject.csproj",
-      "projectName": "MyProject",
-      "projectPath": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\MyProject\\MyProject\\MyProject.csproj",
+      "projectUniqueName": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\MyProject\\MyProject\\WinFormApp.csproj",
+      "projectName": "WinFormApp",
+      "projectPath": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\MyProject\\MyProject\\WinFormApp.csproj",
       "packagesPath": "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\MyProject\\MyProject\\obj\\",
       "projectStyle": "PackageReference",

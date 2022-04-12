@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kwuutG2sxcm2FSnM3z6GUiqEO/+D+AaJ1DHzE3RQT5ciW5ghGp9pBNDtMH749LDzKK2unOS9abfQj/UIdIg4sA==",
+  "dgSpecHash": "Eo5N2Q6eDdbiPaT51zcQkQAE4yZN1ECKDs9kfJRNOYvcSirteuW07hdCBgG2KRY69IoiNV7DP8qSBg6IQldeZQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\MyProject\\MyProject\\MyProject.csproj",
+  "projectFilePath": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\MyProject\\MyProject\\WinFormApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",

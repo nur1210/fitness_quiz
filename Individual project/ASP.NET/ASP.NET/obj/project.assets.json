@@ -909,9 +909,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ASP.NET\\ASP.NET.csproj",
-      "projectName": "ASP.NET",
-      "projectPath": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ASP.NET\\ASP.NET.csproj",
+      "projectUniqueName": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ASP.NET\\WebApp.csproj",
+      "projectName": "WebApp",
+      "projectPath": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ASP.NET\\WebApp.csproj",
       "packagesPath": "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ASP.NET\\obj\\",
       "projectStyle": "PackageReference",

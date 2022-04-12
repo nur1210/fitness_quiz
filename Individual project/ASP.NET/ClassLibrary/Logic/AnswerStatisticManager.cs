@@ -9,6 +9,6 @@ namespace ClassLibrary.Logic
 {
     public class AnswerStatisticManager
     {
-        public void AddAnswerStatistic(int answerID, int questionID) => DbAnswersStatistics.AddAnswerStatistic(answerID, questionID);
+        public void AddAnswerStatistic(int userID, int answerID, int questionID) => DbAnswersStatistics.AddAnswerStatistic(userID ,answerID, questionID);
     }
 }

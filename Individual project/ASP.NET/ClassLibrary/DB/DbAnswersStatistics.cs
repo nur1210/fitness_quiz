@@ -10,12 +10,12 @@ namespace ClassLibrary.DB
 {
     public static class DbAnswersStatistics
     {
-        public static void AddAnswerStatistic(int answerID, int questionID)
+        public static void AddAnswerStatistic(int userID,int answerID, int questionID)
         {
             using (var conn = Connection.OpenConn())
             {
-                string sql = "INSERT INTO answers_statistics (`answer_id`, `question_id`) VALUES (@AnswerID, @QuestionID)";
-                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("AnswerID", answerID), new MySqlParameter("QuestionID", questionID) });
+                string sql = "INSERT INTO answers_statistics (user_id ,answer_id, question_id) VALUES (@UserID, @AnswerID, @QuestionID)";
+                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] {new MySqlParameter("UserID", userID) ,new MySqlParameter("AnswerID", answerID), new MySqlParameter("QuestionID", questionID) });
             }
         }
     }

@@ -35,7 +35,10 @@
             this.btnAssign = new MaterialSkin.Controls.MaterialButton();
             this.lblQuestion = new MaterialSkin.Controls.MaterialLabel();
             this.lblAnswer = new MaterialSkin.Controls.MaterialLabel();
+            this.nudScore = new System.Windows.Forms.NumericUpDown();
+            this.lblScore = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.questionManagerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudScore)).BeginInit();
             this.SuspendLayout();
             // 
             // cbxQuestion
@@ -97,7 +100,7 @@
             this.btnAssign.Depth = 0;
             this.btnAssign.HighEmphasis = true;
             this.btnAssign.Icon = null;
-            this.btnAssign.Location = new System.Drawing.Point(117, 326);
+            this.btnAssign.Location = new System.Drawing.Point(105, 382);
             this.btnAssign.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAssign.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAssign.Name = "btnAssign";
@@ -134,11 +137,48 @@
             this.lblAnswer.TabIndex = 4;
             this.lblAnswer.Text = "Pick an answer";
             // 
+            // nudScore
+            // 
+            this.nudScore.Location = new System.Drawing.Point(105, 346);
+            this.nudScore.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.nudScore.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudScore.Name = "nudScore";
+            this.nudScore.ReadOnly = true;
+            this.nudScore.Size = new System.Drawing.Size(136, 27);
+            this.nudScore.TabIndex = 5;
+            this.nudScore.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Depth = 0;
+            this.lblScore.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblScore.Location = new System.Drawing.Point(76, 312);
+            this.lblScore.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(125, 19);
+            this.lblScore.TabIndex = 6;
+            this.lblScore.Text = "Coresponding 1-5";
+            // 
             // AssignProgramToAnswer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 450);
+            this.Controls.Add(this.lblScore);
+            this.Controls.Add(this.nudScore);
             this.Controls.Add(this.lblAnswer);
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.btnAssign);
@@ -148,6 +188,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AssignPragramToAnswer";
             ((System.ComponentModel.ISupportInitialize)(this.questionManagerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudScore)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,5 +202,7 @@
         private MaterialSkin.Controls.MaterialButton btnAssign;
         private MaterialSkin.Controls.MaterialLabel lblQuestion;
         private MaterialSkin.Controls.MaterialLabel lblAnswer;
+        private NumericUpDown nudScore;
+        private MaterialSkin.Controls.MaterialLabel lblScore;
     }
 }
