@@ -1,18 +1,20 @@
+using Logic.Managers;
 using MaterialSkin;
 using MaterialSkin.Controls;
-using Logic.Managers;
 
 namespace MyProject
 {
     public partial class MainForm : MaterialForm
     {
-        private QuestionManager _questionManager;
-        private AnswerManager _answerManager;
-        private ProgramManager _programManager;
-        private ExerciseManager _exerciseManager;
-        private UserManager _userManager;
-        private UserViewManager _userViewManager;
-        public MainForm(AnswerManager answerManager, ExerciseManager exerciseManager, QuestionManager questionManager, ProgramManager programManager, UserManager userManager, UserViewManager userViewManager)
+        private readonly QuestionManager _questionManager;
+        private readonly AnswerManager _answerManager;
+        private readonly ProgramManager _programManager;
+        private readonly ExerciseManager _exerciseManager;
+        private readonly UserManager _userManager;
+        private readonly UserViewManager _userViewManager;
+        private readonly ProgramTypeManager _programTypeManager;
+
+        public MainForm(AnswerManager answerManager, ExerciseManager exerciseManager, QuestionManager questionManager, ProgramManager programManager, UserManager userManager, UserViewManager userViewManager, ProgramTypeManager programTypeManager)
         {
             _answerManager = answerManager;
             _exerciseManager = exerciseManager;
@@ -20,6 +22,7 @@ namespace MyProject
             _programManager = programManager;
             _userManager = userManager;
             _userViewManager = userViewManager;
+            _programTypeManager = programTypeManager;
             InitializeComponent();
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -33,26 +36,26 @@ namespace MyProject
 
         private void btnViewQuestion_Click(object sender, EventArgs e)
         {
-            ViewQuestions view = new ViewQuestions(this._questionManager, this._answerManager);
+            ViewQuestions view = new ViewQuestions(_questionManager, _answerManager);
             view.Show();
-            view.FormClosed += (s, args) => this.Show();
-            this.Hide();
+            view.FormClosed += (_, _) => Show();
+            Hide();
         }
 
         private void btnViewPrograms_Click(object sender, EventArgs e)
         {
-            ViewPrograms view = new ViewPrograms(_programManager, _exerciseManager);
+            ViewPrograms view = new ViewPrograms(_programManager, _exerciseManager, _programTypeManager);
             view.Show();
-            view.FormClosed += (s, args) => this.Show();
-            this.Hide();
+            view.FormClosed += (_, _) => Show();
+            Hide();
         }
 
         private void btnViewUsers_Click_1(object sender, EventArgs e)
         {
             ViewUsers view = new ViewUsers(_userViewManager,_userManager);
             view.Show();
-            view.FormClosed += (s, args) => this.Show();
-            this.Hide();
+            view.FormClosed += (_, _) => Show();
+            Hide();
         }
     }
 }

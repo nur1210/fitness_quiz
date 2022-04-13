@@ -15,9 +15,9 @@ namespace MyProject
 {
     public partial class AddQuestion : MaterialForm
     {
-        private QuestionManager _questionManager;
-        private AnswerManager _answerManager;
-        private ViewQuestions _viewQuestions;
+        private readonly QuestionManager _questionManager;
+        private readonly AnswerManager _answerManager;
+        private readonly ViewQuestions _viewQuestions;
         public AddQuestion(QuestionManager questionManager, AnswerManager answerManager, ViewQuestions viewQuestions)
         {
             InitializeComponent();
@@ -51,7 +51,7 @@ namespace MyProject
             _answerManager.AddAnswer(a4);
 
             _viewQuestions.UpdateDataGridView();
-            this.Close();
+            Close();
         }
     }
 }

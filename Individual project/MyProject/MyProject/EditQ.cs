@@ -15,10 +15,10 @@ namespace MyProject
 {
     public partial class EditQ : MaterialForm
     {
-        private Question _question;
-        private AnswerManager _answerManager;
-        private QuestionManager _questionManager;
-        private ViewQuestions _viewQuestion;
+        private readonly Question _question;
+        private readonly AnswerManager _answerManager;
+        private readonly QuestionManager _questionManager;
+        private readonly ViewQuestions _viewQuestion;
 
         public EditQ(Question question, AnswerManager answerManager, QuestionManager questionManager, ViewQuestions viewQuestion)
         {
@@ -74,7 +74,7 @@ namespace MyProject
                 _answerManager.EditAnswer(answerList[i]);
             }
             _viewQuestion.UpdateDataGridView();
-            this.Close();
+            Close();
         }
     }
 }

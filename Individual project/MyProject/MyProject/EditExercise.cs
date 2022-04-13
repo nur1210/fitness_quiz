@@ -15,14 +15,14 @@ namespace MyProject
 {
     public partial class EditExercise : MaterialForm
     {
-        private Exercise _exercise;
-        private ExerciseManager exerciseManager;
-        private EditProgram _editProgram;
+        private readonly Exercise _exercise;
+        private readonly ExerciseManager _exerciseManager;
+        private readonly EditProgram _editProgram;
         public EditExercise(Exercise e, ExerciseManager eM, EditProgram ep)
         {
             InitializeComponent();
             _exercise = e;
-            exerciseManager = eM;
+            _exerciseManager = eM;
             _editProgram = ep;
         }
 
@@ -39,9 +39,9 @@ namespace MyProject
             _exercise.Reps = Convert.ToInt32(tbxReps.Text);
             _exercise.Sets = Convert.ToInt32(tbxSets.Text);
 
-            exerciseManager.EditExercise(_exercise);
+            _exerciseManager.EditExercise(_exercise);
             _editProgram.Refresh();
-            this.Close();
+            Close();
         }
     }
 }

@@ -16,12 +16,10 @@ namespace MyProject
 {
     public partial class AddProgram : MaterialForm
     {
-        
-        private ProgramTypeManager _programTypeManager;
-        private ProgramManager _programManager;
-        private ExerciseManager _exerciseManager;
-        private ViewPrograms _viewPrograms;
-        public AddProgram(ProgramManager programManager, ExerciseManager exerciseManager, ViewPrograms viewPrograms)
+        private readonly ProgramManager _programManager;
+        private readonly ExerciseManager _exerciseManager;
+        private readonly ViewPrograms _viewPrograms;
+        public AddProgram(ProgramManager programManager, ExerciseManager exerciseManager, ViewPrograms viewPrograms, ProgramTypeManager programTypeManager)
         {
             InitializeComponent();
             _programManager = programManager;
@@ -29,7 +27,7 @@ namespace MyProject
             _viewPrograms = viewPrograms;
             lblProgram.Text = $"Program number {_programManager.GetAllPrograms().Count + 1}";
 
-            cbxType.DataSource = _programTypeManager.GetAllProgramTypes();
+            cbxType.DataSource = programTypeManager.GetAllProgramTypes();
             cbxType.DisplayMember = "Name";
             cbxType.ValueMember = "ID";
         }
@@ -49,7 +47,7 @@ namespace MyProject
             };
 
             _programManager.AddProgram(program);
-            AddExercises exercises = new AddExercises(program, _exerciseManager, _programManager);
+            AddExercises exercises = new AddExercises(_exerciseManager, _programManager);
             exercises.ShowDialog();
             tbxDescription.Clear();
             cbxType.SelectedIndex = -1;

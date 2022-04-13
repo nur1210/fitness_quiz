@@ -17,18 +17,17 @@ namespace MyProject
     public partial class EditProgram : MaterialForm
     {
         private TrainingProgram _program;
-        private ProgramManager _programManager;
-        private ExerciseManager _exerciseManager;
-        private ProgramTypeManager _programTypeManager;
-        private ViewPrograms _viewPrograms;
+        private readonly ProgramManager _programManager;
+        private readonly ExerciseManager _exerciseManager;
+        private readonly ProgramTypeManager _programTypeManager;
 
-        public EditProgram(TrainingProgram program, ProgramManager pM, ExerciseManager eM, ViewPrograms vP)
+        public EditProgram(TrainingProgram program, ProgramManager pM, ExerciseManager eM, ProgramTypeManager programTypeManager)
         {
             InitializeComponent();
             _program = program;
             _programManager = pM;
             _exerciseManager = eM;
-            _viewPrograms = vP;
+            _programTypeManager = programTypeManager;
 
             lblProgram.Text = $"Program Number {_program.ID}";
 
@@ -85,7 +84,7 @@ namespace MyProject
             edit.Show();
         }
 
-        public void Refresh()
+        public override void Refresh()
         {
             var exercises = _exerciseManager.GetAllExercisesForProgram(_program);
             lbxExercises.DataSource = exercises;

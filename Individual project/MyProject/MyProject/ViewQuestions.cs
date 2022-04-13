@@ -15,16 +15,16 @@ namespace MyProject
 {
     public partial class ViewQuestions : MaterialForm
     {
-        private QuestionManager _questionManager;
-        private AnswerManager _answerManager;
-        BindingSource bindingSourceQuestions = new BindingSource(); 
-        BindingSource bindingSourceAnswers = new BindingSource(); 
+        private readonly QuestionManager _questionManager;
+        private readonly AnswerManager _answerManager;
+        private readonly BindingSource _bindingSourceQuestions = new();
+        private readonly BindingSource _bindingSourceAnswers = new();
 
         public ViewQuestions(QuestionManager qM, AnswerManager aM)
         {
             InitializeComponent();
             _answerManager = aM;
-            _questionManager = qM;   
+            _questionManager = qM;
         }
 
 
@@ -39,15 +39,10 @@ namespace MyProject
             if (i != -1)
             {
                 int questionID = Convert.ToInt32(dgvQuestions.Rows[i].Cells[0].Value);
-                EditQ edit = new EditQ(_questionManager.GetQuestionByID(questionID), this._answerManager, this._questionManager, this);
+                EditQ edit = new EditQ(_questionManager.GetQuestionByID(questionID), _answerManager, _questionManager, this);
                 edit.Show();
             }
 
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -63,21 +58,17 @@ namespace MyProject
 
         public void UpdateDataGridView()
         {
-            //I will clean it and move it to a diffrent class later on
+            //I will clean it and move it to a different class later on
             DataSet ds = DGVFunctions.CreateQuestionSchema();
             DataTable questions = ds.Tables["Question"];
             DataTable answers = ds.Tables["Answer"];
-            bindingSourceQuestions.DataSource = ds;
-            bindingSourceAnswers.DataSource = ds;
-            bindingSourceQuestions.DataMember = questions.TableName;
-            bindingSourceAnswers.DataMember = answers.TableName;
+            _bindingSourceQuestions.DataSource = ds;
+            _bindingSourceAnswers.DataSource = ds;
+            _bindingSourceQuestions.DataMember = questions.TableName;
+            _bindingSourceAnswers.DataMember = answers.TableName;
 
-            List<DataRow> rows = new List<DataRow>();
             var questionsList = _questionManager.GetAllQuestions();
-            for (int i = 0; i < questionsList.Count; i++)
-            {
-                rows.Add(questions.Rows.Add(questionsList[i].ID, questionsList[i].Description));
-            }
+            List<DataRow> rows = questionsList.Select(t => questions.Rows.Add(t.ID, t.Description)).ToList();
             foreach (var question in questionsList)
             {
                 var answersList = _answerManager.GetGetAllAnswersForQuestion(question);
@@ -87,13 +78,13 @@ namespace MyProject
                 }
             }
 
-            dgvQuestions.DataSource = bindingSourceQuestions;
+            dgvQuestions.DataSource = _bindingSourceQuestions;
             dgvQuestions.AutoGenerateColumns = true;
             dgvQuestions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            bindingSourceAnswers.DataSource = bindingSourceQuestions;
-            bindingSourceAnswers.DataMember = "Question_Answer";
-            lbxQuestions.DataSource = bindingSourceAnswers;
+            _bindingSourceAnswers.DataSource = _bindingSourceQuestions;
+            _bindingSourceAnswers.DataMember = "Question_Answer";
+            lbxQuestions.DataSource = _bindingSourceAnswers;
             lbxQuestions.DisplayMember = "Description";
         }
 
@@ -101,8 +92,8 @@ namespace MyProject
         {
             AddQuestion add = new AddQuestion(_questionManager, _answerManager, this);
             add.Show();
-            add.Closed += (s, args) => this.Show();
-            this.Hide();
+            add.Closed += (_, _) => Show();
+            Hide();
         }
     }
 }

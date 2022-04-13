@@ -15,13 +15,11 @@ namespace MyProject
 {
     public partial class AddExercises : MaterialForm
     {
-        private TrainingProgram _program;
-        private ExerciseManager _exerciseManager;
-        private ProgramManager _programManager;
-        public AddExercises(TrainingProgram program, ExerciseManager exerciseManager, ProgramManager programManager)
+        private readonly ExerciseManager _exerciseManager;
+        private readonly ProgramManager _programManager;
+        public AddExercises(ExerciseManager exerciseManager, ProgramManager programManager)
         {
             InitializeComponent();
-            _program = program;
             _exerciseManager = exerciseManager;
             _programManager = programManager;
             this.Text = $"Exercises for program number {_programManager.GetInsertedProgramID()}";

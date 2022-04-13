@@ -1,28 +1,23 @@
-﻿using MaterialSkin.Controls;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 using Logic.Managers;
+using MaterialSkin.Controls;
 
 namespace MyProject
 {
     public partial class ViewPrograms : MaterialForm
     {
-        BindingSource bindingSourcePrograms = new BindingSource();
-        BindingSource bindingSourceExercises = new BindingSource();
-        private ProgramManager _programManager;
-        private ExerciseManager _exercisesManager;
-        public ViewPrograms(ProgramManager pM, ExerciseManager eM)
+        private readonly BindingSource _bindingSourcePrograms = new();
+        private readonly BindingSource _bindingSourceExercises = new();
+        private readonly ProgramManager _programManager;
+        private readonly ExerciseManager _exercisesManager;
+        private readonly ProgramTypeManager _programTypeManager;
+
+        public ViewPrograms(ProgramManager pM, ExerciseManager eM, ProgramTypeManager pTM)
         {
             InitializeComponent();
             _programManager = pM;
             _exercisesManager = eM;
+            _programTypeManager = pTM;
         }
 
         private void ViewPrograms_Load(object sender, EventArgs e)
@@ -32,10 +27,10 @@ namespace MyProject
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddProgram add = new AddProgram(_programManager, _exercisesManager, this);
+            AddProgram add = new AddProgram(_programManager, _exercisesManager, this, _programTypeManager);
             add.Show();
-            add.FormClosed += (s, args) => this.Show();
-            this.Hide();
+            add.FormClosed += (_, _) => Show();
+            Hide();
         }
 
         public void UpdateDataGridView()
@@ -44,10 +39,10 @@ namespace MyProject
             DataSet ds = CreateQuestionSchema();
             DataTable programs = ds.Tables["Program"];
             DataTable exercises = ds.Tables["Exercise"];
-            bindingSourcePrograms.DataSource = ds;
-            bindingSourceExercises.DataSource = ds;
-            bindingSourcePrograms.DataMember = programs.TableName;
-            bindingSourceExercises.DataMember = exercises.TableName;
+            _bindingSourcePrograms.DataSource = ds;
+            _bindingSourceExercises.DataSource = ds;
+            _bindingSourcePrograms.DataMember = programs.TableName;
+            _bindingSourceExercises.DataMember = exercises.TableName;
 
             List<DataRow> rows = new List<DataRow>();
             var programsList = _programManager.GetAllPrograms();
@@ -65,13 +60,13 @@ namespace MyProject
                 }
             }
 
-            dgvPrograms.DataSource = bindingSourcePrograms;
+            dgvPrograms.DataSource = _bindingSourcePrograms;
             dgvPrograms.AutoGenerateColumns = true;
             dgvPrograms.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            bindingSourceExercises.DataSource = bindingSourcePrograms;
-            bindingSourceExercises.DataMember = "Program_Exercise";
-            lbxExercises.DataSource = bindingSourceExercises;
+            _bindingSourceExercises.DataSource = _bindingSourcePrograms;
+            _bindingSourceExercises.DataMember = "Program_Exercise";
+            lbxExercises.DataSource = _bindingSourceExercises;
             lbxExercises.DisplayMember = "name";
         }
 
@@ -104,10 +99,10 @@ namespace MyProject
             if (i != -1)
             {
                 int programID = Convert.ToInt32(dgvPrograms.Rows[i].Cells[0].Value);
-                EditProgram edit = new EditProgram(_programManager.GetProgramByID(programID) ,_programManager, _exercisesManager, this);
+                EditProgram edit = new EditProgram(_programManager.GetProgramByID(programID) ,_programManager, _exercisesManager, _programTypeManager);
                 edit.Show();
-                edit.FormClosed += (s, args) => this.Show();
-                this.Hide();
+                edit.FormClosed += (_, _) => Show();
+                Hide();
             }
 
         }
@@ -120,8 +115,8 @@ namespace MyProject
                 int programID = Convert.ToInt32(dgvPrograms.Rows[i].Cells[0].Value);
                 AssignProgramToAnswer assign = new AssignProgramToAnswer(programID, this);
                 assign.Show();
-                assign.FormClosed += (s, args) => this.Show();
-                this.Hide();
+                assign.FormClosed += (s, args) => Show();
+                Hide();
             }
         }
 
@@ -133,15 +128,15 @@ namespace MyProject
                 int programID = Convert.ToInt32(dgvPrograms.Rows[i].Cells[0].Value);
                 UnassignProgramFromAnswer unassign = new UnassignProgramFromAnswer(programID, this);
                 unassign.Show();
-                unassign.FormClosed += (s, args) => this.Show();
-                this.Hide();
+                unassign.FormClosed += (s, args) => Show();
+                Hide();
             }
         }
 
         public void DisplayLabel()
         {
             int? i = dgvPrograms.CurrentCell?.RowIndex;
-            if (i is int idx && idx > -1)
+            if (i is int idx and > -1)
             {
                 int programID = Convert.ToInt32(dgvPrograms.Rows[idx].Cells[0].Value);
                 var assignedAnswers = _programManager.GetAllAnswersReferncedByProgram(programID);
@@ -155,7 +150,7 @@ namespace MyProject
                     }
                     lblAssigned.Visible = true;
                     btnRemoveReference.Visible = true;
-                    lblAssigned.Text = $"Assigned asnwers: {info}";
+                    lblAssigned.Text = $"Assigned answers: {info}";
                 }
                 else
                 {
