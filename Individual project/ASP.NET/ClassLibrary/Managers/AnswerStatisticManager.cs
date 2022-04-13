@@ -10,10 +10,6 @@ namespace Logic.Managers
     public class AnswerStatisticManager : IAnswerStatisticDb
     {
         private readonly IDbAnswersStatistics _repository;
-
-        public AnswerStatisticManager()
-        {
-        }
         public AnswerStatisticManager(IDbAnswersStatistics repository)
         {
             _repository = repository;

@@ -109,8 +109,7 @@ namespace MyProject
                 if (id > -1)
                 {
                     _mainForm.Show();
-                    
-                    this.Hide();
+                    Hide();
                 }
             }
         }

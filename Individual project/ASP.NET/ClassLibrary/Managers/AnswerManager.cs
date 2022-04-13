@@ -11,10 +11,6 @@ namespace Logic.Managers
     public class AnswerManager : IAnswerDb
     {
         private readonly IDbAnswers _repository;
-
-        public AnswerManager()
-        {
-        }
         public AnswerManager(IDbAnswers repository)
         {
             _repository = repository;

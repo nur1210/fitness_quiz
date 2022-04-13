@@ -39,13 +39,14 @@ namespace WinFormApp
             builder.RegisterType<DbUserView>().As<IDbUserView>();
             builder.RegisterType<AnswerStatisticManager>().As<IAnswerStatisticDb>();
             builder.RegisterType<DbAnswersStatistics>().As<IDbAnswersStatistics>();
-            builder.RegisterType<UserViewManager>().SingleInstance();
-            builder.RegisterType<UserManager>().SingleInstance();
+            builder.RegisterType<UserViewManager>().AsSelf().SingleInstance();
+            builder.RegisterType<UserManager>().AsSelf().SingleInstance();
             builder.RegisterType<QuestionManager>().AsSelf().SingleInstance();
             builder.RegisterType<AnswerManager>().AsSelf().SingleInstance();
             builder.RegisterType<ExerciseManager>().AsSelf().SingleInstance();
             builder.RegisterType<ProgramManager>().AsSelf().SingleInstance();
             builder.RegisterType<AnswerStatisticManager>().AsSelf().SingleInstance();
+            builder.RegisterType<ProgramTypeManager>().AsSelf().SingleInstance();
             builder.RegisterType<Login>();
             builder.RegisterType<MainForm>();
 

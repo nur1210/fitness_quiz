@@ -11,10 +11,6 @@ namespace Logic.Managers
     public class ProgramTypeManager : IProgramTypeDb
     {
         private readonly IDbProgramType _repository;
-
-        public ProgramTypeManager()
-        {
-        }
         public ProgramTypeManager(IDbProgramType repository)
         {
             _repository = repository;

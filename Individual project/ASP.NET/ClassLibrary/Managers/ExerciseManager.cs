@@ -11,10 +11,6 @@ namespace Logic.Managers
     public class ExerciseManager : IExerciseDb
     {
         private readonly IDbExercises _repository;
-
-        public ExerciseManager()
-        {
-        }
         public ExerciseManager(IDbExercises repository)
         {
             _repository = repository;
