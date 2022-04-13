@@ -1,4 +1,6 @@
-﻿namespace MyProject
+﻿using Logic.Managers;
+
+namespace MyProject
 {
     partial class ViewPrograms
     {
@@ -140,7 +142,7 @@
             // 
             // questionManagerBindingSource
             // 
-            this.questionManagerBindingSource.DataSource = typeof(ClassLibrary.Logic.QuestionManager);
+            this.questionManagerBindingSource.DataSource = typeof(QuestionManager);
             // 
             // lblAssigned
             // 

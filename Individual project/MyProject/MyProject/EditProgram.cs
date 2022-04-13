@@ -1,6 +1,4 @@
 ﻿using MaterialSkin.Controls;
-using ClassLibrary.Logic;
-using ClassLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logic.Models;
+using WinFormApp;
+using Logic.Managers;
 
 namespace MyProject
 {
@@ -18,7 +19,7 @@ namespace MyProject
         private TrainingProgram _program;
         private ProgramManager _programManager;
         private ExerciseManager _exerciseManager;
-        private ProgramTypeManager _programTypeManager = new ProgramTypeManager();
+        private ProgramTypeManager _programTypeManager;
         private ViewPrograms _viewPrograms;
 
         public EditProgram(TrainingProgram program, ProgramManager pM, ExerciseManager eM, ViewPrograms vP)
@@ -90,14 +91,6 @@ namespace MyProject
             lbxExercises.DataSource = exercises;
             lbxExercises.DisplayMember = "Name";
             lbxExercises.ValueMember = "ID";
-        }
-
-        public IEnumerable<string> GetAllProgramNames()
-        {
-            foreach (var value in Enum.GetValues(typeof(ProgramType)))
-            {
-                yield return Enum.GetName(typeof(ProgramType), value)!;
-            }
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using ClassLibrary.Logic;
-using ClassLibrary.Models;
+﻿using Logic.Managers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,17 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyProject
+namespace WinFormApp
 {
     public class DGVFunctions
     {
         private BindingSource bsQ = new BindingSource(); // Questions
         private BindingSource bsA = new BindingSource(); // Answers
-        private QuestionManager _qM = new QuestionManager();
-        private AnswerManager _aM = new AnswerManager();
+        private QuestionManager _qM;
+        private AnswerManager _aM;
 
-        public BindingSource QuestionBS { get => bsQ;}
-        public BindingSource AnswerBS { get => bsA; set => bsA = value; } 
+        public BindingSource QuestionBS { get => bsQ; }
+        public BindingSource AnswerBS { get => bsA; set => bsA = value; }
 
         public static DataGridViewLinkColumn Edit()
         {

@@ -1,8 +1,7 @@
-﻿using ClassLibrary.Logic;
-
-namespace ClassLibrary.Models
+﻿
+namespace Logic.Models
 {
-    public class Question
+    public class Question : IQuestion
     {
         private int _id;
         private string _description;

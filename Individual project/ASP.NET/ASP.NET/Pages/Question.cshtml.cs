@@ -1,5 +1,4 @@
-    using ClassLibrary.Logic;
-using ClassLibrary.Models;
+using Logic.Managers;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -7,18 +6,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 
-namespace ASP.NET.Pages
+namespace WebApp.Pages
 {
     [Authorize]
     public class QuestionModel : PageModel
-    {        
+    {
         [BindProperty] public int index { get; set; }
-		public static int seeder { get; set; } = 1;
-        [BindProperty] public int AnswerID { get; set; }
-
-        [BindProperty] public QuestionManager QuestionManager { get; set; }
-        [BindProperty] public AnswerManager AnswerManager { get; set; }
-        [BindProperty] public AnswerStatisticManager AnswerStatisticManager { get; set; }
+        public static int seeder { get; set; } = 1;
+        [BindProperty] public int AnswerID { get ; set; }
+        public QuestionManager QuestionManager { get; set; }
+        public AnswerManager AnswerManager { get; set; }
+        public AnswerStatisticManager AnswerStatisticManager { get; set; }
 
         public QuestionModel(QuestionManager qM, AnswerManager aM, AnswerStatisticManager aSM)
         {

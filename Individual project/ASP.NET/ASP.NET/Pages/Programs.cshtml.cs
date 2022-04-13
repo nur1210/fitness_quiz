@@ -1,10 +1,10 @@
-using ClassLibrary.Logic;
-using ClassLibrary.Models;
+using Logic.Managers;
+using Logic.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ASP.NET.Pages
+namespace WebApp.Pages
 {
     [Authorize]
     public class ProgramsModel : PageModel

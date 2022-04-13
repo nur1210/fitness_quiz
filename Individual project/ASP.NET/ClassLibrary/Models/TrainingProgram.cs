@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary.Models
+namespace Logic.Models
 {
-    public class TrainingProgram
+    public class TrainingProgram : ITrainingProgram
     {
         private int _id;
         protected string _description;
@@ -19,9 +19,9 @@ namespace ClassLibrary.Models
         public int ID { get => _id; set => _id = value; }
         public string Description { get => _description; set => _description = value; }
         public int TypeID { get => _typeID; set => _typeID = value; }
-        public int RestBetweenSets { get=> _restBetweenSets; set=> _restBetweenSets = value; }
-        public IEnumerable<int> RepRange { get=> _repRange; set=> _repRange = value; }
-        public IEnumerable<int> AgeRange { get=>_ageRange; set=>_ageRange = value; }
+        public int RestBetweenSets { get => _restBetweenSets; set => _restBetweenSets = value; }
+        public IEnumerable<int> RepRange { get => _repRange; set => _repRange = value; }
+        public IEnumerable<int> AgeRange { get => _ageRange; set => _ageRange = value; }
 
         public TrainingProgram()
         {
@@ -42,7 +42,7 @@ namespace ClassLibrary.Models
 
         public virtual TrainingProgram ToBeStrengthProgram()
         {
-            return new StrenghtProgram(Description, TypeID, _id);
+            return new StrengthProgram(Description, TypeID, _id);
         }
 
         public virtual TrainingProgram ToBeWeightLossProgram()

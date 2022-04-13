@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary.View
+namespace Logic.View
 {
     public class UserView
     {

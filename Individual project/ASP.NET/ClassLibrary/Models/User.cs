@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary.Models
+namespace Logic.Models
 {
-    public class User
+    public class User : IUser
     {
         private int _id;
         private string _firstName;

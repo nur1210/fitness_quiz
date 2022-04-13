@@ -1,5 +1,4 @@
-﻿using ClassLibrary.Logic;
-using ClassLibrary.Models;
+﻿using Logic.Managers;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
@@ -16,8 +15,8 @@ namespace MyProject
     public partial class UnassignProgramFromAnswer : MaterialForm
     {
         private int _programID;
-        private AnswerManager answerManager = new AnswerManager();
-        private ProgramManager programManager = new ProgramManager();
+        private AnswerManager answerManager;
+        private ProgramManager programManager;
         private ViewPrograms _viewPrograms;
         public UnassignProgramFromAnswer(int programID, ViewPrograms vP)
         {

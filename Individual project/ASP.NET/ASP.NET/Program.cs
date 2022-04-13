@@ -1,6 +1,8 @@
 using ASP.NET.Pages;
-using ClassLibrary.Logic;
-using ClassLibrary.Models;
+using DAL.DB;
+using Logic.Interfaces;
+using Logic.Managers;
+using Logic.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +23,28 @@ builder.Services.AddSingleton<AnswerManager>();
 builder.Services.AddSingleton<ExerciseManager>();
 builder.Services.AddSingleton<ProgramManager>();
 builder.Services.AddSingleton<AnswerStatisticManager>();
-builder.Services.AddSingleton<TrainingProgram>();
+
+
+builder.Services.AddTransient<IDbQuestions, DbQuestions>();
+builder.Services.AddTransient<IQuestionDb, QuestionManager>();
+builder.Services.AddTransient<IAnswerDb ,AnswerManager>();
+builder.Services.AddTransient<IDbAnswers, DbAnswers>();
+builder.Services.AddTransient<IExerciseDb, ExerciseManager>();
+builder.Services.AddTransient<IDbExercises, DbExercises>();
+builder.Services.AddTransient<IProgramDb, ProgramManager>();
+builder.Services.AddTransient<IDbPrograms, DbPrograms>();
+builder.Services.AddTransient<IProgramTypeDb, ProgramTypeManager>();
+builder.Services.AddTransient<IDbProgramType, DbProgramType>();
+builder.Services.AddTransient<IScoreDb, ScoreManager>();
+builder.Services.AddTransient<IDbQuestionOptionScore, DbQuestionOptionScore>();
+builder.Services.AddTransient<IQuestionViewDb, QuestionViewManager>();
+builder.Services.AddTransient<IDbQuestionView, DbQuestionView>();
+builder.Services.AddTransient<IUserDb, UserManager>();
+builder.Services.AddTransient<IDbUsers, DbUsers>();
+builder.Services.AddTransient<IUserViewDb, UserViewManager>();
+builder.Services.AddTransient<IDbUserView, DbUserView>();
+builder.Services.AddTransient<IAnswerStatisticDb, AnswerStatisticManager>();
+builder.Services.AddTransient<IDbAnswersStatistics, DbAnswersStatistics>();
 
 
 

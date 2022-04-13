@@ -1,5 +1,5 @@
-﻿using ClassLibrary.Logic;
-using ClassLibrary.Models;
+﻿using Logic.Managers;
+using Logic.Models;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
@@ -16,15 +16,15 @@ namespace MyProject
     public partial class AssignProgramToAnswer : MaterialForm
     {
         private int _programID;
-        private QuestionManager questionManager = new QuestionManager();
-        private AnswerManager answerManager = new AnswerManager();
+        private QuestionManager _questionManager;
+        private AnswerManager answerManager;
         private ViewPrograms _viewPrograms;
         public AssignProgramToAnswer(int programID, ViewPrograms vP)
         {
             InitializeComponent();
             _programID = programID;
             _viewPrograms = vP;
-            var questions = questionManager.GetAllQuestions();
+            var questions = _questionManager.GetAllQuestions();
             cbxQuestion.DataSource = questions;
             cbxQuestion.DisplayMember = "Description";
             cbxQuestion.ValueMember = "ID";

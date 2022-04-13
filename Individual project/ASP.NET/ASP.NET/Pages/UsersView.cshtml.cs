@@ -1,9 +1,9 @@
-using ClassLibrary.Logic;
+using Logic.Managers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ASP.NET.Pages
+namespace WebApp.Pages
 {
     [Authorize(Roles = "admin")]
     public class UsersViewModel : PageModel
@@ -13,11 +13,11 @@ namespace ASP.NET.Pages
         [BindProperty]
         public UserManager UserManager { get; set; }
         [BindProperty(SupportsGet = true)]
-		public bool IsBlocked { get; set; }
-        [BindProperty(SupportsGet = true)]  
-		public bool IsAdmin { get; set; }
+        public bool IsBlocked { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public bool IsAdmin { get; set; }
 
-		[BindProperty(SupportsGet = true)]
+        [BindProperty(SupportsGet = true)]
         public int SelectedRow { get; set; }
 
         public UsersViewModel(UserManager uM, UserViewManager uVM)
@@ -26,12 +26,12 @@ namespace ASP.NET.Pages
             UserManager = uM;
         }
 
-		public void OnGet()
+        public void OnGet()
         {
 
         }
 
-		public void OnPost() 
+        public void OnPost()
         {
             var id = SelectedRow;
             if (!UserManager.GetUserById(id).IsBlocked)

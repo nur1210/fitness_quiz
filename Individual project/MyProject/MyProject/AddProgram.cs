@@ -1,6 +1,4 @@
 ﻿using MaterialSkin.Controls;
-using ClassLibrary.Logic;
-using ClassLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,13 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using Logic.Models;
+using Logic.Managers;
 
 namespace MyProject
 {
     public partial class AddProgram : MaterialForm
     {
         
-        private ProgramTypeManager _programTypeManager = new ProgramTypeManager();
+        private ProgramTypeManager _programTypeManager;
         private ProgramManager _programManager;
         private ExerciseManager _exerciseManager;
         private ViewPrograms _viewPrograms;
@@ -43,7 +43,7 @@ namespace MyProject
             {
                 1 =>  new WeightLossProgram(description, typeID),
                 2 =>  new MuscleGainProgram(description, typeID),
-                3 =>  new StrenghtProgram(description, typeID),
+                3 =>  new StrengthProgram(description, typeID),
                 4 => new BeActiveProgram(description, typeID),
                 _ => new BeActiveProgram(description, typeID)
             };

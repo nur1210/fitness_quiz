@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary.Models
+namespace Logic.Models
 {
+
+
     public class MuscleGainProgram : TrainingProgram
     {
 

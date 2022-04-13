@@ -1,6 +1,4 @@
 ﻿using MaterialSkin.Controls;
-using ClassLibrary.Logic;
-using ClassLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,19 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClassLibrary.View;
+using Logic.View;
+using Logic.Managers;
 
 namespace MyProject
 {
     public partial class ViewUsers : MaterialForm
     {
-        private UserViewManager manager = new UserViewManager();
-        private UserManager userManager = new UserManager();
+        private UserViewManager manager;
+        private UserManager userManager;
         BindingSource source = new BindingSource();
 
 
-        public ViewUsers()
+        public ViewUsers(UserViewManager manager, UserManager userManager)
         {
+            this.manager = manager;
+            this.userManager = userManager;
             InitializeComponent();
             UpdateGridView();
             for (int i = 1; i < dgvUsers.Columns.Count; i++)

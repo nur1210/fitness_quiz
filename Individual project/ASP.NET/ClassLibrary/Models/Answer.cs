@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary.Models
+namespace Logic.Models
 {
-    public class Answer
+    public class Answer : IAnswer
     {
         private int _id;
         private int _questionID;
@@ -16,7 +16,7 @@ namespace ClassLibrary.Models
         public int ID { get => _id; set => _id = value; }
         public int QuestionId { get => _questionID; set => _questionID = value; }
         public string Description { get => _description; set => _description = value; }
-        public int ProgramID { get=> _programID; set=> _programID = value; }
+        public int ProgramID { get => _programID; set => _programID = value; }
 
         public Answer(int questionId, string description)
         {

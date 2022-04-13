@@ -8,19 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using ClassLibrary.Logic;
-using ClassLibrary.Models;
+using DAL.DB;
 using MaterialSkin.Controls;
 using MaterialSkin;
-using ClassLibrary.DB;
 
 namespace MyProject
 {
     public partial class Login : MaterialForm
     {
         private DbLogin dbLogin;
-        public Login()
+        private readonly MainForm _mainForm;
+
+        public Login(MainForm mainform)
         {
+            _mainForm = mainform;
+            _mainForm.Closed += (_, _) => Close();
             InitializeComponent();
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -106,9 +108,8 @@ namespace MyProject
                 var id = dbLogin.Login(email, password);
                 if (id > -1)
                 {
-                    MainForm form = new MainForm();
-                    form.Show();
-                    form.Closed += (s, args) => this.Close();
+                    _mainForm.Show();
+                    
                     this.Hide();
                 }
             }

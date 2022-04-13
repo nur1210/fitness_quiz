@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary.Models
+namespace Logic.Models
 {
-    public class Score
+    public class Score : IScore
     {
         private int _questionOptionID;
         private int _programID;

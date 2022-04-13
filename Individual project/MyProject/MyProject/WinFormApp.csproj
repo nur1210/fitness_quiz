@@ -9,13 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.3.0" />
     <PackageReference Include="BCrypt.Net-Core" Version="1.6.0" />
     <PackageReference Include="MaterialSkin.2" Version="2.3.1" />
     <PackageReference Include="MySql.Data" Version="8.0.28" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\ASP.NET\ClassLibrary\ClassLibrary.csproj" />
+    <ProjectReference Include="..\..\ASP.NET\ClassLibrary\Logic.csproj" />
+    <ProjectReference Include="..\..\ASP.NET\DAL\DAL.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,17 +1,24 @@
-using ClassLibrary.DB;
-using ClassLibrary.Logic;
-using ClassLibrary.Models;
+
+using Logic.Managers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MySql.Data.MySqlClient;
 using System.ComponentModel.DataAnnotations;
+using Logic.Models;
 
-namespace ASP.NET.Pages
+namespace WebApp.Pages.Account
 {
     public class RegisterModel : PageModel
     {
+        private readonly UserManager _manager;
+
         [BindProperty]
         public Registration RegisterForm { get; set; }
+
+        public RegisterModel(UserManager manager)
+        {
+            _manager = manager;
+        }
         public void OnGet()
         {
             if (ModelState.IsValid)
@@ -26,8 +33,7 @@ namespace ASP.NET.Pages
             if (ModelState.IsValid)
             {
                 var user = new User(RegisterForm.FirstName, RegisterForm.LastName, RegisterForm.Email, RegisterForm.Password);
-                UserManager manager = new UserManager();
-                manager.AddUser(user);
+                _manager.AddUser(user);
                 return RedirectToPage("/Index");
             }
             return Page();

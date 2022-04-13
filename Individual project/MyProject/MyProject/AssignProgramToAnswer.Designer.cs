@@ -1,4 +1,6 @@
-﻿namespace MyProject
+﻿using Logic.Managers;
+
+namespace MyProject
 {
     partial class AssignProgramToAnswer
     {
@@ -90,7 +92,7 @@
             // questionManagerBindingSource
             // 
             this.questionManagerBindingSource.AllowNew = true;
-            this.questionManagerBindingSource.DataSource = typeof(ClassLibrary.Logic.QuestionManager);
+            this.questionManagerBindingSource.DataSource = typeof(QuestionManager);
             // 
             // btnAssign
             // 

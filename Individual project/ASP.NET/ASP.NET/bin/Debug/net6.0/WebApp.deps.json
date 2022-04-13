@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "WebApp/1.0.0": {
         "dependencies": {
-          "ClassLibrary": "1.0.0"
+          "DAL": "1.0.0",
+          "Logic": "1.0.0"
         },
         "runtime": {
           "WebApp.dll": {}
@@ -221,13 +222,19 @@
           }
         }
       },
-      "ClassLibrary/1.0.0": {
+      "DAL/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Core": "1.6.0",
+          "Logic": "1.0.0",
           "MySql.Data": "8.0.28"
         },
         "runtime": {
-          "ClassLibrary.dll": {}
+          "DAL.dll": {}
+        }
+      },
+      "Logic/1.0.0": {
+        "runtime": {
+          "Logic.dll": {}
         }
       }
     }
@@ -378,7 +385,12 @@
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
-    "ClassLibrary/1.0.0": {
+    "DAL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Logic/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

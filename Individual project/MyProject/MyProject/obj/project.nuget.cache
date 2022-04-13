@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Eo5N2Q6eDdbiPaT51zcQkQAE4yZN1ECKDs9kfJRNOYvcSirteuW07hdCBgG2KRY69IoiNV7DP8qSBg6IQldeZQ==",
+  "dgSpecHash": "zSqr3gG0gkayZUSDv746uq6uWl/OKxiobUQV8q9zrA+xUU9nW5hACDV0gd8dL5XNCqH9WplLYOffr2zkmMjxFA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\MyProject\\MyProject\\WinFormApp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\autofac\\6.3.0\\autofac.6.3.0.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",
@@ -16,6 +17,7 @@
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\mysql.data\\8.0.28\\mysql.data.8.0.28.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",
+    "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",

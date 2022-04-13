@@ -1,5 +1,5 @@
-﻿using ClassLibrary.Logic;
-using ClassLibrary.Models;
+﻿using Logic.Managers;
+using Logic.Models;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;

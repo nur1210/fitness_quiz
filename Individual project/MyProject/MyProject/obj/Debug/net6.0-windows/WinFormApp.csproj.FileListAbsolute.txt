@@ -13,8 +13,6 @@ C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-proje
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\MySql.Data.dll
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\Ubiety.Dns.Core.dll
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\ZstdNet.dll
-C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\ClassLibrary.dll
-C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\ClassLibrary.pdb
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\WinFormApp.csproj.AssemblyReference.cache
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\MyProject.AddExercises.resources
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\MyProject.AddProgram.resources
@@ -40,3 +38,8 @@ C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-proje
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\WinFormApp.pdb
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\WinFormApp.genruntimeconfig.cache
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\ref\WinFormApp.dll
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\DAL.dll
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\Logic.dll
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\Logic.pdb
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\DAL.pdb
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\Autofac.dll

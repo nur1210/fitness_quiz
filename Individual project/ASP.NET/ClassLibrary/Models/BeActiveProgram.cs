@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary.Models
+namespace Logic.Models
 {
     public class BeActiveProgram : TrainingProgram
     {
-        public BeActiveProgram( string description, int typeID, int id = 0) : base(id, description, typeID)
+        public BeActiveProgram(string description, int typeID, int id = 0) : base(id, description, typeID)
         {
             RestBetweenSets = 45;
             RepRange = Enumerable.Range(15, 5);

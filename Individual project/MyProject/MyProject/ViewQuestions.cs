@@ -1,6 +1,4 @@
 ﻿using MaterialSkin.Controls;
-using ClassLibrary.Logic;
-using ClassLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClassLibrary.DB;
+using WinFormApp;
+using Logic.Managers;
 
 namespace MyProject
 {
@@ -57,7 +56,7 @@ namespace MyProject
             if (i != -1)
             {
                 int questionID = Convert.ToInt32(dgvQuestions.Rows[i].Cells[0].Value);
-                DbQuestions.DeleteQuestion(questionID);
+                _questionManager.RemoveQuestion(questionID);
                 UpdateDataGridView();
             }
         }
