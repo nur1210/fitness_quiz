@@ -13,4 +13,6 @@ public interface IDbAnswers
     void RemoveProgramReference(int answerID);
     bool HasProgramReference(int answerID);
     int GetProgramReference(int answerID);
+    Answer GetAnswerByID(int answerID);
+
 }

@@ -1,17 +1,8 @@
-﻿using MaterialSkin.Controls;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Logic.Managers;
 using Logic.Models;
-using Logic.Managers;
+using MaterialSkin.Controls;
 
-namespace MyProject
+namespace WinFormApp
 {
     public partial class EditExercise : MaterialForm
     {

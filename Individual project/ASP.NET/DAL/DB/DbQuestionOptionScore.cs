@@ -36,5 +36,23 @@ namespace DAL.DB
                 MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", s.QuestionOptionID) });
             }
         }
+
+        public List<Score> GetAllScores()
+        {
+            using (var conn = Connection.OpenConn())
+            {
+                List<Score> list = new List<Score>();
+
+                string sql = "SELECT * FROM question_option_score;";
+                var rdr = MySqlHelper.ExecuteReader(conn, sql);
+
+                while (rdr.Read())
+                {
+                    list.Add(new Score(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2)));
+                }
+                rdr.Close();
+                return list;
+            }
+        }
     }
 }

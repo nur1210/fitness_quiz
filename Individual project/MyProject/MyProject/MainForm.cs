@@ -2,7 +2,7 @@ using Logic.Managers;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
-namespace MyProject
+namespace WinFormApp
 {
     public partial class MainForm : MaterialForm
     {
@@ -13,8 +13,9 @@ namespace MyProject
         private readonly UserManager _userManager;
         private readonly UserViewManager _userViewManager;
         private readonly ProgramTypeManager _programTypeManager;
+        private readonly ScoreManager _scoreManager;
 
-        public MainForm(AnswerManager answerManager, ExerciseManager exerciseManager, QuestionManager questionManager, ProgramManager programManager, UserManager userManager, UserViewManager userViewManager, ProgramTypeManager programTypeManager)
+        public MainForm(AnswerManager answerManager, ExerciseManager exerciseManager, QuestionManager questionManager, ProgramManager programManager, UserManager userManager, UserViewManager userViewManager, ProgramTypeManager programTypeManager, ScoreManager scoreManager)
         {
             _answerManager = answerManager;
             _exerciseManager = exerciseManager;
@@ -23,6 +24,7 @@ namespace MyProject
             _userManager = userManager;
             _userViewManager = userViewManager;
             _programTypeManager = programTypeManager;
+            _scoreManager = scoreManager;
             InitializeComponent();
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -44,7 +46,7 @@ namespace MyProject
 
         private void btnViewPrograms_Click(object sender, EventArgs e)
         {
-            ViewPrograms view = new ViewPrograms(_programManager, _exerciseManager, _programTypeManager);
+            ViewPrograms view = new ViewPrograms(_programManager, _exerciseManager, _programTypeManager, _questionManager, _answerManager, _scoreManager);
             view.Show();
             view.FormClosed += (_, _) => Show();
             Hide();

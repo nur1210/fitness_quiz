@@ -1,6 +1,6 @@
 ﻿using Logic.Managers;
 
-namespace MyProject
+namespace WinFormApp
 {
     partial class ViewPrograms
     {
@@ -112,7 +112,7 @@ namespace MyProject
             this.btnReference.NoAccentTextColor = System.Drawing.Color.Empty;
             this.btnReference.Size = new System.Drawing.Size(162, 34);
             this.btnReference.TabIndex = 26;
-            this.btnReference.Text = "Add reference";
+            this.btnReference.Text = "Add score";
             this.btnReference.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnReference.UseAccentColor = false;
             this.btnReference.UseVisualStyleBackColor = true;
@@ -133,7 +133,7 @@ namespace MyProject
             this.btnRemoveReference.NoAccentTextColor = System.Drawing.Color.Empty;
             this.btnRemoveReference.Size = new System.Drawing.Size(162, 34);
             this.btnRemoveReference.TabIndex = 27;
-            this.btnRemoveReference.Text = "Remove reference";
+            this.btnRemoveReference.Text = "Edit score";
             this.btnRemoveReference.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnRemoveReference.UseAccentColor = false;
             this.btnRemoveReference.UseVisualStyleBackColor = true;
@@ -142,7 +142,7 @@ namespace MyProject
             // 
             // questionManagerBindingSource
             // 
-            this.questionManagerBindingSource.DataSource = typeof(QuestionManager);
+            this.questionManagerBindingSource.DataSource = typeof(Logic.Managers.QuestionManager);
             // 
             // lblAssigned
             // 

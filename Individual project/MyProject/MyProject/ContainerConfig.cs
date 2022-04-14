@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Autofac;
+﻿using Autofac;
 using DAL.DB;
 using Logic.IDb;
 using Logic.Interfaces;
 using Logic.Managers;
-using MyProject;
 
 namespace WinFormApp
 {
@@ -22,7 +15,6 @@ namespace WinFormApp
             builder.RegisterType<QuestionManager>().As<IQuestionDb>();
             builder.RegisterType<DbQuestions>().As<IDbQuestions>();
             builder.RegisterType<QuestionManager>().As<IQuestionDb>();
-            builder.RegisterType<AnswerManager>().As<IAnswerDb>();
             builder.RegisterType<DbAnswers>().As<IDbAnswers>();
             builder.RegisterType<ExerciseManager>().As<IExerciseDb>();
             builder.RegisterType<DbExercises>().As<IDbExercises>();
@@ -40,6 +32,7 @@ namespace WinFormApp
             builder.RegisterType<DbUserView>().As<IDbUserView>();
             builder.RegisterType<AnswerStatisticManager>().As<IAnswerStatisticDb>();
             builder.RegisterType<DbAnswersStatistics>().As<IDbAnswersStatistics>();
+
             builder.RegisterType<UserViewManager>().AsSelf().SingleInstance();
             builder.RegisterType<UserManager>().AsSelf().SingleInstance();
             builder.RegisterType<QuestionManager>().AsSelf().SingleInstance();
@@ -48,6 +41,7 @@ namespace WinFormApp
             builder.RegisterType<ProgramManager>().AsSelf().SingleInstance();
             builder.RegisterType<AnswerStatisticManager>().AsSelf().SingleInstance();
             builder.RegisterType<ProgramTypeManager>().AsSelf().SingleInstance();
+            builder.RegisterType<ScoreManager>().AsSelf().SingleInstance();
             builder.RegisterType<Login>();
             builder.RegisterType<MainForm>();
 

@@ -1,6 +1,5 @@
 using System.Reflection.Emit;
 using Autofac;
-using MyProject;
 
 namespace WinFormApp
 {

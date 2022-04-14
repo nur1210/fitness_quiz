@@ -9,7 +9,7 @@ using Logic.Interfaces;
 
 namespace Logic.Managers
 {
-    public class AnswerManager : IAnswerDb
+    public class AnswerManager
     {
         private readonly IDbAnswers _repository;
         public AnswerManager(IDbAnswers repository)
@@ -21,9 +21,9 @@ namespace Logic.Managers
         public void EditAnswer(Answer a) => _repository.EditAnswer(a);
         public List<Answer> GetAllAnswers() => _repository.GetAllAnswers();
         public List<Answer> GetGetAllAnswersForQuestion(Question q) => _repository.GetGetAllAnswersForQuestion(q);
-        public void AddProgramReference(int answerID, int programID) => _repository.AddProgramReference(answerID, programID);
-        public void RemoveProgramReference(int answerID) => _repository.RemoveProgramReference(answerID);
         public bool HasProgramReference(int answerID) => _repository.HasProgramReference(answerID);
         public int GetProgramReference(int answerID) => _repository.GetProgramReference(answerID);
+        public Answer GetAnswerByID(int answerID) => _repository.GetAnswerByID(answerID);
+
     }
 }

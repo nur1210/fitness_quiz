@@ -7,4 +7,6 @@ public interface IScoreDb
     public void AddScore(Score s);
     public void UpdateScore(Score score);
     public void DeleteScore(Score score);
+
+    public List<Score> GetAllScores();
 }

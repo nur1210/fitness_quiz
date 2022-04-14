@@ -2,7 +2,7 @@
 using Logic.Managers;
 using MaterialSkin.Controls;
 
-namespace MyProject
+namespace WinFormApp
 {
     public partial class ViewPrograms : MaterialForm
     {
@@ -11,13 +11,19 @@ namespace MyProject
         private readonly ProgramManager _programManager;
         private readonly ExerciseManager _exercisesManager;
         private readonly ProgramTypeManager _programTypeManager;
+        private readonly QuestionManager _questionManager;
+        private readonly AnswerManager _answerManager;
+        private readonly ScoreManager _scoreManager;
 
-        public ViewPrograms(ProgramManager pM, ExerciseManager eM, ProgramTypeManager pTM)
+        public ViewPrograms(ProgramManager pM, ExerciseManager eM, ProgramTypeManager pTM, QuestionManager qM, AnswerManager aM, ScoreManager sM)
         {
             InitializeComponent();
             _programManager = pM;
             _exercisesManager = eM;
             _programTypeManager = pTM;
+            _questionManager = qM;
+            _answerManager = aM;
+            _scoreManager = sM;
         }
 
         private void ViewPrograms_Load(object sender, EventArgs e)
@@ -113,9 +119,9 @@ namespace MyProject
             if (i != -1)
             {
                 int programID = Convert.ToInt32(dgvPrograms.Rows[i].Cells[0].Value);
-                AssignProgramToAnswer assign = new AssignProgramToAnswer(programID, this);
+                AddScore assign = new AddScore(programID, this, _questionManager, _answerManager, _scoreManager);
                 assign.Show();
-                assign.FormClosed += (s, args) => Show();
+                assign.FormClosed += (_, _) => Show();
                 Hide();
             }
         }
@@ -126,9 +132,9 @@ namespace MyProject
             if (i != -1)
             {
                 int programID = Convert.ToInt32(dgvPrograms.Rows[i].Cells[0].Value);
-                UnassignProgramFromAnswer unassign = new UnassignProgramFromAnswer(programID, this);
-                unassign.Show();
-                unassign.FormClosed += (s, args) => Show();
+                EditScore editScore = new EditScore(programID, this, _scoreManager, _answerManager, _programManager);
+                editScore.Show();
+                editScore.FormClosed += (_, _) => Show();
                 Hide();
             }
         }
@@ -139,18 +145,11 @@ namespace MyProject
             if (i is int idx and > -1)
             {
                 int programID = Convert.ToInt32(dgvPrograms.Rows[idx].Cells[0].Value);
-                var assignedAnswers = _programManager.GetAllAnswersReferncedByProgram(programID);
-                if (assignedAnswers.Count > 0)
+                var scoreList = _scoreManager.GetScoresForProgramByProgramID(programID);
+                if (scoreList.Count > 0)
                 {
-                    string info = "";
-                    foreach (var answer in assignedAnswers)
-                    {
-                        string description = answer.Description;
-                        info += $"{description}, ";
-                    }
                     lblAssigned.Visible = true;
                     btnRemoveReference.Visible = true;
-                    lblAssigned.Text = $"Assigned answers: {info}";
                 }
                 else
                 {

@@ -4,13 +4,15 @@ namespace Logic.Interfaces;
 
 public interface IAnswerDb
 {
-    public void AddAnswer(Answer a);
-    public void RemoveAnswer(Answer a);
-    public void EditAnswer(Answer a);
-    public List<Answer> GetAllAnswers();
-    public List<Answer> GetGetAllAnswersForQuestion(Question q);
-    public void AddProgramReference(int answerID, int programID);
-    public void RemoveProgramReference(int answerID);
-    public bool HasProgramReference(int answerID);
-    public int GetProgramReference(int answerID);
+    void AddAnswer(Answer a); 
+    void RemoveAnswer(Answer a);
+    void EditAnswer(Answer a);
+    List<Answer> GetAllAnswers();
+    List<Answer> GetGetAllAnswersForQuestion(Question q);
+    void AddProgramReference(int answerID, int programID);
+    void RemoveProgramReference(int answerID);
+    bool HasProgramReference(int answerID);
+    int GetProgramReference(int answerID);
+    Answer GetAnswerByID(int answerID);
+
 }

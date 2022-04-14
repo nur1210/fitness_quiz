@@ -2,7 +2,7 @@
 using Logic.View;
 using MaterialSkin.Controls;
 
-namespace MyProject
+namespace WinFormApp
 {
     public partial class ViewUsers : MaterialForm
     {

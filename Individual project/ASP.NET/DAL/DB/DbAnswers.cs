@@ -6,7 +6,7 @@ using MySql.Data.MySqlClient;
 
 namespace DAL.DB
 {
-    public class DbAnswers : IAnswerDb, IDbAnswers
+    public class DbAnswers : IDbAnswers
     {
         public void AddAnswer(Answer answer)
         {
@@ -140,6 +140,23 @@ namespace DAL.DB
                     id = rdr.GetInt32(0);
                 }
                 return id;
+            }
+        }
+
+        public Answer GetAnswerByID(int answerID)
+        {
+            using (var conn = Connection.OpenConn())
+            {
+                string sql = "SELECT * FROM question_options;";
+                var rdr = MySqlHelper.ExecuteReader(conn, sql);
+
+                while (rdr.Read())
+                {
+                    return new Answer(rdr.GetInt32(0), rdr.GetInt32(1),
+                        rdr.GetString(2), rdr.GetInt32(3));
+                }
+                rdr.Close();
+                return null;
             }
         }
     }

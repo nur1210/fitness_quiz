@@ -1,4 +1,4 @@
-﻿namespace MyProject
+﻿namespace WinFormApp
 {
     partial class AddExercises
     {
@@ -87,6 +87,7 @@
             this.btnComplete.TabIndex = 5;
             this.btnComplete.Text = "Complete";
             this.btnComplete.UseVisualStyleBackColor = true;
+            this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
             // 
             // lblName
             // 

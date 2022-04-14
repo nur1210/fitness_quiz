@@ -1,8 +1,8 @@
 ﻿using Logic.Managers;
 
-namespace MyProject
+namespace WinFormApp
 {
-    partial class AssignProgramToAnswer
+    partial class AddScore
     {
         /// <summary>
         /// Required designer variable.

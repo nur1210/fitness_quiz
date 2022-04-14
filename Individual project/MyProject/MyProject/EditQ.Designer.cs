@@ -1,4 +1,4 @@
-﻿namespace MyProject
+﻿namespace WinFormApp
 {
     partial class EditQ
     {

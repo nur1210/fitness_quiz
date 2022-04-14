@@ -1,17 +1,8 @@
 ﻿using Logic.Managers;
 using Logic.Models;
 using MaterialSkin.Controls;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace MyProject
+namespace WinFormApp
 {
     public partial class AddExercises : MaterialForm
     {
@@ -37,6 +28,11 @@ namespace MyProject
             tbxName.Clear();
             tbxReps.Clear();
             tbxSets.Clear();
+        }
+
+        private void btnComplete_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

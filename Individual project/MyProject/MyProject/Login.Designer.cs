@@ -1,5 +1,5 @@
 ﻿
-namespace MyProject {
+namespace WinFormApp {
     partial class Login {
         /// <summary>
         /// Required designer variable.
