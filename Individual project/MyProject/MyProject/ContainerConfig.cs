@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 using DAL.DB;
+using Logic.IDb;
 using Logic.Interfaces;
 using Logic.Managers;
 using MyProject;

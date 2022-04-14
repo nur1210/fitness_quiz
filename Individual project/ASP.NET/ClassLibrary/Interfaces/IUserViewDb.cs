@@ -1,6 +1,6 @@
 ﻿using Logic.View;
 
-namespace Logic.Managers;
+namespace Logic.Interfaces;
 
 public interface IUserViewDb
 {

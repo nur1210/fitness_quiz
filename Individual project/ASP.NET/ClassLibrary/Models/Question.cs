@@ -1,7 +1,7 @@
 ﻿
 namespace Logic.Models
 {
-    public class Question : IQuestion
+    public class Question
     {
         private int _id;
         private string _description;

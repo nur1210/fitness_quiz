@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logic.Models
 {
-    public class User : IUser
+    public class User
     {
         private int _id;
         private string _firstName;

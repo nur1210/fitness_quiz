@@ -1,5 +1,6 @@
 using ASP.NET.Pages;
 using DAL.DB;
+using Logic.IDb;
 using Logic.Interfaces;
 using Logic.Managers;
 using Logic.Models;

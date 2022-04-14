@@ -917,7 +917,8 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "DAL >= 1.0.0",
-      "Logic >= 1.0.0"
+      "Logic >= 1.0.0",
+      "MySql.Data >= 8.0.28"
     ]
   },
   "packageFolders": {
@@ -965,6 +966,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "MySql.Data": {
+            "target": "Package",
+            "version": "[8.0.28, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

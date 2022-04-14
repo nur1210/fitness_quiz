@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logic.Models
 {
-    public class TrainingProgram : ITrainingProgram
+    public class TrainingProgram
     {
         private int _id;
         protected string _description;

@@ -1,4 +1,4 @@
-﻿namespace Logic.Managers;
+﻿namespace Logic.Interfaces;
 
 public interface IAnswerStatisticDb
 {

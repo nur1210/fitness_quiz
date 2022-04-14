@@ -2,7 +2,6 @@
 using Logic.Managers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MySql.Data.MySqlClient;
 using System.ComponentModel.DataAnnotations;
 using Logic.Models;
 

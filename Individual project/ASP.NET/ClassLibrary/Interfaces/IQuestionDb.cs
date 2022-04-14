@@ -1,6 +1,6 @@
 ﻿using Logic.Models;
 
-namespace Logic.Managers;
+namespace Logic.Interfaces;
 
 public interface IQuestionDb
 {

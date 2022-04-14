@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logic.Models
 {
-    public class Answer : IAnswer
+    public class Answer
     {
         private int _id;
         private int _questionID;

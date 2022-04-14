@@ -9,7 +9,8 @@
       "WebApp/1.0.0": {
         "dependencies": {
           "DAL": "1.0.0",
-          "Logic": "1.0.0"
+          "Logic": "1.0.0",
+          "MySql.Data": "8.0.28"
         },
         "runtime": {
           "WebApp.dll": {}

@@ -1,6 +1,6 @@
 ﻿using Logic.View;
 
-namespace Logic.Interfaces;
+namespace Logic.IDb;
 
 public interface IDbQuestionView
 {

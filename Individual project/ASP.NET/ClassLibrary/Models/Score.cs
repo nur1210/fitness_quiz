@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logic.Models
 {
-    public class Score : IScore
+    public class Score
     {
         private int _questionOptionID;
         private int _programID;

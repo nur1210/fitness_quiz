@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logic.Models
 {
-    public class ProgramType : IProgramType
+    public class ProgramType
     {
         private int _id;
         private string _name;

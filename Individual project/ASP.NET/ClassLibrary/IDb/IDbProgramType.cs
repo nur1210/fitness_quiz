@@ -1,6 +1,6 @@
 ﻿using Logic.Models;
 
-namespace Logic.Interfaces;
+namespace Logic.IDb;
 
 public interface IDbProgramType
 {

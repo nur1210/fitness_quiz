@@ -1,4 +1,4 @@
-﻿namespace Logic.Interfaces;
+﻿namespace Logic.IDb;
 
 public interface IDbAnswersStatistics
 {

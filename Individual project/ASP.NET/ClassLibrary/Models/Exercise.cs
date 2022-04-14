@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logic.Models
 {
-    public class Exercise : IExercise
+    public class Exercise
     {
         private int _id;
         private int _programID;
