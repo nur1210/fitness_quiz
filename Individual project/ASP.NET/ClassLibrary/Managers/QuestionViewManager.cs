@@ -5,17 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Logic.IDb;
-using Logic.Interfaces;
 
 namespace Logic.Managers
 {
-    public class QuestionViewManager : IQuestionViewDb
+    public class QuestionViewManager 
     {
         private readonly IDbQuestionView _repository;
-
-        public QuestionViewManager()
-        {
-        }
         public QuestionViewManager(IDbQuestionView repository)
         {
             _repository = repository;

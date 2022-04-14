@@ -1,12 +1,11 @@
 ﻿using Logic.IDb;
-using Logic.Interfaces;
 using Logic.Managers;
 using Logic.Models;
 using MySql.Data.MySqlClient;
 
 namespace DAL.DB
 {
-    public class DbQuestions : IQuestionDb, IDbQuestions
+    public class DbQuestions : IDbQuestions
     {
         public void AddQuestion(Question q)
         {

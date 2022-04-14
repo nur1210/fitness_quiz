@@ -1,12 +1,11 @@
 ﻿using Logic.IDb;
-using Logic.Interfaces;
 using Logic.Managers;
 using Logic.Models;
 using MySql.Data.MySqlClient;
 
 namespace DAL.DB
 {
-    public class DbProgramType : IProgramTypeDb, IDbProgramType
+    public class DbProgramType : IDbProgramType
     {
         public List<ProgramType> GetAllProgramTypes()
         {

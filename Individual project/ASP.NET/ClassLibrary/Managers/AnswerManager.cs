@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Logic.IDb;
-using Logic.Interfaces;
 
 namespace Logic.Managers
 {

@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Logic.IDb;
-using Logic.Interfaces;
 
 namespace Logic.Managers
 {
-    public class AnswerStatisticManager : IAnswerStatisticDb
+    public class AnswerStatisticManager
     {
         private readonly IDbAnswersStatistics _repository;
         public AnswerStatisticManager(IDbAnswersStatistics repository)

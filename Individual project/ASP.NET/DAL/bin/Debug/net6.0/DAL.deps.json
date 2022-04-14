@@ -224,6 +224,9 @@
         }
       },
       "Logic/1.0.0": {
+        "dependencies": {
+          "MySql.Data": "8.0.28"
+        },
         "runtime": {
           "Logic.dll": {}
         }

@@ -1,5 +1,4 @@
 ﻿using Logic.IDb;
-using Logic.Interfaces;
 using Logic.Managers;
 using Logic.Models;
 using Logic.View;
@@ -7,7 +6,7 @@ using MySql.Data.MySqlClient;
 
 namespace DAL.DB
 {
-    public class DbQuestionView : IQuestionViewDb, IDbQuestionView
+    public class DbQuestionView : IDbQuestionView
     {
         public List<QuestionView> GetAllQuestionsForView()
         {

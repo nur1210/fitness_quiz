@@ -5,12 +5,11 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Logic.IDb;
-using Logic.Interfaces;
 using Logic.Models;
 
 namespace Logic.Managers
 {
-    public class ScoreManager : IScoreDb
+    public class ScoreManager
     {
         private readonly IDbQuestionOptionScore _repository;
         public ScoreManager(IDbQuestionOptionScore repository)

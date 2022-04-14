@@ -1,12 +1,11 @@
 ﻿using Logic.IDb;
-using Logic.Interfaces;
 using Logic.Managers;
 using Logic.Models;
 using MySql.Data.MySqlClient;
 
 namespace DAL.DB
 {
-    public class DbExercises : IExerciseDb, IDbExercises
+    public class DbExercises : IDbExercises
     {
         public void AddExercise(Exercise exercise)
         {

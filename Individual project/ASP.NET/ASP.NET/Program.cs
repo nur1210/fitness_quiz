@@ -1,6 +1,5 @@
 using DAL.DB;
 using Logic.IDb;
-using Logic.Interfaces;
 using Logic.Managers;
 using Logic.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -24,26 +23,19 @@ builder.Services.AddSingleton<ExerciseManager>();
 builder.Services.AddSingleton<ProgramManager>();
 builder.Services.AddSingleton<AnswerStatisticManager>();
 builder.Services.AddSingleton<ScoreManager>();
+builder.Services.AddSingleton<ProgramTypeManager>();
+builder.Services.AddSingleton<QuestionViewManager>();
 
 builder.Services.AddSingleton<IDbQuestions, DbQuestions>();
-builder.Services.AddSingleton<IQuestionDb, QuestionManager>();
 builder.Services.AddSingleton<IDbAnswers, DbAnswers>();
 builder.Services.AddSingleton<IDbExercises, DbExercises>();
-builder.Services.AddSingleton<IExerciseDb, ExerciseManager>();
 builder.Services.AddSingleton<IDbPrograms, DbPrograms>();
-builder.Services.AddSingleton<IProgramDb, ProgramManager>();
 builder.Services.AddSingleton<IDbProgramType, DbProgramType>();
-builder.Services.AddSingleton<IProgramTypeDb, ProgramTypeManager>();
 builder.Services.AddSingleton<IDbQuestionOptionScore, DbQuestionOptionScore>();
-builder.Services.AddSingleton<IScoreDb, ScoreManager>();
 builder.Services.AddSingleton<IDbQuestionView, DbQuestionView>();
-builder.Services.AddSingleton<IQuestionViewDb, QuestionViewManager>();
 builder.Services.AddSingleton<IDbUsers, DbUsers>();
-builder.Services.AddSingleton<IUserDb, UserManager>();
 builder.Services.AddSingleton<IDbUserView, DbUserView>();
-builder.Services.AddSingleton<IUserViewDb, UserViewManager>();
 builder.Services.AddSingleton<IDbAnswersStatistics, DbAnswersStatistics>();
-builder.Services.AddSingleton<IAnswerStatisticDb, AnswerStatisticManager>();
 
 
 var app = builder.Build();

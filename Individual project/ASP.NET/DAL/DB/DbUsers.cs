@@ -1,12 +1,11 @@
 ﻿using Logic.IDb;
-using Logic.Interfaces;
 using Logic.Managers;
 using Logic.Models;
 using MySql.Data.MySqlClient;
 
 namespace DAL.DB
 {
-    public class DbUsers : IUserDb, IDbUsers
+    public class DbUsers : IDbUsers
     {
         public void AddUser(User user)
         {

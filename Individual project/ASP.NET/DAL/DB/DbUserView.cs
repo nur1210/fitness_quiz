@@ -1,12 +1,11 @@
 ﻿using Logic.IDb;
-using Logic.Interfaces;
 using Logic.Managers;
 using Logic.View;
 using MySql.Data.MySqlClient;
 
 namespace DAL.DB
 {
-    public class DbUserView : IUserViewDb, IDbUserView
+    public class DbUserView : IDbUserView
     {
         public List<UserView> GetAllUsersForView()
         {

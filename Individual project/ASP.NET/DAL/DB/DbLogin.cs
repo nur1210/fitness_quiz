@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Logic.Managers;
+using MySql.Data.MySqlClient;
 
 namespace DAL.DB
 {

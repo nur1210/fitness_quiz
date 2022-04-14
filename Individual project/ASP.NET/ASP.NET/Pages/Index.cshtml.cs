@@ -6,6 +6,7 @@ using MySql.Data.MySqlClient;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using DAL.DB;
+using Logic.Managers;
 
 namespace WebApp.Pages
 {

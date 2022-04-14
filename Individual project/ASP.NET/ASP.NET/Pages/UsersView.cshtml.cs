@@ -8,9 +8,7 @@ namespace WebApp.Pages
     [Authorize(Roles = "admin")]
     public class UsersViewModel : PageModel
     {
-        [BindProperty]
         public UserViewManager UserViewManager { get; set; }
-        [BindProperty]
         public UserManager UserManager { get; set; }
         [BindProperty(SupportsGet = true)]
         public bool IsBlocked { get; set; }

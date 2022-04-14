@@ -1,11 +1,10 @@
 ﻿using Logic.IDb;
-using Logic.Interfaces;
 using Logic.Managers;
 using MySql.Data.MySqlClient;
 
 namespace DAL.DB
 {
-    public class DbAnswersStatistics : IAnswerStatisticDb, IDbAnswersStatistics
+    public class DbAnswersStatistics : IDbAnswersStatistics
     {
         public void AddAnswerStatistic(int userID, int answerID, int questionID)
         {

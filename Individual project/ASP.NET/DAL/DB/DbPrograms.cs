@@ -1,13 +1,12 @@
 ﻿using System.Linq;
 using Logic.IDb;
-using Logic.Interfaces;
 using Logic.Managers;
 using Logic.Models;
 using MySql.Data.MySqlClient;
 
 namespace DAL.DB
 {
-    public class DbPrograms : IProgramDb, IDbPrograms
+    public class DbPrograms : IDbPrograms
     {
         public void AddProgram(TrainingProgram program)
         {
