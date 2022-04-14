@@ -53,5 +53,20 @@ namespace DAL.DB
                 return list;
             }
         }
+
+        public Score GetScore(int programID, int questionOptionID)
+        {
+            using (var conn = Connection.OpenConn())
+            {
+                string sql = "SELECT * FROM question_option_score WHERE program_id = @ProgramID AND question_option_id = @QuestionOptionID;";
+                var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] {new MySqlParameter("ProgramID", programID), new MySqlParameter("QuestionOptionID", questionOptionID) });
+
+                while (rdr.Read())
+                {
+                    return new Score(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2));
+                }
+                return null;
+            }
+        }
     }
 }

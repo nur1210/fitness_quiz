@@ -95,28 +95,5 @@ namespace DAL.DB
                 return null;
             }
         }
-
-        public List<Answer> GetAllAnswersReferncedByProgram(int programID)
-        {
-            List<Answer> list = new List<Answer>();
-
-            using (var conn = Connection.OpenConn())
-            {
-                string sql = "SELECT a.id, a.question_id, a.description, a.program_id FROM question_options as a inner join programs as p " +
-                    "on a.program_id = p.id WHERE p.id = @ID;";
-                var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", programID) });
-
-                while (rdr.Read())
-                {
-                    var line = rdr;
-                    if (line is not null)
-                    {
-                        list.Add(new Answer(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetString(2), rdr.GetInt32(3)));
-                    }
-                }
-                rdr.Close();
-                return list;
-            }
-        }
     }
 }

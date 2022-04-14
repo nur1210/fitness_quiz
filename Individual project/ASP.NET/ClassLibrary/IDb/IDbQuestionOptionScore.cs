@@ -8,4 +8,5 @@ public interface IDbQuestionOptionScore
     void UpdateScore(Score s);
     void DeleteScore(Score s);
     List<Score> GetAllScores();
+    Score GetScore(int programID, int questionOptionID);
 }

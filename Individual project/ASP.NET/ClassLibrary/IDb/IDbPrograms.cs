@@ -10,5 +10,4 @@ public interface IDbPrograms
     List<TrainingProgram> GetAllPrograms();
     int GetInsertedProgramID();
     TrainingProgram GetProgramByID(int programID);
-    List<Answer> GetAllAnswersReferncedByProgram(int programID);
 }

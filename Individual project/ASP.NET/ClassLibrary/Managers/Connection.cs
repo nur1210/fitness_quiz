@@ -7,10 +7,7 @@ namespace Logic.Managers
         //private static string conn_str = "Server=localhost;Uid=root;Database=project_db;Pwd=123456";
         private static string conn_str = "Server=localhost;Uid=root;Database=test; port=3307; Pwd=";
 
-        public static string Conn
-        {
-            get { return conn_str; }
-        }
+        private static string Conn => conn_str;
 
         public static MySqlConnection OpenConn()
         {

@@ -1,4 +1,6 @@
-﻿using Logic.Managers;
+﻿using Google.Protobuf.WellKnownTypes;
+using Logic.Managers;
+using Logic.Models;
 using MaterialSkin.Controls;
 
 namespace WinFormApp
@@ -7,31 +9,36 @@ namespace WinFormApp
     {
         private readonly int _programID;
         private readonly AnswerManager _answerManager;
-        private readonly ProgramManager _programManager;
-        private readonly ViewPrograms _viewPrograms;
         private readonly ScoreManager _scoreManager;
 
-        public EditScore(int programID, ViewPrograms vP, ScoreManager sM, AnswerManager answerManager, ProgramManager programManager)
+        public EditScore(int programID, ScoreManager sM, AnswerManager answerManager)
         {
             InitializeComponent();
             _programID = programID;
-            _viewPrograms = vP;
             _scoreManager = sM;
             _answerManager = answerManager;
-            _programManager = programManager;
+
+            var scores = _scoreManager.GetScoresForProgramByProgramID(_programID);
+            var answers = scores.Select(x => _answerManager.GetAnswerByID(x.QuestionOptionID)).ToList();
+            cbxAnswer.DisplayMember = "Description";
+            cbxAnswer.ValueMember = "ID";
+            cbxAnswer.DataSource = answers;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            var qID = (int)cbxAnswer.SelectedValue;
+            var score = _scoreManager.GetScore(_programID, qID);
+            score.Weight = (int)nudScore.Value;
+            _scoreManager.UpdateScore(score);
+            Close();
         }
 
-        private void EditScore_Load(object sender, EventArgs e)
+        private void cbxAnswer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var scores = _scoreManager.GetScoresForProgramByProgramID(_programID);
-            var answers = scores.Select(x => _answerManager.GetAnswerByID(x.QuestionOptionID)).ToList();
-            cbxQuestion.DataSource = answers;
-            cbxQuestion.DisplayMember = "Description"; ;
+            var weight = _scoreManager.GetScoresForProgramByProgramID(_programID)
+                    .Where(x => x.QuestionOptionID == (int)cbxAnswer.SelectedValue).Select(x => x.Weight).SingleOrDefault();
+            nudScore.Value = weight;
         }
     }
 }

@@ -39,7 +39,7 @@ namespace WinFormApp
                 _ => _program
             };
             _programManager.EditProgram(_program);
-            this.Close();
+            Close();
         }
 
         private void EditProgram_Load(object sender, EventArgs e)

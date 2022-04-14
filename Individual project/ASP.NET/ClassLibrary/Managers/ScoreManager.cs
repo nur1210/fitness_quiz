@@ -24,5 +24,7 @@ namespace Logic.Managers
 
         public List<Score> GetScoresForProgramByProgramID(int programID) =>
             _repository.GetAllScores().Where(x => x.ProgramID == programID).ToList();
+        public Score GetScore(int programID, int questionOptionID) => _repository.GetScore(programID, questionOptionID);
+
     }
 }

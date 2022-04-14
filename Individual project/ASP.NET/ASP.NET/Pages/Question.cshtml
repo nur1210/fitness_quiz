@@ -20,15 +20,7 @@
 				</script>
 				@foreach (var answer in Model.AnswerManager.GetGetAllAnswersForQuestion(Model.QuestionManager.GetAllQuestions()[@Model.index]))
 				{
-					if (Model.AnswerManager.HasProgramReference(answer.ID))
-					{
-						<button asp-page="Programs" asp-route-programID="@Model.AnswerManager.GetProgramReference(answer.ID)" 
-						class="btn">@answer.Description</button>
-					}
-					else
-					{
-						<button class="btn" onclick="submitAnswer(@answer.ID)">@answer.Description</button>
-					}
+					<button class="btn" onclick="submitAnswer(@answer.ID)">@answer.Description</button>
 				}
 			</form>
 			<hr />

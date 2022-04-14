@@ -21,7 +21,6 @@ namespace Logic.Managers
         public List<TrainingProgram> GetAllPrograms() => _repository.GetAllPrograms();
         public int GetInsertedProgramID() => _repository.GetInsertedProgramID();
         public TrainingProgram GetProgramByID(int id) => _repository.GetProgramByID(id);
-        public List<Answer> GetAllAnswersReferncedByProgram(int programID) => _repository.GetAllAnswersReferncedByProgram(programID);
 
     }
 }

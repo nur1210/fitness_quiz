@@ -49,7 +49,7 @@ namespace DAL.DB
                     if (line is not null)
                     {
                         list.Add(new Answer(rdr.GetInt32("id"), rdr.GetInt32("question_id"),
-                            rdr.GetString("description"), rdr.GetInt32("program_id")));
+                            rdr.GetString("description")));
                     }
                 }
                 rdr.Close();
@@ -90,69 +90,20 @@ namespace DAL.DB
             }
         }
 
-        public void AddProgramReference(int answerID, int programID)
-        {
-            using (var conn = Connection.OpenConn())
-            {
-                string sql = "UPDATE question_options SET program_id = @ProgramID WHERE id = @ID;";
-                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ProgramID", programID),
-                    new MySqlParameter("ID", answerID) });
-            }
-        }
-
-        public void RemoveProgramReference(int answerID)
-        {
-            using (var conn = Connection.OpenConn())
-            {
-                string sql = "UPDATE question_options SET program_id = @ProgramID WHERE id = @ID;";
-                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ProgramID", null),
-                    new MySqlParameter("ID", answerID) });
-            }
-        }
-
-        public bool HasProgramReference(int answerID)
-        {
-            using (var conn = Connection.OpenConn())
-            {
-                string sql = "SELECT program_id FROM question_options WHERE id = @ID;";
-                var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", answerID) });
-                while (rdr.Read())
-                {
-                    if (rdr.GetValue(0) is int)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }
-        }
-
-        public int GetProgramReference(int answerID)
-        {
-            using (var conn = Connection.OpenConn())
-            {
-                string sql = "SELECT program_id FROM question_options WHERE id = @ID;";
-                var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", answerID) });
-                int id = -1;
-                while (rdr.Read())
-                {
-                    id = rdr.GetInt32(0);
-                }
-                return id;
-            }
-        }
-
         public Answer GetAnswerByID(int answerID)
         {
             using (var conn = Connection.OpenConn())
             {
-                string sql = "SELECT * FROM question_options;";
-                var rdr = MySqlHelper.ExecuteReader(conn, sql);
+                string sql = "SELECT * FROM question_options WHERE id = @ID;";
+                var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] {new MySqlParameter("ID", answerID)});
 
                 while (rdr.Read())
                 {
-                    return new Answer(rdr.GetInt32(0), rdr.GetInt32(1),
-                        rdr.GetString(2), rdr.GetInt32(3));
+                    if (rdr is not null)
+                    {
+                        return new Answer(rdr.GetInt32(0), rdr.GetInt32(1),
+                            rdr.GetString(2));
+                    }
                 }
                 rdr.Close();
                 return null;

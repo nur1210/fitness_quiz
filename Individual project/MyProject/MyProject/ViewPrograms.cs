@@ -132,7 +132,7 @@ namespace WinFormApp
             if (i != -1)
             {
                 int programID = Convert.ToInt32(dgvPrograms.Rows[i].Cells[0].Value);
-                EditScore editScore = new EditScore(programID, this, _scoreManager, _answerManager, _programManager);
+                EditScore editScore = new EditScore(programID, _scoreManager, _answerManager);
                 editScore.Show();
                 editScore.FormClosed += (_, _) => Show();
                 Hide();
