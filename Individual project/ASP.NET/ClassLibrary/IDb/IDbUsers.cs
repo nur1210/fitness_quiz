@@ -12,4 +12,5 @@ public interface IDbUsers
     void BlockUser(int userID);
     void UnblockUser(int userID);
     void MakeAdmin(int userID);
+    void AddUserAnswer(int userID, int answerID);
 }

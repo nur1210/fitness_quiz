@@ -8,37 +8,45 @@ using System.Security.Claims;
 
 namespace WebApp.Pages
 {
-    [Authorize]
+    [Authorize(Roles = "user")]
     public class QuestionModel : PageModel
     {
         [BindProperty] public int index { get; set; }
         public static int seeder { get; set; } = 1;
         [BindProperty] public int AnswerID { get ; set; }
-        public QuestionManager QuestionManager { get; set; }
-        public AnswerManager AnswerManager { get; set; }
-        public AnswerStatisticManager AnswerStatisticManager { get; set; }
+        public QuestionManager QuestionManager { get; }
+        public AnswerManager AnswerManager { get; }
+        public AnswerStatisticManager AnswerStatisticManager { get; }
+        public UserManager UserManager { get; }
 
-        public QuestionModel(QuestionManager qM, AnswerManager aM, AnswerStatisticManager aSM)
+        public QuestionModel(QuestionManager qM, AnswerManager aM, AnswerStatisticManager aSM, UserManager uM)
         {
             QuestionManager = qM;
             AnswerManager = aM;
             AnswerStatisticManager = aSM;
+            UserManager = uM;
         }
 
         public void OnGet()
         {
-            if (HttpContext.User.Identity.IsAuthenticated)
-            {
-                var id = int.Parse(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
-            }
         }
 
         public void OnPost()
         {
-            var answerID = AnswerID;
-            var questionID = QuestionManager.GetAllQuestions().ElementAt(index).ID;
-            //AnswerManager.Statistics.AddAnswerStatistic(answerID, questionID);
-            index = seeder++;
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                var id = int.Parse(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+                var answerID = AnswerID;
+                UserManager.AddUserAnswer(id, answerID);
+                if (index == QuestionManager.GetAllQuestions().Count)
+                {
+                    RedirectToPage("/Programs");
+                }
+                else
+                {
+                    index = seeder++;
+                }
+            }
         }
     }
 }

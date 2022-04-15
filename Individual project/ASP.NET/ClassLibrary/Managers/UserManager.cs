@@ -23,5 +23,6 @@ namespace Logic.Managers
         public void BlockUser(int id) => _repository.BlockUser(id);
         public void UnblockUser(int id) => _repository.UnblockUser(id);
         public void MakeAdmin(int id) => _repository.MakeAdmin(id);
+        public void AddUserAnswer(int userID, int answerID) => _repository.AddUserAnswer(userID, answerID);
     }
 }

@@ -101,5 +101,14 @@ namespace DAL.DB
                 MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("IsAdmin", true), new MySqlParameter("ID", userID) });
             }
         }
+
+        public void AddUserAnswer(int userID, int answerID)
+        {
+            using (var conn = Connection.OpenConn())
+            {
+                string sql = "INSERT INTO user_answers (user_id, question_option_id) VALUES (@UserID, @AnswerID)";
+                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] {new MySqlParameter("UserID", userID), new MySqlParameter("AnswerID", answerID)});
+            }
+        }
     }
 }
