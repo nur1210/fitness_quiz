@@ -8,7 +8,7 @@ public interface IDbAnswers
     void EditAnswer(Answer answer);
     void RemoveAnswer(Answer answer);
     List<Answer> GetAllAnswers();
-    List<Answer> GetGetAllAnswersForQuestion(Question question);
+    List<Answer> GetAllAnswersForQuestion(Question question);
     Answer GetAnswerByID(int answerID);
 
 }

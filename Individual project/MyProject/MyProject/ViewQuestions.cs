@@ -62,7 +62,7 @@ namespace WinFormApp
             List<DataRow> rows = questionsList.Select(t => questions.Rows.Add(t.ID, t.Description)).ToList();
             foreach (var question in questionsList)
             {
-                var answersList = _answerManager.GetGetAllAnswersForQuestion(question);
+                var answersList = _answerManager.GetAllAnswersForQuestion(question);
                 for (int i = 0; i < answersList.Count; i++)
                 {
                     answers.Rows.Add(null, question.ID, answersList[i].Description);

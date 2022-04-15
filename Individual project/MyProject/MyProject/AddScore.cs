@@ -18,15 +18,23 @@ namespace WinFormApp
             _answerManager = answerManager;
             _scoreManager = scoreManager;
             var questions = questionManager.GetAllQuestions();
-            cbxQuestion.DataSource = questions;
             cbxQuestion.DisplayMember = "Description";
             cbxQuestion.ValueMember = "ID";
+            cbxQuestion.DataSource = questions;
         }
 
         private void cbxQuestion_SelectedIndexChanged(object sender, EventArgs e)
         {
             var q = (Question)cbxQuestion.SelectedItem;
-            cbxAnswer.DataSource = _answerManager.GetGetAllAnswersForQuestion(q);
+            var dataSource = new List<Answer>();
+            foreach (var answer in _answerManager.GetAllAnswersForQuestion(q))
+            {
+                if (!_scoreManager.HasScore(answer.ID))
+                {
+                    dataSource.Add(answer);
+                }
+            }
+            cbxAnswer.DataSource = dataSource;
             cbxAnswer.DisplayMember = "Description";
             cbxAnswer.ValueMember = "ID";
         }

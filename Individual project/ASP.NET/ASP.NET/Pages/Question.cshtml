@@ -18,7 +18,7 @@
 						form.submit()
 					}
 				</script>
-				@foreach (var answer in Model.AnswerManager.GetGetAllAnswersForQuestion(Model.QuestionManager.GetAllQuestions()[@Model.index]))
+				@foreach (var answer in Model.AnswerManager.GetAllAnswersForQuestion(Model.QuestionManager.GetAllQuestions()[@Model.index]))
 				{
 					<button class="btn" onclick="submitAnswer(@answer.ID)">@answer.Description</button>
 				}

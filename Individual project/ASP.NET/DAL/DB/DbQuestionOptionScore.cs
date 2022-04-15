@@ -68,5 +68,37 @@ namespace DAL.DB
                 return null;
             }
         }
+
+        public List<Answer> GetAllAnswersWithoutScore()
+        {
+            using (var conn = Connection.OpenConn())
+            {
+                List<Answer> list = new List<Answer>();
+
+                string sql = "SELECT a.id, a.question_id, a.description FROM question_option_score AS s INNER JOIN question_options AS a" +
+                             "ON s.question_option_id = a.id WHERE s.question_option_id <> a.id;";
+                var rdr = MySqlHelper.ExecuteReader(conn, sql);
+                while (rdr.Read())
+                {
+                    list.Add(new Answer(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetString(2)));
+                }
+                rdr.Close();
+                return list;
+            }
+        }
+
+        public bool HasScore(int answerID)
+        {
+            using (var conn = Connection.OpenConn())
+            {
+                string sql = "SELECT * FROM question_option_score WHERE question_option_id = @AnswerID;";
+                var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[]{new MySqlParameter("AnswerID", answerID)});
+                if (rdr.HasRows)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
     }
 }

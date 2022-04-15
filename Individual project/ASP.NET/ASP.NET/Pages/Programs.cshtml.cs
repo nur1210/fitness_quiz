@@ -12,9 +12,9 @@ namespace WebApp.Pages
         [BindProperty(SupportsGet = true)]
         public int ProgramID { get; set; }
 
-        [BindProperty] public TrainingProgram Program { get; set; }
-        [BindProperty] public ProgramManager ProgramManager { get; set; }
-        [BindProperty] public ExerciseManager ExerciseManager { get; set; }
+        public TrainingProgram Program { get; set; }
+        public ProgramManager ProgramManager { get; set; }
+        public ExerciseManager ExerciseManager { get; set; }
         public ProgramsModel(ProgramManager pM, TrainingProgram tP, ExerciseManager eM)
         {
             ProgramManager = pM;

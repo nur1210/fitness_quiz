@@ -9,4 +9,6 @@ public interface IDbQuestionOptionScore
     void DeleteScore(Score s);
     List<Score> GetAllScores();
     Score GetScore(int programID, int questionOptionID);
+    List<Answer> GetAllAnswersWithoutScore();
+    bool HasScore(int answerID);
 }

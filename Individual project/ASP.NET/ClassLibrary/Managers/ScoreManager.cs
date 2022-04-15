@@ -26,5 +26,7 @@ namespace Logic.Managers
             _repository.GetAllScores().Where(x => x.ProgramID == programID).ToList();
         public Score GetScore(int programID, int questionOptionID) => _repository.GetScore(programID, questionOptionID);
 
+        public List<Answer> GetAllAnswersWithoutScore() => _repository.GetAllAnswersWithoutScore();
+        public bool HasScore(int answerID) => _repository.HasScore(answerID);
     }
 }

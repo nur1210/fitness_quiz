@@ -60,9 +60,9 @@ namespace WinFormApp
             }
             foreach (var question in _qM.GetAllQuestions())
             {
-                for (int i = 0; i < _aM.GetGetAllAnswersForQuestion(question).Count; i++)
+                for (int i = 0; i < _aM.GetAllAnswersForQuestion(question).Count; i++)
                 {
-                    answers.Rows.Add(null, question.ID, _aM.GetGetAllAnswersForQuestion(question)[i].Description);
+                    answers.Rows.Add(null, question.ID, _aM.GetAllAnswersForQuestion(question)[i].Description);
                 }
             }
         }

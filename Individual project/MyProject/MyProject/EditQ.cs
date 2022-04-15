@@ -25,7 +25,7 @@ namespace WinFormApp
 
         private void EditQ_Load(object sender, EventArgs e)
         {
-            var answers = _answerManager.GetGetAllAnswersForQuestion(_question);
+            var answers = _answerManager.GetAllAnswersForQuestion(_question);
             TextBox[] textBoxes = new TextBox[4];
 
             textBoxes[0] = tbxAnswer1;
@@ -53,7 +53,7 @@ namespace WinFormApp
             descriptions[2] = tbxAnswer3.Text;
             descriptions[3] = tbxAnswer4.Text;
 
-            var answers = _answerManager.GetGetAllAnswersForQuestion(_question);
+            var answers = _answerManager.GetAllAnswersForQuestion(_question);
             List<Answer> answerList = new List<Answer>();
             for (int i = 0; i < answers.Count; i++)
             {

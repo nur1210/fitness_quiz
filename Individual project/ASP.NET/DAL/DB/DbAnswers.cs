@@ -58,7 +58,7 @@ namespace DAL.DB
         }
 
 
-        public List<Answer> GetGetAllAnswersForQuestion(Question question)
+        public List<Answer> GetAllAnswersForQuestion(Question question)
         {
             using (var conn = Connection.OpenConn())
             {

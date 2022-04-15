@@ -37,7 +37,7 @@ namespace WebApp.Pages
         {
             var answerID = AnswerID;
             var questionID = QuestionManager.GetAllQuestions().ElementAt(index).ID;
-            //question.Statistics.AddAnswerStatistic(answerID, questionID);
+            //AnswerManager.Statistics.AddAnswerStatistic(answerID, questionID);
             index = seeder++;
         }
     }

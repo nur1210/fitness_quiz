@@ -1,4 +1,4 @@
-﻿namespace DAL.DB
+﻿namespace Logic.Managers
 {
     public static class Hashing
     {

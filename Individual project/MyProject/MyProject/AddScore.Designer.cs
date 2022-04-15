@@ -30,16 +30,13 @@ namespace WinFormApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.cbxQuestion = new MaterialSkin.Controls.MaterialComboBox();
             this.cbxAnswer = new MaterialSkin.Controls.MaterialComboBox();
-            this.questionManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnAssign = new MaterialSkin.Controls.MaterialButton();
             this.lblQuestion = new MaterialSkin.Controls.MaterialLabel();
             this.lblAnswer = new MaterialSkin.Controls.MaterialLabel();
             this.nudScore = new System.Windows.Forms.NumericUpDown();
             this.lblScore = new MaterialSkin.Controls.MaterialLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.questionManagerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudScore)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +67,6 @@ namespace WinFormApp
             // 
             this.cbxAnswer.AutoResize = false;
             this.cbxAnswer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbxAnswer.DataSource = this.questionManagerBindingSource;
             this.cbxAnswer.Depth = 0;
             this.cbxAnswer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cbxAnswer.DropDownHeight = 174;
@@ -88,11 +84,6 @@ namespace WinFormApp
             this.cbxAnswer.Size = new System.Drawing.Size(219, 49);
             this.cbxAnswer.StartIndex = 0;
             this.cbxAnswer.TabIndex = 1;
-            // 
-            // questionManagerBindingSource
-            // 
-            this.questionManagerBindingSource.AllowNew = true;
-            this.questionManagerBindingSource.DataSource = typeof(QuestionManager);
             // 
             // btnAssign
             // 
@@ -174,7 +165,7 @@ namespace WinFormApp
             this.lblScore.TabIndex = 6;
             this.lblScore.Text = "Coresponding 1-5";
             // 
-            // AssignProgramToAnswer
+            // AddScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,10 +177,9 @@ namespace WinFormApp
             this.Controls.Add(this.btnAssign);
             this.Controls.Add(this.cbxAnswer);
             this.Controls.Add(this.cbxQuestion);
-            this.Name = "AssignProgramToAnswer";
+            this.Name = "AddScore";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AssignPragramToAnswer";
-            ((System.ComponentModel.ISupportInitialize)(this.questionManagerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudScore)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -200,7 +190,6 @@ namespace WinFormApp
 
         private MaterialSkin.Controls.MaterialComboBox cbxQuestion;
         private MaterialSkin.Controls.MaterialComboBox cbxAnswer;
-        private BindingSource questionManagerBindingSource;
         private MaterialSkin.Controls.MaterialButton btnAssign;
         private MaterialSkin.Controls.MaterialLabel lblQuestion;
         private MaterialSkin.Controls.MaterialLabel lblAnswer;

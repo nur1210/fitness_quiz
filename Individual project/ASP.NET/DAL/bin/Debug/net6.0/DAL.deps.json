@@ -225,6 +225,7 @@
       },
       "Logic/1.0.0": {
         "dependencies": {
+          "BCrypt.Net-Core": "1.6.0",
           "MySql.Data": "8.0.28"
         },
         "runtime": {

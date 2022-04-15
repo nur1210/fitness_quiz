@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "dDQDN/fsclpL/oaiGYXPJMoLKlIzQ6mPKSagbjXiYrTV03ZX/ytXx6It2FUwHeeNwBSDKi1FLV3z/MbZApE4rA==",
+  "dgSpecHash": "e6B7gN3ckT9VaEn3Q3XkELyu32VxgS0Fg4VpVuRhu9gQF8C7NLxAmXHAndVQETLXcrnob7hU7dxewVnwYsgUnw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ClassLibrary\\Logic.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",
