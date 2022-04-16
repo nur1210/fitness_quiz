@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Logic.Managers;
 using Logic.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -9,20 +10,21 @@ namespace WebApp.Pages
     [Authorize]
     public class ProgramsModel : PageModel
     {
-        [BindProperty(SupportsGet = true)]
-        public int ProgramID { get; set; }
+        [BindProperty] public List<int> ProgramIDs { get; set; }
 
-        public TrainingProgram Program { get; set; }
         public ProgramManager ProgramManager { get; set; }
         public ExerciseManager ExerciseManager { get; set; }
-        public ProgramsModel(ProgramManager pM, TrainingProgram tP, ExerciseManager eM)
+        public UserManager UserManager { get; set; }
+        public ProgramsModel(ProgramManager pM, ExerciseManager eM, UserManager uM)
         {
             ProgramManager = pM;
-            Program = tP;
             ExerciseManager = eM;
+            UserManager = uM;
         }
         public void OnGet()
         {
+            var userID = int.Parse(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            ProgramIDs = UserManager.RecommendedPrograms(userID);
         }
     }
 }

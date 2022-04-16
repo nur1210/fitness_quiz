@@ -13,4 +13,8 @@ public interface IDbUsers
     void UnblockUser(int userID);
     void MakeAdmin(int userID);
     void AddUserAnswer(int userID, int answerID);
+    List<int> RecommendedPrograms(int userID);
+    void AssignProgram(int userID, int programID);
+    bool HasProgram(int userID);
+    User GetUserByEmail(string email);
 }

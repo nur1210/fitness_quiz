@@ -10,5 +10,5 @@ public interface IDbQuestionOptionScore
     List<Score> GetAllScores();
     Score GetScore(int programID, int questionOptionID);
     List<Answer> GetAllAnswersWithoutScore();
-    bool HasScore(int answerID);
+    bool HasScore(int answerID, int programID);
 }

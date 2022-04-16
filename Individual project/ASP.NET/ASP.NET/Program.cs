@@ -3,6 +3,7 @@ using Logic.IDb;
 using Logic.Managers;
 using Logic.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using WebApp.Pages.Account;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +26,7 @@ builder.Services.AddSingleton<AnswerStatisticManager>();
 builder.Services.AddSingleton<ScoreManager>();
 builder.Services.AddSingleton<ProgramTypeManager>();
 builder.Services.AddSingleton<QuestionViewManager>();
+builder.Services.AddSingleton<Validation>();
 
 builder.Services.AddSingleton<IDbQuestions, DbQuestions>();
 builder.Services.AddSingleton<IDbAnswers, DbAnswers>();

@@ -87,12 +87,12 @@ namespace DAL.DB
             }
         }
 
-        public bool HasScore(int answerID)
+        public bool HasScore(int answerID, int programID)
         {
             using (var conn = Connection.OpenConn())
             {
-                string sql = "SELECT * FROM question_option_score WHERE question_option_id = @AnswerID;";
-                var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[]{new MySqlParameter("AnswerID", answerID)});
+                string sql = "SELECT * FROM question_option_score WHERE question_option_id = @AnswerID AND program_id = @ProgramID;";
+                var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter("AnswerID", answerID), new MySqlParameter("ProgramID", programID));
                 if (rdr.HasRows)
                 {
                     return true;

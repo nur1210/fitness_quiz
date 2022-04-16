@@ -5,20 +5,21 @@
 <body>
 	<div class="container">
 		<div style="text-align:center;">
-			<h1>@Model.QuestionManager.GetAllQuestions()[@Model.index].Description</h1>
+			<h1>@Model.QuestionManager.GetAllQuestions()[@Model.Index].Description</h1>
 			<hr />
 			<form method="post" id="answer-form">
-				<input asp-for="AnswerID" id="answer-input" class="btn" />
+				<input asp-for="Index" type="hidden" value="@Model.Index"/>
+				<input asp-for="AnswerID" id="answer-input" class="btn"/>
 				<script>
 					const submitAnswer = (answerId) => {
 						const input = document.getElementById("answer-input")
 						const form = document.getElementById("answer-form")
-						input.value= answerId
+						input.value = answerId
 						console.log(answerId);
 						form.submit()
 					}
 				</script>
-				@foreach (var answer in Model.AnswerManager.GetAllAnswersForQuestion(Model.QuestionManager.GetAllQuestions()[@Model.index]))
+				@foreach (var answer in Model.AnswerManager.GetAllAnswersForQuestion(Model.QuestionManager.GetAllQuestions()[@Model.Index]))
 				{
 					<button class="btn" onclick="submitAnswer(@answer.ID)">@answer.Description</button>
 				}

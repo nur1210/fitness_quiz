@@ -12,8 +12,15 @@ namespace WebApp.Pages
 {
     public class IndexModel : PageModel
     {
-        [BindProperty]
-        public Credential credential { get; set; }
+        [BindProperty] public Credential credential { get; set; }
+
+        public UserManager UserManager { get; set; }
+        public Validation Validation { get; set; }
+        public IndexModel(UserManager uM, Validation v)
+        {
+            UserManager = uM;
+            Validation = v;
+        }
 
         public void OnGet()
         {
@@ -22,49 +29,36 @@ namespace WebApp.Pages
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid) return Page();
-            using (var conn = Connection.OpenConn())
+            if (!Validation.ValidUser(credential.Email, credential.Password)) return Page();
+            var user = UserManager.GetUserByEmail(credential.Email);
+            var claims = new List<Claim>
             {
-                string sql = "SELECT id, password, is_admin, is_blocked FROM users WHERE email = @Email";
-                var result = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] {
-                    new MySqlParameter("Email", credential.Email)});
-                while (result.Read())
-                {
-                    if (result is not null)
-                    {
-                        var match = Hashing.ValidatePassword(credential.Password, result.GetString(1));
-                        if (match && !result.GetBoolean(3))
-                        {
-                            int id = result.GetInt32(0);
-                            credential.IsAdmin = result.GetBoolean(2);
-                            List<Claim> claims = new List<Claim>();
-                            claims.Add(new Claim(ClaimTypes.Name, credential.Email));
-                            claims.Add(new Claim(ClaimTypes.NameIdentifier, id.ToString()));
-                            claims.Add(new Claim(ClaimTypes.Role, credential.IsAdmin ? "admin" : "user"));
-                            var claimsidentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                            HttpContext.SignInAsync(new ClaimsPrincipal(claimsidentity));
-                            if (credential.IsAdmin)
-                            {
-                                return RedirectToPage("/UsersView");
-                            }
-                            return RedirectToPage("/Question");
-                        }
-                    }
-                }
+                new(ClaimTypes.Name, credential.Email),
+                new(ClaimTypes.NameIdentifier, user.ID.ToString()),
+                new(ClaimTypes.Role, credential.IsAdmin ? "admin" : "user")
+            };
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            HttpContext.SignInAsync(new ClaimsPrincipal(claimsIdentity));
+            if (credential.IsAdmin)
+            {
+                return RedirectToPage("/UsersView");
             }
-            return Page();
+
+            return RedirectToPage(UserManager.HasProgram(user.ID) ? "/Programs" : "/Question");
         }
 
-        public class Credential
-        {
-            [Required]
-            [DataType(DataType.EmailAddress)]
-            public string Email { get; set; }
 
-            [Required]
-            [DataType(DataType.Password)]
-            public string Password { get; set; }
+    public class Credential
+    {
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
 
-            public bool IsAdmin { get; set; }
-        }
+        [Required]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+        public bool IsAdmin { get; set; }
     }
+}
 }

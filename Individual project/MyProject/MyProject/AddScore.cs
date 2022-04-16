@@ -29,7 +29,7 @@ namespace WinFormApp
             var dataSource = new List<Answer>();
             foreach (var answer in _answerManager.GetAllAnswersForQuestion(q))
             {
-                if (!_scoreManager.HasScore(answer.ID))
+                if (!_scoreManager.HasScore(answer.ID, _programId))
                 {
                     dataSource.Add(answer);
                 }
@@ -50,7 +50,6 @@ namespace WinFormApp
                 _viewPrograms.DisplayLabel();
                 Close();
             }
-            
         }
     }
 }

@@ -9,24 +9,19 @@ namespace Logic.Models
     public class TrainingProgram
     {
         private int _id;
-        protected string _description;
+        private string _description;
         private int _typeID;
-        protected int _restBetweenSets;
-        protected IEnumerable<int> _repRange;
-        protected IEnumerable<int> _ageRange;
+        private int _restBetweenSets;
+        private IEnumerable<int> _repRange;
+        private IEnumerable<int> _ageRange;
 
 
         public int ID { get => _id; set => _id = value; }
         public string Description { get => _description; set => _description = value; }
         public int TypeID { get => _typeID; set => _typeID = value; }
-        public int RestBetweenSets { get => _restBetweenSets; set => _restBetweenSets = value; }
-        public IEnumerable<int> RepRange { get => _repRange; set => _repRange = value; }
-        public IEnumerable<int> AgeRange { get => _ageRange; set => _ageRange = value; }
-
-        public TrainingProgram()
-        {
-
-        }
+        public int RestBetweenSets { get => _restBetweenSets; protected set => _restBetweenSets = value; }
+        public IEnumerable<int> RepRange { get => _repRange; protected set => _repRange = value; }
+        public IEnumerable<int> AgeRange { get => _ageRange; protected set => _ageRange = value; }
 
         public TrainingProgram(int id, string description, int typeID)
         {

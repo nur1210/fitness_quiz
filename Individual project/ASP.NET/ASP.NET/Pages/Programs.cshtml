@@ -1,29 +1,42 @@
 ﻿@page
+@using System.Diagnostics.Eventing.Reader
+@using System.Runtime.CompilerServices
 @model WebApp.Pages.ProgramsModel
 @{
-	var program = Model.Program = Model.ProgramManager.GetProgramByID(Model.ProgramID);
+	var programs = Model.ProgramIDs.Select(x => Model.ProgramManager.GetProgramByID(x)).ToList();
+	string programNames = "";
+	programs.ForEach(x => programNames += $"{x.Description},");
 }
 
 <div class="program-form">
-		<h1>The quiz result shows @program.Description is the best program for you!</h1>
+		@if (programs.Count == 1)
+		{
+			<h1>The quiz result shows @programs[0].Description is the best program for you!</h1>
+		}
+		else
+		{
+			<h1>The quiz result shows @programNames is the best program for you!</h1>
+		}
+	@foreach (var program in programs)
+	{
 		<h2>Here is your exercise list:</h2>
-	<div>
-		<table>
-			<tr>
-				<th>Exercise</th>
-				<th>Reps</th>
-				<th>Sets</th>
-			</tr>
-			@foreach (var exercise in Model.ExerciseManager.GetAllExercisesForProgram(program))
-			{
-				<tr>
-					<td>@exercise.Name</td>
-					<td>@exercise.Sets</td>
-					<td>@exercise.Reps</td>
-				</tr>
-			}
-		</table>
-
-	</div>
+			<div>
+				<table>
+					<tr>
+						<th>Exercise</th>
+						<th>Reps</th>
+						<th>Sets</th>
+					</tr>
+					@foreach (var exercise in Model.ExerciseManager.GetAllExercisesForProgram(program))
+					{
+						<tr>
+							<td>@exercise.Name</td>
+							<td>@exercise.Sets</td>
+							<td>@exercise.Reps</td>
+						</tr>
+					}
+				</table>
+			</div>
+		}
 
 </div>

@@ -11,9 +11,8 @@ namespace WebApp.Pages
     [Authorize(Roles = "user")]
     public class QuestionModel : PageModel
     {
-        [BindProperty] public int index { get; set; }
-        public static int seeder { get; set; } = 1;
-        [BindProperty] public int AnswerID { get ; set; }
+        [BindProperty(SupportsGet = true)] public int Index { get; set; }
+        [BindProperty] public int AnswerID { get; set; }
         public QuestionManager QuestionManager { get; }
         public AnswerManager AnswerManager { get; }
         public AnswerStatisticManager AnswerStatisticManager { get; }
@@ -31,22 +30,21 @@ namespace WebApp.Pages
         {
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
             if (HttpContext.User.Identity.IsAuthenticated)
             {
                 var id = int.Parse(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
                 var answerID = AnswerID;
-                UserManager.AddUserAnswer(id, answerID);
-                if (index == QuestionManager.GetAllQuestions().Count)
+                //UserManager.AddUserAnswer(id, answerID);
+                if (Index == QuestionManager.GetAllQuestions().Count-1)
                 {
-                    RedirectToPage("/Programs");
+                    UserManager.AssignProgram(id, UserManager.RecommendedPrograms(id).First());
+                    return RedirectToPage("/Programs");
                 }
-                else
-                {
-                    index = seeder++;
-                }
+
             }
+            return RedirectToPage("/Question", new { Index = Index + 1});
         }
     }
 }

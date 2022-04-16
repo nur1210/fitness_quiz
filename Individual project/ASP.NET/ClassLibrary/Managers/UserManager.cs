@@ -24,5 +24,9 @@ namespace Logic.Managers
         public void UnblockUser(int id) => _repository.UnblockUser(id);
         public void MakeAdmin(int id) => _repository.MakeAdmin(id);
         public void AddUserAnswer(int userID, int answerID) => _repository.AddUserAnswer(userID, answerID);
+        public List<int> RecommendedPrograms(int userID) => _repository.RecommendedPrograms(userID);
+        public bool HasProgram(int userID) => _repository.HasProgram(userID);
+        public void AssignProgram(int userID, int programID) => _repository.AssignProgram(userID, programID);
+        public User GetUserByEmail(string email) => _repository.GetUserByEmail(email);
     }
 }
