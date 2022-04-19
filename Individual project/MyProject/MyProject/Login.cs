@@ -1,4 +1,5 @@
 ﻿using DAL.DB;
+using Logic.Managers;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
@@ -8,10 +9,12 @@ namespace WinFormApp
     {
         private DbLogin dbLogin;
         private readonly MainForm _mainForm;
+        private readonly Validation _validation;
 
-        public Login(MainForm mainform)
+        public Login(MainForm mainform, Validation validation)
         {
             _mainForm = mainform;
+            _validation = validation;
             _mainForm.Closed += (_, _) => Close();
             InitializeComponent();
             var materialSkinManager = MaterialSkinManager.Instance;
@@ -19,25 +22,6 @@ namespace WinFormApp
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             dbLogin = new DbLogin();
-        }
-
-        private bool ValidEmail(string email)
-        {
-            var trimmedEmail = email.Trim();
-
-            if (trimmedEmail.EndsWith("."))
-            {
-                return false;
-            }
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == trimmedEmail;
-            }
-            catch
-            {
-                return false;
-            }
         }
 
         private void tbxPassword_Enter(object sender, EventArgs e)
@@ -87,7 +71,7 @@ namespace WinFormApp
             {
                 MessageBox.Show("Fill all fields!", "Not all fields are filled", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (!ValidEmail(tbxEmail.Text))
+            else if (!_validation.ValidEmail(tbxEmail.Text))
             {
                 MessageBox.Show("Email is not valid! Please, input a valid one.", "Not valid email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

@@ -26,5 +26,12 @@ namespace WebApp.Pages
             var userID = int.Parse(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
             ProgramIDs = UserManager.RecommendedPrograms(userID);
         }
+
+        public IActionResult OnPost()
+        {
+            var userID = int.Parse(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            UserManager.RemoveUserProgramAndAnswers(userID);
+            return RedirectToPage("/Question");
+        }
     }
 }

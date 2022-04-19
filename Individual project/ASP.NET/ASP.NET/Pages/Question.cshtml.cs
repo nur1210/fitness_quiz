@@ -36,13 +36,12 @@ namespace WebApp.Pages
             {
                 var id = int.Parse(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
                 var answerID = AnswerID;
-                //UserManager.AddUserAnswer(id, answerID);
+                UserManager.AddUserAnswer(id, answerID);
                 if (Index == QuestionManager.GetAllQuestions().Count-1)
                 {
                     UserManager.AssignProgram(id, UserManager.RecommendedPrograms(id).First());
                     return RedirectToPage("/Programs");
                 }
-
             }
             return RedirectToPage("/Question", new { Index = Index + 1});
         }

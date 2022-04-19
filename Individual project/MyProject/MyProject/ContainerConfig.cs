@@ -32,6 +32,7 @@ namespace WinFormApp
             builder.RegisterType<ProgramTypeManager>().AsSelf().SingleInstance();
             builder.RegisterType<ScoreManager>().AsSelf().SingleInstance();
             builder.RegisterType<QuestionViewManager>().AsSelf().SingleInstance();
+            builder.RegisterType<Validation>().AsSelf().SingleInstance();
             builder.RegisterType<Login>();
             builder.RegisterType<MainForm>();
 

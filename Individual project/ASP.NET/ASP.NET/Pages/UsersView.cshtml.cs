@@ -10,10 +10,6 @@ namespace WebApp.Pages
     {
         public UserViewManager UserViewManager { get; set; }
         public UserManager UserManager { get; set; }
-        [BindProperty(SupportsGet = true)]
-        public bool IsBlocked { get; set; }
-        [BindProperty(SupportsGet = true)]
-        public bool IsAdmin { get; set; }
 
         [BindProperty(SupportsGet = true)]
         public int SelectedRow { get; set; }
@@ -26,7 +22,6 @@ namespace WebApp.Pages
 
         public void OnGet()
         {
-
         }
 
         public void OnPost()

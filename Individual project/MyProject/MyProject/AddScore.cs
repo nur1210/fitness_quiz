@@ -45,7 +45,8 @@ namespace WinFormApp
             {
                 var answerID = Convert.ToInt32(cbxAnswer.SelectedValue);
                 int score = Convert.ToInt32(nudScore.Value);
-                Score s = new(answerID, _programId, score);
+                int questionID = Convert.ToInt32(cbxQuestion.SelectedValue);
+                Score s = new(questionID, answerID, _programId, score);
                 _scoreManager.AddScore(s);
                 _viewPrograms.DisplayLabel();
                 Close();

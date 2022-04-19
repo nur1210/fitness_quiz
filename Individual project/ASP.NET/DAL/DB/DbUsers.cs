@@ -63,10 +63,7 @@ namespace DAL.DB
 
                 while (rdr.Read())
                 {
-                    if (rdr is not null)
-                    {
-                        return new User(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2), rdr.GetString(3), rdr.GetString(4), rdr.GetBoolean(5), rdr.GetBoolean(6));
-                    }
+                    return new User(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2), rdr.GetString(3), rdr.GetString(4), rdr.GetBoolean(5), rdr.GetBoolean(6));
                 }
                 rdr.Close();
                 return null;
@@ -109,6 +106,27 @@ namespace DAL.DB
             }
         }
 
+        public void UpdateUserAnswer(int userID, int questionID, int answerID)
+        {
+            using (var conn = Connection.OpenConn())
+            {
+                string sql = "update user_answers set question_option_id = @AnswerID where question_option_id = " +
+                             "(select ua.question_option_id from user_answers as ua inner join question_options as qo " +
+                             "on ua.question_option_id = qo.id inner join questions as q on qo.question_id = q.id " +
+                             "where qo.question_id = q.id and ua.question_option_id = @QuestionID and ua.user_id = UserID); ";
+                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter("UserID", userID), new MySqlParameter("QuestionID", questionID), 
+                    new MySqlParameter("AnswerID", answerID));
+            }
+        }
+
+        public void RemoveAllUserAnswers(int userID)
+        {
+            using (var conn = Connection.OpenConn())
+            {
+                string sql = "DELETE FROM user_answers WHERE user_id = @ID";
+                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter("ID", userID));
+            }
+        }
         public List<int> RecommendedPrograms(int userID)
         {
             using (var conn = Connection.OpenConn())
@@ -121,9 +139,9 @@ namespace DAL.DB
                 List<(int, int)> valuesList = new();
                 while (rdr.Read())
                 {
-                    var programID = rdr.GetInt32(0);
+                    var programId = rdr.GetInt32(0);
                     var score = rdr.GetInt32(1);
-                    valuesList.Add((programID, score));
+                    valuesList.Add((programId, score));
                 }
 
                 List<int> programIds = new();
@@ -149,6 +167,15 @@ namespace DAL.DB
                 string sql = "INSERT INTO user_program (user_id, program_id) VALUES (@ID, @ProgramID)";
                 MySqlHelper.ExecuteNonQuery(con, sql, new MySqlParameter("ID", userID),
                     new MySqlParameter("ProgramID", programID));
+            }
+        }
+
+        public void RemoveProgram(int userID)
+        {
+            using (var con = Connection.OpenConn())
+            {
+                string sql = "DELETE FROM user_program WHERE user_id = @ID;";
+                MySqlHelper.ExecuteNonQuery(con, sql, new MySqlParameter("ID", userID));
             }
         }
 

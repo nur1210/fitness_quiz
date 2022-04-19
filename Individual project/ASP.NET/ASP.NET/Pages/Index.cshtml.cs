@@ -35,11 +35,11 @@ namespace WebApp.Pages
             {
                 new(ClaimTypes.Name, credential.Email),
                 new(ClaimTypes.NameIdentifier, user.ID.ToString()),
-                new(ClaimTypes.Role, credential.IsAdmin ? "admin" : "user")
+                new(ClaimTypes.Role, user.IsAdmin ? "admin" : "user")
             };
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             HttpContext.SignInAsync(new ClaimsPrincipal(claimsIdentity));
-            if (credential.IsAdmin)
+            if (user.IsAdmin)
             {
                 return RedirectToPage("/UsersView");
             }
@@ -58,7 +58,6 @@ namespace WebApp.Pages
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        public bool IsAdmin { get; set; }
     }
 }
 }

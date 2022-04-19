@@ -9,33 +9,28 @@ namespace WebApp.Pages.Account
 {
     public class RegisterModel : PageModel
     {
-        private readonly UserManager _manager;
+        private readonly UserManager _userManager;
 
-        [BindProperty]
-        public Registration RegisterForm { get; set; }
+        [BindProperty] public Registration RegisterForm { get; set; }
 
-        public RegisterModel(UserManager manager)
+        public RegisterModel(UserManager userManager)
         {
-            _manager = manager;
+            _userManager = userManager;
         }
         public void OnGet()
         {
             if (ModelState.IsValid)
             {
-
             }
 
         }
 
         public IActionResult OnPost()
         {
-            if (ModelState.IsValid)
-            {
-                var user = new User(RegisterForm.FirstName, RegisterForm.LastName, RegisterForm.Email, RegisterForm.Password);
-                _manager.AddUser(user);
-                return RedirectToPage("/Index");
-            }
-            return Page();
+            if (!ModelState.IsValid) return Page();
+            var user = new User(RegisterForm.FirstName, RegisterForm.LastName, RegisterForm.Email, RegisterForm.Password);
+            _userManager.AddUser(user);
+            return RedirectToPage("/Index");
         }
 
         public class Registration
@@ -48,7 +43,6 @@ namespace WebApp.Pages.Account
             public string LastName { get; set; }
             [Required]
             [DataType(DataType.EmailAddress)]
-            //[Remote]
             public string Email { get; set; }
             [Required]
             [DataType(DataType.Password)]
@@ -60,7 +54,6 @@ namespace WebApp.Pages.Account
 
             public Registration()
             {
-
             }
 
             public Registration(string firstName, string lastName, string email, string password, string repeatPassword)

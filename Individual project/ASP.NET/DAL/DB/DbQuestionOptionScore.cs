@@ -11,9 +11,8 @@ namespace DAL.DB
         {
             using (var conn = Connection.OpenConn())
             {
-                string sql = "INSERT INTO question_option_score (question_option_id, program_id, weight) VALUES (@QuestionOptionID, @ProgramID, @Weight)";
-                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("QuestionOptionID", s.QuestionOptionID),
-                    new MySqlParameter("ProgramID", s.ProgramID), new MySqlParameter("Weight", s.Weight) });
+                string sql = "INSERT INTO question_option_score (question_id, question_option_id, program_id, weight) VALUES (@QuestionID, @QuestionOptionID, @ProgramID, @Weight)";
+                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter("QuestionID", s.QuestionID), new MySqlParameter("QuestionOptionID", s.QuestionOptionID), new MySqlParameter("ProgramID", s.ProgramID), new MySqlParameter("Weight", s.Weight));
             }
         }
 
@@ -22,8 +21,7 @@ namespace DAL.DB
             using (var conn = Connection.OpenConn())
             {
                 string sql = "UPDATE question_option_score SET weight = @Weight WHERE question_option_id = @ID ";
-                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("Weight", s.Weight),
-                    new MySqlParameter("ID", s.QuestionOptionID) });
+                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter("Weight", s.Weight), new MySqlParameter("ID", s.QuestionOptionID));
             }
         }
 
@@ -32,7 +30,7 @@ namespace DAL.DB
             using (var conn = Connection.OpenConn())
             {
                 string sql = "DELETE FROM question_option_score WHERE question_option_id = @ID";
-                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("ID", s.QuestionOptionID) });
+                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter("ID", s.QuestionOptionID));
             }
         }
 
@@ -47,7 +45,7 @@ namespace DAL.DB
 
                 while (rdr.Read())
                 {
-                    list.Add(new Score(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2)));
+                    list.Add(new Score(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2), rdr.GetInt32(3)));
                 }
                 rdr.Close();
                 return list;
@@ -59,11 +57,11 @@ namespace DAL.DB
             using (var conn = Connection.OpenConn())
             {
                 string sql = "SELECT * FROM question_option_score WHERE program_id = @ProgramID AND question_option_id = @QuestionOptionID;";
-                var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter[] {new MySqlParameter("ProgramID", programID), new MySqlParameter("QuestionOptionID", questionOptionID) });
+                var rdr = MySqlHelper.ExecuteReader(conn, sql, new MySqlParameter("ProgramID", programID), new MySqlParameter("QuestionOptionID", questionOptionID));
 
                 while (rdr.Read())
                 {
-                    return new Score(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2));
+                    return new Score(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2), rdr.GetInt32(3));
                 }
                 return null;
             }
