@@ -50,8 +50,14 @@ hr {
 
 a.btn {
     text-decoration: none;
-    display: block;
+    display: inline-block;
 }
+ .program-btn {
+     display: flex;
+     justify-content: center;
+     margin-top: 60px;
+     min-width: 50px;
+ }
 
 .fullwidth {
     width: 100%;
@@ -62,8 +68,6 @@ a.btn {
     align-items: center;
 }
 
-.program-form {
-}
 
 .loginbtn:hover {
     opacity: 2;

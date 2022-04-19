@@ -12,7 +12,7 @@
 			<p>Please fill in your details.</p>
 			<hr />
 			<label asp-for="credential.Email">Email</label>
-			<input type="text" asp-for="credential.Email" class="form-control" />
+			<input type="text" data-val="true" data-var-required="Please fill the email field" asp-for="credential.Email" class="form-control" />
 			<span class="text-danger" asp-validation-for="credential.Email"></span>
 
 			<label asp-for="credential.Password">Password</label>

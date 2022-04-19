@@ -15,14 +15,12 @@ namespace WebApp.Pages
         [BindProperty] public int AnswerID { get; set; }
         public QuestionManager QuestionManager { get; }
         public AnswerManager AnswerManager { get; }
-        public AnswerStatisticManager AnswerStatisticManager { get; }
         public UserManager UserManager { get; }
 
-        public QuestionModel(QuestionManager qM, AnswerManager aM, AnswerStatisticManager aSM, UserManager uM)
+        public QuestionModel(QuestionManager qM, AnswerManager aM, UserManager uM)
         {
             QuestionManager = qM;
             AnswerManager = aM;
-            AnswerStatisticManager = aSM;
             UserManager = uM;
         }
 

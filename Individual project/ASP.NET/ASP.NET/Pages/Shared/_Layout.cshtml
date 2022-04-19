@@ -14,6 +14,7 @@
 		<div class="group">
 			@if (User.Identity.IsAuthenticated)
 			{
+				<a asp-page="Profile" class="item">Edit profile</a>
 				<a asp-page="Logout" asp-route-returnUrl="@Context.Request.Path" class="item">Logout</a>
 			}
 		</div>
@@ -21,18 +22,10 @@
 </head>
 <body>
 	<div class="container">
-			@RenderBody()
+		@RenderBody()
 	</div>
 	<footer class="footer-distributed">
 		<div class="footer-left">
-			<p class="footer-links">
-				<a class="link-1" href="#">Home</a>
-
-				<a href="#">About</a>
-
-				<a href="#">Contact</a>
-			</p>
-
 			<p>myProject &copy; 2022</p>
 		</div>
 	</footer>

@@ -19,10 +19,6 @@ namespace WebApp.Pages.Account
         }
         public void OnGet()
         {
-            if (ModelState.IsValid)
-            {
-            }
-
         }
 
         public IActionResult OnPost()

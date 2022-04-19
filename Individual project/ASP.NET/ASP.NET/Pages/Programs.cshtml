@@ -7,6 +7,7 @@
 	string programNames = "";
 	programs.ForEach(x => programNames += $"{x.Description},");
 }
+<style type="text/css">.program-btn { }</style>
 
 <div class="program-form">
 	@if (programs.Count == 1)
@@ -38,8 +39,9 @@
 			</table>
 		</div>
 	}
-	<form method="post">
-		<button class="btn">Retake the quiz</button>
-	</form>
-
+	<div class="program-btn">
+		<form method="post">
+			<button class="btn">Retake the quiz</button>
+		</form>
+	</div>
 </div>

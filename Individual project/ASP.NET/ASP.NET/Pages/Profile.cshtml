@@ -2,3 +2,30 @@
 @model WebApp.Pages.ProfileModel
 @{
 }
+<div class="container">
+	<div class="text-danger" asp-validation-summary="ModelOnly"></div>
+	<form method="post">
+
+		<label asp-for="FirstName">First Name</label>
+		<span class="text-danger" asp-validation-for="FirstName"></span>
+		<input asp-for="FirstName"/>
+
+		<label asp-for="LastName">Last name</label>
+		<span class="text-danger" asp-validation-for="LastName"></span>
+		<input asp-for="LastName"/>
+
+		<label asp-for="Email">Email</label>
+		<span class="text-danger" asp-validation-for="Email"></span>
+		<input asp-for="Email" type="text"/>
+
+		<label asp-for="NewPassword">New password</label>
+@*		<span class="text-danger" asp-validation-for="NewPassword"></span>
+*@		<input type="password" asp-for="NewPassword"/>
+
+		<label asp-for="RepeatPassword">Repeat password</label>
+@*		<span class="text-danger" asp-validation-for="RepeatPassword"></span>
+*@		<input type="password" asp-for="RepeatPassword"/>
+
+		<button type="submit" class="btn">Submit</button>
+	</form>
+</div>
