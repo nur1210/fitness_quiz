@@ -1,6 +1,13 @@
+using System.Collections.ObjectModel;
+using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.SkiaSharpView.Painting;
+using LiveChartsCore.SkiaSharpView.WinForms;
 using Logic.Managers;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using SkiaSharp;
+
 
 namespace WinFormApp
 {
@@ -58,6 +65,25 @@ namespace WinFormApp
             view.Show();
             view.FormClosed += (_, _) => Show();
             Hide();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            var chart = new PieChart
+            {
+                Series = new ObservableCollection<ISeries>() {
+                    new PieSeries<double> {
+                        Values = new double[] { 2 },
+                        Stroke = null,
+                        Fill = new SolidColorPaint { Color = SKColors.DarkOliveGreen } },
+                    new PieSeries<double> {
+                        Values = new double[] { 8 },
+                        Stroke = null,
+                        Fill = new SolidColorPaint { Color = SKColors.Aquamarine }
+                    }
+                }
+            };
+            panel2.Controls.Add(chart);
         }
     }
 }

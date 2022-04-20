@@ -288,9 +288,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "BCrypt.Net-Core": "1.6.0",
-          "Logic": "1.0.0",
-          "MySql.Data": "8.0.28"
+          "Logic": "1.0.0"
         },
         "compile": {
           "bin/placeholder/DAL.dll": {}
@@ -994,7 +992,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

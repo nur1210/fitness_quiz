@@ -11,6 +11,7 @@
           "Autofac": "6.3.0",
           "BCrypt.Net-Core": "1.6.0",
           "DAL": "1.0.0",
+          "LiveChartsCore.SkiaSharpView.WinForms": "2.0.0-beta.101",
           "Logic": "1.0.0",
           "MaterialSkin.2": "2.3.1",
           "MySql.Data": "8.0.28"
@@ -92,6 +93,38 @@
           }
         }
       },
+      "LiveChartsCore/2.0.0-beta.101": {
+        "runtime": {
+          "lib/net6.0/LiveChartsCore.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "LiveChartsCore.SkiaSharpView/2.0.0-beta.101": {
+        "dependencies": {
+          "LiveChartsCore": "2.0.0-beta.101",
+          "SkiaSharp": "2.88.0-preview.179"
+        },
+        "runtime": {
+          "lib/net6.0/LiveChartsCore.SkiaSharpView.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "LiveChartsCore.SkiaSharpView.WinForms/2.0.0-beta.101": {
+        "dependencies": {
+          "LiveChartsCore.SkiaSharpView": "2.0.0-beta.101",
+          "SkiaSharp.Views.WindowsForms": "2.88.0-preview.179"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/LiveChartsCore.SkiaSharpView.WinForms.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
       "MaterialSkin.2/2.3.1": {
         "runtime": {
           "lib/net5.0-windows7.0/MaterialSkin.dll": {
@@ -129,6 +162,92 @@
           "lib/net6.0/ZstdNet.dll": {
             "assemblyVersion": "1.4.5.0",
             "fileVersion": "1.4.5.0"
+          }
+        }
+      },
+      "OpenTK/3.1.0": {
+        "runtime": {
+          "lib/net20/OpenTK.dll": {
+            "assemblyVersion": "3.1.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        }
+      },
+      "OpenTK.GLControl/3.1.0": {
+        "dependencies": {
+          "OpenTK": "3.1.0"
+        },
+        "runtime": {
+          "lib/net20/OpenTK.GLControl.dll": {
+            "assemblyVersion": "3.1.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        }
+      },
+      "SkiaSharp/2.88.0-preview.179": {
+        "dependencies": {
+          "SkiaSharp.NativeAssets.Win32": "2.88.0-preview.179",
+          "SkiaSharp.NativeAssets.macOS": "2.88.0-preview.179",
+          "System.Memory": "4.5.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SkiaSharp.dll": {
+            "assemblyVersion": "2.88.0.0",
+            "fileVersion": "2.88.0.0"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.macOS/2.88.0-preview.179": {
+        "runtimeTargets": {
+          "runtimes/osx/native/libSkiaSharp.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.Win32/2.88.0-preview.179": {
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/libSkiaSharp.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libSkiaSharp.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/libSkiaSharp.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SkiaSharp.Views.Desktop.Common/2.88.0-preview.179": {
+        "dependencies": {
+          "SkiaSharp": "2.88.0-preview.179",
+          "System.Drawing.Common": "4.7.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/SkiaSharp.Views.Desktop.Common.dll": {
+            "assemblyVersion": "2.88.0.0",
+            "fileVersion": "2.88.0.0"
+          }
+        }
+      },
+      "SkiaSharp.Views.WindowsForms/2.88.0-preview.179": {
+        "dependencies": {
+          "OpenTK": "3.1.0",
+          "OpenTK.GLControl": "3.1.0",
+          "SkiaSharp": "2.88.0-preview.179",
+          "SkiaSharp.Views.Desktop.Common": "2.88.0-preview.179"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/SkiaSharp.Views.WindowsForms.dll": {
+            "assemblyVersion": "2.88.0.0",
+            "fileVersion": "2.88.0.0"
           }
         }
       },
@@ -173,9 +292,7 @@
       },
       "DAL/1.0.0": {
         "dependencies": {
-          "BCrypt.Net-Core": "1.6.0",
-          "Logic": "1.0.0",
-          "MySql.Data": "8.0.28"
+          "Logic": "1.0.0"
         },
         "runtime": {
           "DAL.dll": {}
@@ -247,6 +364,27 @@
       "path": "k4os.hash.xxhash/1.0.6",
       "hashPath": "k4os.hash.xxhash.1.0.6.nupkg.sha512"
     },
+    "LiveChartsCore/2.0.0-beta.101": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-I5SaYXR5F9KtVRvRvYPp4bMvSZQ9T5XERJMgLBxiYi6pgjrWrU4aZJDiHPjM/rggRf5Ibv+OnUgrdbond0RxHw==",
+      "path": "livechartscore/2.0.0-beta.101",
+      "hashPath": "livechartscore.2.0.0-beta.101.nupkg.sha512"
+    },
+    "LiveChartsCore.SkiaSharpView/2.0.0-beta.101": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4QKF8LfEDrk1uLeYTOEZjkWlxwtiTZcsFxaXLN9NGZIe+Q1lMht7OgoO9P1XJRM9u6VG4mSKhe9i6LHPU7CUkQ==",
+      "path": "livechartscore.skiasharpview/2.0.0-beta.101",
+      "hashPath": "livechartscore.skiasharpview.2.0.0-beta.101.nupkg.sha512"
+    },
+    "LiveChartsCore.SkiaSharpView.WinForms/2.0.0-beta.101": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DOjvmqYJntfv97FCGK5TNcKYjPbwRTEk2DoyWKeJVlpL3pLrpWyQM8hA4xSwbSX/ExcVmbMuLBdgSm39h1QqdA==",
+      "path": "livechartscore.skiasharpview.winforms/2.0.0-beta.101",
+      "hashPath": "livechartscore.skiasharpview.winforms.2.0.0-beta.101.nupkg.sha512"
+    },
     "MaterialSkin.2/2.3.1": {
       "type": "package",
       "serviceable": true,
@@ -274,6 +412,55 @@
       "sha512": "sha512-7b699tU9ba0r7SBK7K9snGJB9ulnOdwEXG28kpVvaQSN0hHenfoJ/ADOtdfhcvcn1KStBX8pFK5qIl8scdBL2g==",
       "path": "mysql.data/8.0.28",
       "hashPath": "mysql.data.8.0.28.nupkg.sha512"
+    },
+    "OpenTK/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xoP5kb81lRSY5RzbntaFA9yXK+aGF5SLShhns55MyZtxtNafIxRH5KvRTFss/N653brTzE+AfepjKsbMexYlBQ==",
+      "path": "opentk/3.1.0",
+      "hashPath": "opentk.3.1.0.nupkg.sha512"
+    },
+    "OpenTK.GLControl/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BjDzF+MhJd2LaZYzkXmgkzzXgHAko/Iur4rGy6+DPdZA1Jcc0X6jXZ6QsUsjlLRNzgevO7uAj2h1TqX7sguaYg==",
+      "path": "opentk.glcontrol/3.1.0",
+      "hashPath": "opentk.glcontrol.3.1.0.nupkg.sha512"
+    },
+    "SkiaSharp/2.88.0-preview.179": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-X4O4Pyinoc+bEh7HPvJexvDD8HX5W5Y2xFQFYR79O9RE5CMz+fAdhCenNgV+4sd7pkIazXPurzsitkYSxaQzTA==",
+      "path": "skiasharp/2.88.0-preview.179",
+      "hashPath": "skiasharp.2.88.0-preview.179.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.macOS/2.88.0-preview.179": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CxLJ5IpX4bXDHSXLMxITNTW6Pj/xvAZ1/MFI1q0ll7DmDS5zPyAagGwQn8Y6ahNzOSo3NH4iva2VPjS3FPCPVA==",
+      "path": "skiasharp.nativeassets.macos/2.88.0-preview.179",
+      "hashPath": "skiasharp.nativeassets.macos.2.88.0-preview.179.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.Win32/2.88.0-preview.179": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-w/W/I/C27V6QyqG0AcdlnIoFhmgno5Rn8pxbCajOAxAALMcubriVj9ALJsxjXvI2tlhNoR+Cl34s+jUP6lYBTw==",
+      "path": "skiasharp.nativeassets.win32/2.88.0-preview.179",
+      "hashPath": "skiasharp.nativeassets.win32.2.88.0-preview.179.nupkg.sha512"
+    },
+    "SkiaSharp.Views.Desktop.Common/2.88.0-preview.179": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5yC/FToqc+3He+azCYl5s4otNfb13uaSfBAmgb5swziIqqRt/v5EhTQUu9qr22HrlObdjKF8WMIISLLOxvgeVA==",
+      "path": "skiasharp.views.desktop.common/2.88.0-preview.179",
+      "hashPath": "skiasharp.views.desktop.common.2.88.0-preview.179.nupkg.sha512"
+    },
+    "SkiaSharp.Views.WindowsForms/2.88.0-preview.179": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qTBz6GxUn5Cv1sVCVnxkIiJ3LNwqbrM6o7SjO2SAHNhNDwZTphTLp/dxditsUhTaqqSox+f0LjUR4vWP4pAMzQ==",
+      "path": "skiasharp.views.windowsforms/2.88.0-preview.179",
+      "hashPath": "skiasharp.views.windowsforms.2.88.0-preview.179.nupkg.sha512"
     },
     "System.Buffers/4.5.1": {
       "type": "package",

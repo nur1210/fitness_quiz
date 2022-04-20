@@ -21,7 +21,7 @@ namespace DAL.DB
             using (var conn = Connection.OpenConn())
             {
                 string sql = "UPDATE users SET first_name = @FirstName, last_name = @LastName, email = @Email, password = @Password, is_admin = @IsAdmin, is_blocked = @IsBlocked WHERE id = @ID ";
-                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter("FirstName", user.FirstName), new MySqlParameter("LastName", user.LastName), new MySqlParameter("Email", user.Email), new MySqlParameter("Password", Hashing.HashPassword(user.Password)), new MySqlParameter("IsAdmin", user.IsAdmin), new MySqlParameter("IsBlocked", user.IsBlocked), new MySqlParameter("ID", user.ID));
+                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter("FirstName", user.FirstName), new MySqlParameter("LastName", user.LastName), new MySqlParameter("Email", user.Email), new MySqlParameter("Password", user.Password), new MySqlParameter("IsAdmin", user.IsAdmin), new MySqlParameter("IsBlocked", user.IsBlocked), new MySqlParameter("ID", user.ID));
             }
         }
 

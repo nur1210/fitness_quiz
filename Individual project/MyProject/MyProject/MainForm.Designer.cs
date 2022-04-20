@@ -35,6 +35,7 @@
             this.lblTotalPrograms = new System.Windows.Forms.Label();
             this.lblTotalUsers = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -146,12 +147,21 @@
             this.panel1.Size = new System.Drawing.Size(186, 531);
             this.panel1.TabIndex = 21;
             // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(189, 64);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(905, 531);
+            this.panel2.TabIndex = 22;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1097, 598);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.lblTotalUsers);
             this.Controls.Add(this.lblTotalPrograms);
             this.Controls.Add(this.lblTotalQuestions);
@@ -159,6 +169,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome!";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -173,5 +184,6 @@
         private Label lblTotalPrograms;
         private Label lblTotalUsers;
         private Panel panel1;
+        private Panel panel2;
     }
 }

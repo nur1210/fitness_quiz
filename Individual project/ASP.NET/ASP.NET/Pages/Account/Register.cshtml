@@ -1,6 +1,7 @@
 ﻿@page
-@model 	WebApp.Pages.Account.RegisterModel
+@model WebApp.Pages.Account.RegisterModel
 @{
+	ViewData["Title"] = "Register";
 }
 <body>
 	<div class="container">
@@ -9,7 +10,6 @@
 			<h1>Register</h1>
 			<p>Please fill in this form to create an account.</p>
 			<hr />
-
 			<label asp-for="RegisterForm.FirstName">First name</label>
 			<span class="text-danger" asp-validation-for="RegisterForm.FirstName"></span>
 			<input asp-for="RegisterForm.FirstName" class="form-control" />
@@ -32,10 +32,10 @@
 
 			<hr />
 			<div style="text-align:center;">
-
 				<input type="submit" class="btn" value="Register">
 				<p>Already have an account?<a asp-area="" asp-page="/Index">Sign in</a>.</p>
 			</div>
 		</form>
 	</div>
+
 </body>

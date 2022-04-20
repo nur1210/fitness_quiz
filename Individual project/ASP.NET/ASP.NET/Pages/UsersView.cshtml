@@ -1,6 +1,7 @@
 ﻿@page
 @model WebApp.Pages.UsersViewModel
 @{
+	ViewData["Title"] = "Users overview";
 	string btnBlock(bool IsBlocked) => IsBlocked ? "Unblock" : "Block";
 }
 <body>

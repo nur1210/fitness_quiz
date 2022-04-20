@@ -900,9 +900,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "BCrypt.Net-Core >= 1.6.0",
-      "Logic >= 1.0.0",
-      "MySql.Data >= 8.0.28"
+      "Logic >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -947,16 +945,6 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
-        "dependencies": {
-          "BCrypt.Net-Core": {
-            "target": "Package",
-            "version": "[1.6.0, )"
-          },
-          "MySql.Data": {
-            "target": "Package",
-            "version": "[8.0.28, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",
@@ -972,7 +960,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

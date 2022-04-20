@@ -1,6 +1,7 @@
 ﻿@page
 @model WebApp.Pages.LogoutModel
 @{
+	ViewData["Title"] = "Logout";
 	string url = Model.ReturnUrl ?? "/Index";
 }
 <form method="post">
@@ -8,8 +9,8 @@
 		<div class="row justify-content-center">
 			<p>Are you sure you want to logout?</p>
 			<p>
-				<button class="btn"  asp-page-handler="Logout">Yes</button>
-				<a class="btn" asp-page="@url">No</a>
+				<button class="btn" id="logout-btn" asp-page-handler="Logout">Yes</button>
+				<button class="btn" id="logout-btn" asp-page="@url">No</button>
 			</p>
 		</div>
 	</div>

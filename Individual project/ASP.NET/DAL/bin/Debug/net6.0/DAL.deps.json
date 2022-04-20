@@ -8,9 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "DAL/1.0.0": {
         "dependencies": {
-          "BCrypt.Net-Core": "1.6.0",
-          "Logic": "1.0.0",
-          "MySql.Data": "8.0.28"
+          "Logic": "1.0.0"
         },
         "runtime": {
           "DAL.dll": {}

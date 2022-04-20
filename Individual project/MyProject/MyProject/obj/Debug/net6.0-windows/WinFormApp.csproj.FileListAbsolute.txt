@@ -43,3 +43,15 @@ C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-proje
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\WinFormApp.ViewPrograms.resources
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\WinFormApp.ViewQuestions.resources
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\obj\Debug\net6.0-windows\WinFormApp.ViewUsers.resources
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\LiveChartsCore.dll
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\LiveChartsCore.SkiaSharpView.dll
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\LiveChartsCore.SkiaSharpView.WinForms.dll
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\OpenTK.dll
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\OpenTK.GLControl.dll
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\SkiaSharp.dll
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\SkiaSharp.Views.Desktop.Common.dll
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\SkiaSharp.Views.WindowsForms.dll
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\runtimes\osx\native\libSkiaSharp.dylib
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\runtimes\win-arm64\native\libSkiaSharp.dll
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\runtimes\win-x64\native\libSkiaSharp.dll
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\MyProject\MyProject\bin\Debug\net6.0-windows\runtimes\win-x86\native\libSkiaSharp.dll

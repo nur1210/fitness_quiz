@@ -27,7 +27,13 @@ namespace WebApp.Pages
             ProgramIDs = UserManager.RecommendedPrograms(userID);
         }
 
-        public IActionResult OnPost()
+        public void OnPost()
+        {
+            var userID = int.Parse(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            ProgramIDs = UserManager.RecommendedPrograms(userID);
+        }
+
+        public IActionResult OnRetakePost()
         {
             var userID = int.Parse(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
             UserManager.RemoveUserProgramAndAnswers(userID);

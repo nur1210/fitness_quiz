@@ -21,15 +21,20 @@ namespace WebApp.Pages
         public string Email { get; set; }
 
         [BindProperty]
+        [Display(Name = "Current password")]
+        [DataType(DataType.Password)]
+        public string? CurrentPassword { get; set; }
+
+        [BindProperty]
         [Display(Name = "New password")]
         [DataType(DataType.Password)]
-        public string NewPassword { get; set; }
+        public string? NewPassword { get; set; }
 
         [BindProperty]
         [Display(Name = "Repeat password")]
         [DataType(DataType.Password)]
         [Compare(nameof(NewPassword))]
-        public string RepeatPassword { get; set; }
+        public string? RepeatPassword { get; set; }
 
         public ProfileModel(UserManager userManager)
         {
@@ -51,12 +56,12 @@ namespace WebApp.Pages
             if (!ModelState.IsValid || !HttpContext.User.Identity.IsAuthenticated) return Page();
             var id = int.Parse(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
             User = UserManager.GetUserById(id);
-            if (NewPassword == RepeatPassword && !string.IsNullOrEmpty(NewPassword))
+            if (NewPassword == RepeatPassword && !string.IsNullOrEmpty(NewPassword) && Hashing.ValidatePassword(CurrentPassword, User.Password))
             {
                 User.FirstName = FirstName;
                 User.LastName = LastName;
                 User.Email = Email;
-                User.Password = NewPassword; 
+                User.Password = Hashing.HashPassword(NewPassword);
                 UserManager.UpdateUser(User);
                 return RedirectToPage(UserManager.HasProgram(User.ID) ? "/Programs" : "/Question");
             }

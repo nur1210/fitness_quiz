@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "b3v1Nsz/4mjkcHhe9cF1JndP249G0D5ObHY9DNGRN7uJjLMZ1tH+emFj0JS2umkj1eR+khR8vfICUp2jEi/UQg==",
+  "dgSpecHash": "9rxh+L55QtHBs5zKBydVJeSNvHCoSzhJ2aKeD71X8Daw/0U4g7rsFVZ2ZneGU40e4NKX1tty8lIFRI9mvB2V4g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\MyProject\\MyProject\\WinFormApp.csproj",
   "expectedPackageFiles": [
@@ -11,10 +11,20 @@
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\k4os.compression.lz4.streams\\1.2.6\\k4os.compression.lz4.streams.1.2.6.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\k4os.hash.xxhash\\1.0.6\\k4os.hash.xxhash.1.0.6.nupkg.sha512",
+    "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\livechartscore\\2.0.0-beta.101\\livechartscore.2.0.0-beta.101.nupkg.sha512",
+    "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\livechartscore.skiasharpview\\2.0.0-beta.101\\livechartscore.skiasharpview.2.0.0-beta.101.nupkg.sha512",
+    "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\livechartscore.skiasharpview.winforms\\2.0.0-beta.101\\livechartscore.skiasharpview.winforms.2.0.0-beta.101.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\materialskin.2\\2.3.1\\materialskin.2.2.3.1.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\mysql.data\\8.0.28\\mysql.data.8.0.28.nupkg.sha512",
+    "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\opentk\\3.1.0\\opentk.3.1.0.nupkg.sha512",
+    "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\opentk.glcontrol\\3.1.0\\opentk.glcontrol.3.1.0.nupkg.sha512",
+    "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\skiasharp\\2.88.0-preview.179\\skiasharp.2.88.0-preview.179.nupkg.sha512",
+    "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.0-preview.179\\skiasharp.nativeassets.macos.2.88.0-preview.179.nupkg.sha512",
+    "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.0-preview.179\\skiasharp.nativeassets.win32.2.88.0-preview.179.nupkg.sha512",
+    "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\skiasharp.views.desktop.common\\2.88.0-preview.179\\skiasharp.views.desktop.common.2.88.0-preview.179.nupkg.sha512",
+    "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\skiasharp.views.windowsforms\\2.88.0-preview.179\\skiasharp.views.windowsforms.2.88.0-preview.179.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
@@ -28,5 +38,26 @@
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\system.text.encoding.codepages\\4.4.0\\system.text.encoding.codepages.4.4.0.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'OpenTK 3.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "OpenTK",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'OpenTK.GLControl 3.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "OpenTK.GLControl",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }

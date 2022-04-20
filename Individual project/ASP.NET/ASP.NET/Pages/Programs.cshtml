@@ -3,11 +3,11 @@
 @using System.Runtime.CompilerServices
 @model WebApp.Pages.ProgramsModel
 @{
+	ViewData["Title"] = "Suggested program";
 	var programs = Model.ProgramIDs.Select(x => Model.ProgramManager.GetProgramByID(x)).ToList();
 	string programNames = "";
 	programs.ForEach(x => programNames += $"{x.Description},");
 }
-<style type="text/css">.program-btn { }</style>
 
 <div class="program-form">
 	@if (programs.Count == 1)
@@ -41,7 +41,7 @@
 	}
 	<div class="program-btn">
 		<form method="post">
-			<button class="btn">Retake the quiz</button>
+			<button asp-page-handler="RetakePost" class="btn" id="retake-btn">Retake the quiz</button>
 		</form>
 	</div>
 </div>

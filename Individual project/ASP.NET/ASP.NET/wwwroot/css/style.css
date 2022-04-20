@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: sans-serif, arial;
 }
 
 /* Add padding to containers */
@@ -15,7 +16,7 @@ input[type="text"],
 input[type="password"] {
     width: 100%;
     padding: 15px;
-    margin: 5px 0 22px 0;
+    margin: 8px 0 8px 0;
     display: inline-block;
     border: none;
     background: #f1f1f1;
@@ -33,6 +34,11 @@ hr {
     margin-bottom: 25px;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+}
+
 /* Set a style for the submit button */
 .btn {
     text-align: center;
@@ -42,7 +48,6 @@ hr {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 50%;
     opacity: 0.9;
     font-family: Arial;
     font-size: 1.1em;
@@ -52,6 +57,15 @@ a.btn {
     text-decoration: none;
     display: inline-block;
 }
+
+#logout-btn {
+    width: 49%;
+}
+
+#retake-btn {
+    width: 100%;
+}
+
  .program-btn {
      display: flex;
      justify-content: center;
@@ -79,7 +93,6 @@ a.btn {
 }
 
 table {
-    font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
     border-radius: 5px 5px 0 0;
@@ -155,62 +168,6 @@ section {
         color: #8f9296;
         font-size: 14px;
         margin: 0;
-    }
-    /* Footer links */
-
-    .footer-distributed p.footer-links {
-        font-size: 18px;
-        font-weight: bold;
-        color: #ffffff;
-        margin: 0 0 10px;
-        padding: 0;
-        transition: ease .25s;
-    }
-
-        .footer-distributed p.footer-links a {
-            display: inline-block;
-            line-height: 1.8;
-            text-decoration: none;
-            color: inherit;
-            transition: ease .25s;
-        }
-
-    .footer-distributed .footer-links a:before {
-        content: "·";
-        font-size: 20px;
-        left: 0;
-        color: #fff;
-        display: inline-block;
-        padding-right: 5px;
-    }
-
-    .footer-distributed .footer-links .link-1:before {
-        content: none;
-    }
-
-    .footer-distributed .footer-right {
-        float: right;
-        margin-top: 6px;
-        max-width: 180px;
-    }
-
-        .footer-distributed .footer-right a {
-            display: inline-block;
-            width: 35px;
-            height: 35px;
-            background-color: #0011ff;
-            border-radius: 2px;
-            font-size: 20px;
-            color: #ffffff;
-            text-align: center;
-            line-height: 35px;
-            margin-left: 3px;
-            transition: all .25s;
-        }
-
-
-    .footer-distributed p.footer-links a:hover {
-        text-decoration: underline;
     }
 
 /* Media Queries */

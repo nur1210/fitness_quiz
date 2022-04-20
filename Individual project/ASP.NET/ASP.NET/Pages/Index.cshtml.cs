@@ -2,10 +2,8 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MySql.Data.MySqlClient;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
-using DAL.DB;
 using Logic.Managers;
 
 namespace WebApp.Pages
@@ -22,8 +20,18 @@ namespace WebApp.Pages
             Validation = v;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            if (HttpContext.User.Identity is not {IsAuthenticated: true}) return Page();
+            return HttpContext.User.FindFirstValue(ClaimTypes.Role) switch
+            {
+                "user" => RedirectToPage(
+                    UserManager.HasProgram(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)))
+                        ? "/Programs"
+                        : "/Question"),
+                "admin" => RedirectToPage("/UsersView"),
+                _ => Page()
+            };
         }
 
         public IActionResult OnPost()
