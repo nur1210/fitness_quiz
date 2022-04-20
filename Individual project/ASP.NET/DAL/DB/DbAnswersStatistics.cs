@@ -1,17 +1,28 @@
 ﻿using Logic.IDb;
 using Logic.Managers;
+using Logic.Models;
 using MySql.Data.MySqlClient;
 
 namespace DAL.DB
 {
     public class DbAnswersStatistics : IDbAnswersStatistics
     {
-        public void AddAnswerStatistic(int userID, int answerID, int questionID)
+        public List<Answer> GetAllAnswersAnsweredByAllUsers()
         {
             using (var conn = Connection.OpenConn())
             {
-                string sql = "INSERT INTO answers_statistics (user_id ,answer_id, question_id) VALUES (@UserID, @AnswerID, @QuestionID)";
-                MySqlHelper.ExecuteNonQuery(conn, sql, new MySqlParameter[] { new MySqlParameter("UserID", userID), new MySqlParameter("AnswerID", answerID), new MySqlParameter("QuestionID", questionID) });
+                List<Answer> list = new List<Answer>();
+
+                string sql = "SELECT qo.id, qo.question_id, qo.description FROM question_options as qo INNER JOIN " +
+                             "user_answers as ua ON qo.id = ua.question_option_id WHERE qo.id = ua.question_option_id;";
+                var rdr = MySqlHelper.ExecuteReader(conn, sql);
+                while (rdr.Read())
+                {
+                    list.Add(new Answer(rdr.GetInt32(0), rdr.GetInt32(1),
+                        rdr.GetString(2)));
+                }
+                rdr.Close();
+                return list;
             }
         }
     }

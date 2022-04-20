@@ -21,8 +21,9 @@ namespace WinFormApp
         private readonly UserViewManager _userViewManager;
         private readonly ProgramTypeManager _programTypeManager;
         private readonly ScoreManager _scoreManager;
+        private readonly AnswerStatisticManager _answerStatisticManager;
 
-        public MainForm(AnswerManager answerManager, ExerciseManager exerciseManager, QuestionManager questionManager, ProgramManager programManager, UserManager userManager, UserViewManager userViewManager, ProgramTypeManager programTypeManager, ScoreManager scoreManager)
+        public MainForm(AnswerManager answerManager, ExerciseManager exerciseManager, QuestionManager questionManager, ProgramManager programManager, UserManager userManager, UserViewManager userViewManager, ProgramTypeManager programTypeManager, ScoreManager scoreManager, AnswerStatisticManager answerStatisticManager)
         {
             _answerManager = answerManager;
             _exerciseManager = exerciseManager;
@@ -32,6 +33,7 @@ namespace WinFormApp
             _userViewManager = userViewManager;
             _programTypeManager = programTypeManager;
             _scoreManager = scoreManager;
+            _answerStatisticManager = answerStatisticManager;
             InitializeComponent();
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -72,12 +74,12 @@ namespace WinFormApp
             var chart = new PieChart
             {
                 Series = new ObservableCollection<ISeries>() {
-                    new PieSeries<double> {
-                        Values = new double[] { 2 },
+                    new PieSeries<int> {
+                        Values = new[] { _answerStatisticManager.SumOfMaleUsers() },
                         Stroke = null,
                         Fill = new SolidColorPaint { Color = SKColors.DarkOliveGreen } },
-                    new PieSeries<double> {
-                        Values = new double[] { 8 },
+                    new PieSeries<int> {
+                        Values = new[] { _answerStatisticManager.SumOfFemaleUsers() },
                         Stroke = null,
                         Fill = new SolidColorPaint { Color = SKColors.Aquamarine }
                     }

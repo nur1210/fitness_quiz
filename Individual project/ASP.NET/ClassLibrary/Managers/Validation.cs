@@ -19,13 +19,9 @@ namespace Logic.Managers
 
         public bool ValidUser(string email, string password)
         {
+            if (_repository.GetUserByEmail(email) == null) return false;
             var user = _repository.GetUserByEmail(email);
-            if (user is not null)
-            {
-                return Hashing.ValidatePassword(password, user.Password) && !user.IsBlocked;
-            }
-
-            return false;
+            return Hashing.ValidatePassword(password, user.Password) && !user.IsBlocked;
         }
 
         public bool ValidEmail(string email)

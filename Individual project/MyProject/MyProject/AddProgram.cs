@@ -26,7 +26,6 @@ namespace WinFormApp
         {
             string description = tbxDescription.Text;
             int typeID = Convert.ToInt32(cbxType.SelectedValue);
-            //Add map later?
             TrainingProgram program = typeID switch
             {
                 1 =>  new WeightLossProgram(description, typeID),
@@ -37,11 +36,11 @@ namespace WinFormApp
             };
 
             _programManager.AddProgram(program);
-            AddExercises exercises = new AddExercises(_exerciseManager, _programManager);
+            AddExercises exercises = new(_exerciseManager, _programManager, _viewPrograms);
             exercises.ShowDialog();
             tbxDescription.Clear();
             cbxType.SelectedIndex = -1;
-            _viewPrograms.Refresh();
+            _viewPrograms.UpdateDataGridView();
         }
     }
 }

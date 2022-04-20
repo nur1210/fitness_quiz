@@ -14,6 +14,8 @@ namespace Logic.Managers
         {
             _repository = repository;
         }
-        public void AddAnswerStatistic(int userID, int answerID, int questionID) => _repository.AddAnswerStatistic(userID, answerID, questionID);
+
+        public int SumOfFemaleUsers() => _repository.GetAllAnswersAnsweredByAllUsers().Where(x => x.ID == 2).ToList().Count;
+        public int SumOfMaleUsers() => _repository.GetAllAnswersAnsweredByAllUsers().Where(x => x.ID == 1).ToList().Count;
     }
 }

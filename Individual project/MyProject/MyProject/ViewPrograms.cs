@@ -138,30 +138,5 @@ namespace WinFormApp
                 Hide();
             }
         }
-
-        public void DisplayLabel()
-        {
-            int? i = dgvPrograms.CurrentCell?.RowIndex;
-            if (i is int idx and > -1)
-            {
-                int programID = Convert.ToInt32(dgvPrograms.Rows[idx].Cells[0].Value);
-                var scoreList = _scoreManager.GetScoresForProgramByProgramID(programID);
-                if (scoreList.Count > 0)
-                {
-                    lblAssigned.Visible = true;
-                    btnRemoveReference.Visible = true;
-                }
-                else
-                {
-                    btnRemoveReference.Visible=false;
-                    lblAssigned.Visible=false;
-                }
-            }
-        }
-
-        private void dgvPrograms_SelectionChanged(object sender, EventArgs e)
-        {
-            DisplayLabel();
-        }
     }
 }

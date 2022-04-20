@@ -8,11 +8,14 @@ namespace WinFormApp
     {
         private readonly ExerciseManager _exerciseManager;
         private readonly ProgramManager _programManager;
-        public AddExercises(ExerciseManager exerciseManager, ProgramManager programManager)
+        private readonly ViewPrograms _viewPrograms;
+
+        public AddExercises(ExerciseManager exerciseManager, ProgramManager programManager, ViewPrograms viewPrograms)
         {
             InitializeComponent();
             _exerciseManager = exerciseManager;
             _programManager = programManager;
+            _viewPrograms = viewPrograms;
             this.Text = $"Exercises for program number {_programManager.GetInsertedProgramID()}";
         }
 
@@ -32,6 +35,7 @@ namespace WinFormApp
 
         private void btnComplete_Click(object sender, EventArgs e)
         {
+            _viewPrograms.UpdateDataGridView();
             Close();
         }
     }

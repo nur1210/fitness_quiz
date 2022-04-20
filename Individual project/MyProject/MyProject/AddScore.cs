@@ -48,7 +48,6 @@ namespace WinFormApp
                 int questionID = Convert.ToInt32(cbxQuestion.SelectedValue);
                 Score s = new(questionID, answerID, _programId, score);
                 _scoreManager.AddScore(s);
-                _viewPrograms.DisplayLabel();
                 Close();
             }
         }

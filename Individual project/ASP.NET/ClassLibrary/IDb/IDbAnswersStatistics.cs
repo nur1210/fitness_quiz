@@ -1,6 +1,8 @@
-﻿namespace Logic.IDb;
+﻿using Logic.Models;
+
+namespace Logic.IDb;
 
 public interface IDbAnswersStatistics
 {
-    void AddAnswerStatistic(int userID, int answerID, int questionID);
+    List<Answer> GetAllAnswersAnsweredByAllUsers();
 }
