@@ -11,10 +11,12 @@ namespace Logic.Managers
     public class Validation
     {
         private readonly IDbUsers _repository;
+        private readonly IDbLogin _repositoryLogin;
 
-        public Validation(IDbUsers repository)
+        public Validation(IDbUsers repository, IDbLogin repositoryLogin)
         {
             _repository = repository;
+            _repositoryLogin = repositoryLogin;
         }
 
         public bool ValidUser(string email, string password)
@@ -42,5 +44,7 @@ namespace Logic.Managers
                 return false;
             }
         }
+
+        public int Login(string email, string password) => _repositoryLogin.Login(email, password);
     }
 }

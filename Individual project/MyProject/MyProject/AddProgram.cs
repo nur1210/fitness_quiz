@@ -7,17 +7,18 @@ namespace WinFormApp
     public partial class AddProgram : MaterialForm
     {
         private readonly ProgramManager _programManager;
-        private readonly ExerciseManager _exerciseManager;
-        private readonly ViewPrograms _viewPrograms;
-        public AddProgram(ProgramManager programManager, ExerciseManager exerciseManager, ViewPrograms viewPrograms, ProgramTypeManager programTypeManager)
+        //private readonly ViewPrograms _viewPrograms;
+        private readonly ProgramTypeManager _programTypeManager;
+        private readonly AddExercises _addExercises;
+        public AddProgram(ProgramManager programManager, ProgramTypeManager programTypeManager, AddExercises addExercises)
         {
             InitializeComponent();
             _programManager = programManager;
-            _exerciseManager = exerciseManager;
-            _viewPrograms = viewPrograms;
+            _programTypeManager = programTypeManager;
+            _addExercises = addExercises;
             lblProgram.Text = $"Program number {_programManager.GetAllPrograms().Count + 1}";
 
-            cbxType.DataSource = programTypeManager.GetAllProgramTypes();
+            cbxType.DataSource = _programTypeManager.GetAllProgramTypes();
             cbxType.DisplayMember = "Name";
             cbxType.ValueMember = "ID";
         }
@@ -36,11 +37,10 @@ namespace WinFormApp
             };
 
             _programManager.AddProgram(program);
-            AddExercises exercises = new(_exerciseManager, _programManager, _viewPrograms);
-            exercises.ShowDialog();
+            _addExercises.ShowDialog();
             tbxDescription.Clear();
             cbxType.SelectedIndex = -1;
-            _viewPrograms.UpdateDataGridView();
+            //_viewPrograms.UpdateDataGridView();
         }
     }
 }

@@ -1,9 +1,10 @@
-﻿using Logic.Managers;
+﻿using Logic.IDb;
+using Logic.Managers;
 using MySql.Data.MySqlClient;
 
 namespace DAL.DB
 {
-    public class DbLogin
+    public class DbLogin : IDbLogin
     {
         public int Login(string email, string password)
         {

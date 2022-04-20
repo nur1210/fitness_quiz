@@ -8,6 +8,7 @@ namespace WinFormApp
     {
         private readonly QuestionManager _questionManager;
         private readonly AnswerManager _answerManager;
+        private readonly AddQuestion _addQuestion;
         private readonly BindingSource _bindingSourceQuestions = new();
         private readonly BindingSource _bindingSourceAnswers = new();
 
@@ -81,9 +82,8 @@ namespace WinFormApp
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddQuestion add = new AddQuestion(_questionManager, _answerManager, this);
-            add.Show();
-            add.Closed += (_, _) => Show();
+            _addQuestion.Show();
+            _addQuestion.Closed += (_, _) => Show();
             Hide();
         }
     }

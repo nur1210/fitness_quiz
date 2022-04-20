@@ -21,6 +21,7 @@ namespace WinFormApp
             builder.RegisterType<DbUsers>().As<IDbUsers>();
             builder.RegisterType<DbUserView>().As<IDbUserView>();
             builder.RegisterType<DbAnswersStatistics>().As<IDbAnswersStatistics>();
+            builder.RegisterType<DbLogin>().As<IDbLogin>();
 
             builder.RegisterType<UserViewManager>().AsSelf().SingleInstance();
             builder.RegisterType<UserManager>().AsSelf().SingleInstance();
@@ -33,8 +34,15 @@ namespace WinFormApp
             builder.RegisterType<ScoreManager>().AsSelf().SingleInstance();
             builder.RegisterType<QuestionViewManager>().AsSelf().SingleInstance();
             builder.RegisterType<Validation>().AsSelf().SingleInstance();
+
             builder.RegisterType<Login>();
             builder.RegisterType<MainForm>();
+            builder.RegisterType<AddExercises>();
+            builder.RegisterType<AddProgram>();
+            builder.RegisterType<AddQuestion>();
+            builder.RegisterType<ViewPrograms>();
+            builder.RegisterType<ViewQuestions>();
+            builder.RegisterType<ViewUsers>();
 
             return builder.Build();
         }

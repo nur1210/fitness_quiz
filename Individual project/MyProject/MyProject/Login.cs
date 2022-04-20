@@ -7,7 +7,6 @@ namespace WinFormApp
 {
     public partial class Login : MaterialForm
     {
-        private DbLogin dbLogin;
         private readonly MainForm _mainForm;
         private readonly Validation _validation;
 
@@ -21,7 +20,6 @@ namespace WinFormApp
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
-            dbLogin = new DbLogin();
         }
 
         private void tbxPassword_Enter(object sender, EventArgs e)
@@ -79,7 +77,7 @@ namespace WinFormApp
             {
                 var email = tbxEmail.Text;
                 var password = tbxPassword.Text;
-                var id = dbLogin.Login(email, password);
+                var id = _validation.Login(email, password);
                 if (id > -1)
                 {
                     _mainForm.Show();

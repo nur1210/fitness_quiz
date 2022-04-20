@@ -9,12 +9,11 @@ namespace WinFormApp
         private readonly int _programId;
         private readonly AnswerManager _answerManager;
         private readonly ScoreManager _scoreManager;
-        private readonly ViewPrograms _viewPrograms;
-        public AddScore(int programID, ViewPrograms vP, QuestionManager questionManager, AnswerManager answerManager, ScoreManager scoreManager)
+
+        public AddScore(int programID, QuestionManager questionManager, AnswerManager answerManager, ScoreManager scoreManager)
         {
             InitializeComponent();
             _programId = programID;
-            _viewPrograms = vP;
             _answerManager = answerManager;
             _scoreManager = scoreManager;
             var questions = questionManager.GetAllQuestions();

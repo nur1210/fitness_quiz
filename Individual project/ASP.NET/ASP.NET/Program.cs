@@ -38,6 +38,7 @@ builder.Services.AddSingleton<IDbQuestionView, DbQuestionView>();
 builder.Services.AddSingleton<IDbUsers, DbUsers>();
 builder.Services.AddSingleton<IDbUserView, DbUserView>();
 builder.Services.AddSingleton<IDbAnswersStatistics, DbAnswersStatistics>();
+builder.Services.AddSingleton<IDbLogin, DbLogin>();
 
 
 var app = builder.Build();

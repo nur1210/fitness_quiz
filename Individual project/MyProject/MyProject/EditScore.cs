@@ -7,7 +7,6 @@ namespace WinFormApp
     public partial class EditScore : MaterialForm
     {
         private readonly int _programID;
-        private readonly AnswerManager _answerManager;
         private readonly ScoreManager _scoreManager;
 
         public EditScore(int programID, ScoreManager sM, AnswerManager answerManager)
@@ -15,10 +14,9 @@ namespace WinFormApp
             InitializeComponent();
             _programID = programID;
             _scoreManager = sM;
-            _answerManager = answerManager;
 
             var scores = _scoreManager.GetScoresForProgramByProgramID(_programID);
-            var answers = scores.Select(x => _answerManager.GetAnswerByID(x.QuestionOptionID)).ToList();
+            var answers = scores.Select(x => answerManager.GetAnswerByID(x.QuestionOptionID)).ToList();
             cbxAnswer.DisplayMember = "Description";
             cbxAnswer.ValueMember = "ID";
             cbxAnswer.DataSource = answers;

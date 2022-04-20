@@ -14,8 +14,10 @@ namespace WinFormApp
         private readonly QuestionManager _questionManager;
         private readonly AnswerManager _answerManager;
         private readonly ScoreManager _scoreManager;
+        private readonly AddProgram _addProgram;
 
-        public ViewPrograms(ProgramManager pM, ExerciseManager eM, ProgramTypeManager pTM, QuestionManager qM, AnswerManager aM, ScoreManager sM)
+
+        public ViewPrograms(ProgramManager pM, ExerciseManager eM, ProgramTypeManager pTM, QuestionManager qM, AnswerManager aM, ScoreManager sM, AddProgram addProgram)
         {
             InitializeComponent();
             _programManager = pM;
@@ -24,6 +26,7 @@ namespace WinFormApp
             _questionManager = qM;
             _answerManager = aM;
             _scoreManager = sM;
+            _addProgram = addProgram;
         }
 
         private void ViewPrograms_Load(object sender, EventArgs e)
@@ -33,9 +36,8 @@ namespace WinFormApp
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddProgram add = new AddProgram(_programManager, _exercisesManager, this, _programTypeManager);
-            add.Show();
-            add.FormClosed += (_, _) => Show();
+            _addProgram.Show();
+            _addProgram.FormClosed += (_, _) => Show();
             Hide();
         }
 
@@ -119,7 +121,7 @@ namespace WinFormApp
             if (i != -1)
             {
                 int programID = Convert.ToInt32(dgvPrograms.Rows[i].Cells[0].Value);
-                AddScore assign = new AddScore(programID, this, _questionManager, _answerManager, _scoreManager);
+                AddScore assign = new AddScore(programID, _questionManager, _answerManager, _scoreManager);
                 assign.Show();
                 assign.FormClosed += (_, _) => Show();
                 Hide();
