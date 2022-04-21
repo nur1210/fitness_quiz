@@ -33,7 +33,7 @@ namespace WebApp.Pages
             ProgramIDs = UserManager.RecommendedPrograms(userID);
         }
 
-        public IActionResult OnRetakePost()
+        public IActionResult OnPostRetake()
         {
             var userID = int.Parse(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
             UserManager.RemoveUserProgramAndAnswers(userID);
