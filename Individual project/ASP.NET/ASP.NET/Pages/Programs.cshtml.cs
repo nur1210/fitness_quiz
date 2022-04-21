@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WebApp.Pages
 {
-    [Authorize]
+    [Authorize(Roles = "user")]
     public class ProgramsModel : PageModel
     {
         [BindProperty] public List<int> ProgramIDs { get; set; }

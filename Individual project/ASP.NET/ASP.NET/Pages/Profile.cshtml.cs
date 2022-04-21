@@ -12,6 +12,7 @@ namespace WebApp.Pages
     public class ProfileModel : PageModel
     {
         public UserManager UserManager { get; set; }
+        public Validation Validation { get; set; }
         public User User { get; set; }
         [BindProperty] public string FirstName { get; set; }
         [BindProperty] public string LastName { get; set; }
@@ -36,9 +37,10 @@ namespace WebApp.Pages
         [Compare(nameof(NewPassword))]
         public string? RepeatPassword { get; set; }
 
-        public ProfileModel(UserManager userManager)
+        public ProfileModel(UserManager userManager, Validation validation)
         {
             UserManager = userManager;
+            Validation = validation;
         }
 
         public void OnGet()
@@ -60,7 +62,10 @@ namespace WebApp.Pages
             {
                 User.FirstName = FirstName;
                 User.LastName = LastName;
-                User.Email = Email;
+                if (Validation.ValidEmail(Email))
+                {
+                    User.Email = Email;
+                }
                 User.Password = Hashing.HashPassword(NewPassword);
                 UserManager.UpdateUser(User);
                 return RedirectToPage(UserManager.HasProgram(User.ID) ? "/Programs" : "/Question");
@@ -68,7 +73,10 @@ namespace WebApp.Pages
 
             User.FirstName = FirstName;
             User.LastName = LastName;
-            User.Email = Email;
+            if (Validation.ValidEmail(Email))
+            {
+                User.Email = Email;
+            }
             UserManager.UpdateUser(User);
             return RedirectToPage(UserManager.HasProgram(User.ID) ? "/Programs" : "/Question");
         }

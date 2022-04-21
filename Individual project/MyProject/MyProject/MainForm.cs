@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using LiveChartsCore;
+using LiveChartsCore.Measure;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using LiveChartsCore.SkiaSharpView.WinForms;
@@ -63,17 +64,34 @@ namespace WinFormApp
             {
                 Series = new ObservableCollection<ISeries>() {
                     new PieSeries<int> {
+                        Name = "Males",
                         Values = new[] { _answerStatisticManager.SumOfMaleUsers() },
-                        Stroke = null,
                         Fill = new SolidColorPaint { Color = SKColors.DarkOliveGreen } },
                     new PieSeries<int> {
+                        Name = "Females",
                         Values = new[] { _answerStatisticManager.SumOfFemaleUsers() },
-                        Stroke = null,
                         Fill = new SolidColorPaint { Color = SKColors.Aquamarine }
                     }
                 }
             };
+            chart.Size = new Size(400, 400);
             panel2.Controls.Add(chart);
+
+            var barChart = new CartesianChart()
+            {
+                Series = new ISeries[]
+                {
+                    new ColumnSeries<int>
+                    {
+                        Name = "bar",
+                        Values = new[] {4, 4, 7, 2, 8},
+                        Stroke = new SolidColorPaint(SKColors.Blue) {StrokeThickness = 4}, // mark
+                        Fill = null,
+                    }
+                }
+            };
+            //panel2.Controls.Add(barChart);
         }
+
     }
 }

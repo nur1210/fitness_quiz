@@ -37,6 +37,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnViewQuestion
@@ -106,7 +107,7 @@
             // 
             this.lblTotalQuestions.AutoSize = true;
             this.lblTotalQuestions.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotalQuestions.Location = new System.Drawing.Point(223, 122);
+            this.lblTotalQuestions.Location = new System.Drawing.Point(48, 478);
             this.lblTotalQuestions.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalQuestions.Name = "lblTotalQuestions";
             this.lblTotalQuestions.Size = new System.Drawing.Size(147, 28);
@@ -117,7 +118,7 @@
             // 
             this.lblTotalPrograms.AutoSize = true;
             this.lblTotalPrograms.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotalPrograms.Location = new System.Drawing.Point(223, 195);
+            this.lblTotalPrograms.Location = new System.Drawing.Point(345, 478);
             this.lblTotalPrograms.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalPrograms.Name = "lblTotalPrograms";
             this.lblTotalPrograms.Size = new System.Drawing.Size(148, 28);
@@ -128,7 +129,7 @@
             // 
             this.lblTotalUsers.AutoSize = true;
             this.lblTotalUsers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotalUsers.Location = new System.Drawing.Point(223, 258);
+            this.lblTotalUsers.Location = new System.Drawing.Point(678, 478);
             this.lblTotalUsers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalUsers.Name = "lblTotalUsers";
             this.lblTotalUsers.Size = new System.Drawing.Size(107, 28);
@@ -149,6 +150,9 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lblTotalUsers);
+            this.panel2.Controls.Add(this.lblTotalQuestions);
+            this.panel2.Controls.Add(this.lblTotalPrograms);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(189, 64);
             this.panel2.Name = "panel2";
@@ -162,17 +166,15 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1097, 598);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.lblTotalUsers);
-            this.Controls.Add(this.lblTotalPrograms);
-            this.Controls.Add(this.lblTotalQuestions);
             this.Controls.Add(this.panel1);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome!";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

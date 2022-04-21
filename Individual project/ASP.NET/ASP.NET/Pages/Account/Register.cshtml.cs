@@ -3,7 +3,9 @@ using Logic.Managers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using System.Reflection.Metadata.Ecma335;
 using Logic.Models;
+using MySql.Data.MySqlClient;
 
 namespace WebApp.Pages.Account
 {
@@ -25,7 +27,14 @@ namespace WebApp.Pages.Account
         {
             if (!ModelState.IsValid) return Page();
             var user = new User(RegisterForm.FirstName, RegisterForm.LastName, RegisterForm.Email, RegisterForm.Password);
-            _userManager.AddUser(user);
+            try
+            {
+                _userManager.AddUser(user);
+            }
+            catch (MySqlException e)
+            {
+                return Page();
+            }
             return RedirectToPage("/Index");
         }
 

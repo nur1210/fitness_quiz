@@ -11,7 +11,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     options =>
     {
         options.LoginPath = new PathString("/Index");
-        options.AccessDeniedPath = new PathString("/Index");
+        options.AccessDeniedPath = new PathString("/Index   ");
     });
 
 // Add services to the container.

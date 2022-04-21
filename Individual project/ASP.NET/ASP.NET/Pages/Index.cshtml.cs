@@ -47,12 +47,7 @@ namespace WebApp.Pages
             };
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             HttpContext.SignInAsync(new ClaimsPrincipal(claimsIdentity));
-            if (user.IsAdmin)
-            {
-                return RedirectToPage("/UsersView");
-            }
-
-            return RedirectToPage(UserManager.HasProgram(user.ID) ? "/Programs" : "/Question");
+            return user.IsAdmin ? RedirectToPage("/UsersView") : RedirectToPage(UserManager.HasProgram(user.ID) ? "/Programs" : "/Question");
         }
 
 
