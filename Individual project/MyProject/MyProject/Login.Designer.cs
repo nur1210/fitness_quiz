@@ -27,7 +27,6 @@ namespace WinFormApp {
             this.tbxEmail = new System.Windows.Forms.TextBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new MaterialSkin.Controls.MaterialButton();
-            this.btnForgotPassword = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // tbxEmail
@@ -66,7 +65,7 @@ namespace WinFormApp {
             this.btnLogin.Depth = 0;
             this.btnLogin.HighEmphasis = true;
             this.btnLogin.Icon = null;
-            this.btnLogin.Location = new System.Drawing.Point(27, 207);
+            this.btnLogin.Location = new System.Drawing.Point(135, 195);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLogin.Name = "btnLogin";
@@ -79,33 +78,12 @@ namespace WinFormApp {
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
             // 
-            // btnForgotPassword
-            // 
-            this.btnForgotPassword.AutoSize = false;
-            this.btnForgotPassword.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnForgotPassword.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnForgotPassword.Depth = 0;
-            this.btnForgotPassword.HighEmphasis = true;
-            this.btnForgotPassword.Icon = null;
-            this.btnForgotPassword.Location = new System.Drawing.Point(249, 207);
-            this.btnForgotPassword.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnForgotPassword.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnForgotPassword.Name = "btnForgotPassword";
-            this.btnForgotPassword.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnForgotPassword.Size = new System.Drawing.Size(152, 45);
-            this.btnForgotPassword.TabIndex = 6;
-            this.btnForgotPassword.Text = "Forgot password";
-            this.btnForgotPassword.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnForgotPassword.UseAccentColor = false;
-            this.btnForgotPassword.UseVisualStyleBackColor = true;
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(438, 263);
-            this.Controls.Add(this.btnForgotPassword);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.tbxEmail);
@@ -124,6 +102,5 @@ namespace WinFormApp {
         private System.Windows.Forms.TextBox tbxEmail;
         private System.Windows.Forms.TextBox tbxPassword;
         private MaterialSkin.Controls.MaterialButton btnLogin;
-        private MaterialSkin.Controls.MaterialButton btnForgotPassword;
     }
 }

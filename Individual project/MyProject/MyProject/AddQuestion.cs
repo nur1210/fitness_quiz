@@ -8,40 +8,37 @@ namespace WinFormApp
     {
         private readonly QuestionManager _questionManager;
         private readonly AnswerManager _answerManager;
-        private readonly ViewQuestions _viewQuestions;
-        public AddQuestion(QuestionManager questionManager, AnswerManager answerManager, ViewQuestions viewQuestions)
+        public AddQuestion(QuestionManager questionManager, AnswerManager answerManager)
         {
             InitializeComponent();
             _questionManager = questionManager;
             _answerManager = answerManager;
-            _viewQuestions = viewQuestions;
             this.Text = $"Add question number: {_questionManager.GetAllQuestions().Count+ 1}";
         }
 
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string questionDescription = tbxQuestion.Text;
-            string answer1 = tbxAnswer1.Text;
-            string answer2 = tbxAnswer2.Text;
-            string answer3 = tbxAnswer3.Text;
-            string answer4 = tbxAnswer4.Text;
+            var questionDescription = tbxQuestion.Text;
+            var answer1 = tbxAnswer1.Text;
+            var answer2 = tbxAnswer2.Text;
+            var answer3 = tbxAnswer3.Text;
+            var answer4 = tbxAnswer4.Text;
 
-            Question question = new Question(questionDescription);
+            var question = new Question(questionDescription);
             _questionManager.AddQuestion(question);
 
             var questionID = _questionManager.GetInsertedQuestionID();
-            Answer a1 = new Answer(questionID, answer1);
-            Answer a2 = new Answer(questionID, answer2);
-            Answer a3 = new Answer(questionID, answer3);
-            Answer a4 = new Answer(questionID, answer4);
+            var a1 = new Answer(questionID, answer1);
+            var a2 = new Answer(questionID, answer2);
+            var a3 = new Answer(questionID, answer3);
+            var a4 = new Answer(questionID, answer4);
 
             _answerManager.AddAnswer(a1);
             _answerManager.AddAnswer(a2);
             _answerManager.AddAnswer(a3);
             _answerManager.AddAnswer(a4);
 
-            _viewQuestions.UpdateDataGridView();
             Close();
         }
     }

@@ -1,0 +1,205 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif, arial;
+}
+
+/* Add padding to containers */
+.container {
+    padding: 16px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+/* Full-width input fields */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin: 8px 0 8px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+/* Overwrite default styles of hr */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Set a style for the submit button */
+.btn {
+    text-align: center;
+    background-color: #0011ff;
+    color: white;
+    padding: 16px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    font-family: Arial;
+    font-size: 1.1em;
+}
+
+a.btn {
+    text-decoration: none;
+    display: inline-block;
+}
+
+#logout-btn {
+    width: 49%;
+}
+
+#retake-btn {
+    width: 100%;
+}
+
+ .program-btn {
+     display: flex;
+     justify-content: center;
+     margin-top: 60px;
+     min-width: 50px;
+ }
+
+.fullwidth {
+    width: 100%;
+    height: 1em;
+    font-size: 0.7em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.loginbtn:hover {
+    opacity: 2;
+}
+
+.register {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 12px 15px;
+}
+
+th {
+    background-color: #0011ff;
+    color: #ffffff;
+}
+
+tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.menu-bar {
+    background-color: #0011ff;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.item {
+    color: white;
+    background-color: transparent;
+    font-size: 1.5em;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 14px 20px;
+}
+
+    .item.title {
+        font-weight: 600;
+    }
+
+    .item:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+
+section {
+    width: 100%;
+    display: inline-block;
+    background: #ccc;
+    height: 60vh;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.footer-distributed {
+    background-color: #0011ff;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: normal 16px sans-serif;
+    padding: 25px 50px;
+    margin-top: auto;
+}
+
+    .footer-distributed .footer-left p {
+        color: #8f9296;
+        font-size: 14px;
+        margin: 0;
+    }
+
+/* Media Queries */
+
+@media (max-width: 600px) {
+    .footer-distributed .footer-left, .footer-distributed .footer-right {
+        text-align: center;
+    }
+
+    .footer-distributed .footer-right {
+        float: none;
+        margin: 0 auto 20px;
+    }
+
+    .footer-distributed .footer-left p.footer-links {
+        line-height: 1.8;
+    }
+}
+
+.td-link {
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: blue;
+}
+
+#answer-input {
+    display: none;
+}
+
+.item {
+    text-decoration: none;
+    color: white;
+}

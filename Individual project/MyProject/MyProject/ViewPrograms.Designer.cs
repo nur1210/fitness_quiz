@@ -42,9 +42,10 @@ namespace WinFormApp
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(122, 708);
+            this.btnAdd.Location = new System.Drawing.Point(81, 472);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(162, 51);
+            this.btnAdd.Size = new System.Drawing.Size(108, 34);
             this.btnAdd.TabIndex = 25;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -53,28 +54,29 @@ namespace WinFormApp
             // dgvPrograms
             // 
             this.dgvPrograms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPrograms.Location = new System.Drawing.Point(64, 120);
-            this.dgvPrograms.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvPrograms.Location = new System.Drawing.Point(43, 80);
             this.dgvPrograms.Name = "dgvPrograms";
             this.dgvPrograms.RowHeadersWidth = 51;
             this.dgvPrograms.RowTemplate.Height = 29;
-            this.dgvPrograms.Size = new System.Drawing.Size(843, 516);
+            this.dgvPrograms.Size = new System.Drawing.Size(562, 344);
             this.dgvPrograms.TabIndex = 24;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(452, 708);
+            this.btnDelete.Location = new System.Drawing.Point(301, 472);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(162, 51);
+            this.btnDelete.Size = new System.Drawing.Size(108, 34);
             this.btnDelete.TabIndex = 23;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(290, 708);
+            this.btnEdit.Location = new System.Drawing.Point(193, 472);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(162, 51);
+            this.btnEdit.Size = new System.Drawing.Size(108, 34);
             this.btnEdit.TabIndex = 22;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -83,10 +85,11 @@ namespace WinFormApp
             // lbxExercises
             // 
             this.lbxExercises.FormattingEnabled = true;
-            this.lbxExercises.ItemHeight = 30;
-            this.lbxExercises.Location = new System.Drawing.Point(915, 120);
+            this.lbxExercises.ItemHeight = 20;
+            this.lbxExercises.Location = new System.Drawing.Point(610, 80);
+            this.lbxExercises.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lbxExercises.Name = "lbxExercises";
-            this.lbxExercises.Size = new System.Drawing.Size(322, 514);
+            this.lbxExercises.Size = new System.Drawing.Size(216, 344);
             this.lbxExercises.TabIndex = 21;
             // 
             // btnReference
@@ -97,12 +100,12 @@ namespace WinFormApp
             this.btnReference.Depth = 0;
             this.btnReference.HighEmphasis = true;
             this.btnReference.Icon = null;
-            this.btnReference.Location = new System.Drawing.Point(972, 708);
-            this.btnReference.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.btnReference.Location = new System.Drawing.Point(648, 472);
+            this.btnReference.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnReference.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnReference.Name = "btnReference";
             this.btnReference.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnReference.Size = new System.Drawing.Size(243, 51);
+            this.btnReference.Size = new System.Drawing.Size(162, 34);
             this.btnReference.TabIndex = 26;
             this.btnReference.Text = "Add score";
             this.btnReference.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -118,25 +121,24 @@ namespace WinFormApp
             this.btnRemoveReference.Depth = 0;
             this.btnRemoveReference.HighEmphasis = true;
             this.btnRemoveReference.Icon = null;
-            this.btnRemoveReference.Location = new System.Drawing.Point(717, 708);
-            this.btnRemoveReference.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.btnRemoveReference.Location = new System.Drawing.Point(478, 472);
+            this.btnRemoveReference.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnRemoveReference.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnRemoveReference.Name = "btnRemoveReference";
             this.btnRemoveReference.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnRemoveReference.Size = new System.Drawing.Size(243, 51);
+            this.btnRemoveReference.Size = new System.Drawing.Size(162, 34);
             this.btnRemoveReference.TabIndex = 27;
             this.btnRemoveReference.Text = "Edit score";
             this.btnRemoveReference.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnRemoveReference.UseAccentColor = false;
             this.btnRemoveReference.UseVisualStyleBackColor = true;
-            this.btnRemoveReference.Visible = false;
             this.btnRemoveReference.Click += new System.EventHandler(this.btnRemoveReference_Click);
             // 
             // ViewPrograms
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1293, 772);
+            this.ClientSize = new System.Drawing.Size(862, 515);
             this.Controls.Add(this.btnRemoveReference);
             this.Controls.Add(this.btnReference);
             this.Controls.Add(this.btnAdd);
@@ -144,9 +146,7 @@ namespace WinFormApp
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.lbxExercises);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ViewPrograms";
-            this.Padding = new System.Windows.Forms.Padding(4, 96, 4, 4);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewPrograms";
             this.Load += new System.EventHandler(this.ViewPrograms_Load);

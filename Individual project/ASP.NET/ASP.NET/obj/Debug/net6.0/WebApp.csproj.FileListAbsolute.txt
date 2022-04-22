@@ -50,3 +50,7 @@ C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-proje
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\ASP.NET\ASP.NET\bin\Debug\net6.0\Logic.dll
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\ASP.NET\ASP.NET\bin\Debug\net6.0\Logic.pdb
 C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\ASP.NET\ASP.NET\bin\Debug\net6.0\DAL.pdb
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\ASP.NET\ASP.NET\bin\Debug\net6.0\AspNetCoreHero.ToastNotification.Views.dll
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\ASP.NET\ASP.NET\bin\Debug\net6.0\AspNetCoreHero.ToastNotification.dll
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\ASP.NET\ASP.NET\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Nur Nechushtan\Documents\Fontys\Semester 2\Individual Project\wad-project\Individual project\ASP.NET\ASP.NET\obj\Debug\net6.0\WebApp.MvcApplicationPartsAssemblyInfo.cs

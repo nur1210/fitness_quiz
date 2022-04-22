@@ -31,11 +31,12 @@
             this.btnViewQuestion = new MaterialSkin.Controls.MaterialButton();
             this.btnViewPrograms = new MaterialSkin.Controls.MaterialButton();
             this.btnViewUsers = new MaterialSkin.Controls.MaterialButton();
-            this.lblTotalQuestions = new System.Windows.Forms.Label();
-            this.lblTotalPrograms = new System.Windows.Forms.Label();
-            this.lblTotalUsers = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTotalPrograms = new System.Windows.Forms.Label();
+            this.lblTotalQuestions = new System.Windows.Forms.Label();
+            this.lblTotalUsers = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -103,39 +104,6 @@
             this.btnViewUsers.UseVisualStyleBackColor = true;
             this.btnViewUsers.Click += new System.EventHandler(this.btnViewUsers_Click_1);
             // 
-            // lblTotalQuestions
-            // 
-            this.lblTotalQuestions.AutoSize = true;
-            this.lblTotalQuestions.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotalQuestions.Location = new System.Drawing.Point(48, 478);
-            this.lblTotalQuestions.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTotalQuestions.Name = "lblTotalQuestions";
-            this.lblTotalQuestions.Size = new System.Drawing.Size(147, 28);
-            this.lblTotalQuestions.TabIndex = 14;
-            this.lblTotalQuestions.Text = "Total questions:";
-            // 
-            // lblTotalPrograms
-            // 
-            this.lblTotalPrograms.AutoSize = true;
-            this.lblTotalPrograms.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotalPrograms.Location = new System.Drawing.Point(345, 478);
-            this.lblTotalPrograms.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTotalPrograms.Name = "lblTotalPrograms";
-            this.lblTotalPrograms.Size = new System.Drawing.Size(148, 28);
-            this.lblTotalPrograms.TabIndex = 15;
-            this.lblTotalPrograms.Text = "Total programs:";
-            // 
-            // lblTotalUsers
-            // 
-            this.lblTotalUsers.AutoSize = true;
-            this.lblTotalUsers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotalUsers.Location = new System.Drawing.Point(678, 478);
-            this.lblTotalUsers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTotalUsers.Name = "lblTotalUsers";
-            this.lblTotalUsers.Size = new System.Drawing.Size(107, 28);
-            this.lblTotalUsers.TabIndex = 11;
-            this.lblTotalUsers.Text = "Total users:";
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
@@ -148,8 +116,42 @@
             this.panel1.Size = new System.Drawing.Size(186, 531);
             this.panel1.TabIndex = 21;
             // 
+            // lblTotalPrograms
+            // 
+            this.lblTotalPrograms.AutoSize = true;
+            this.lblTotalPrograms.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalPrograms.Location = new System.Drawing.Point(345, 478);
+            this.lblTotalPrograms.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalPrograms.Name = "lblTotalPrograms";
+            this.lblTotalPrograms.Size = new System.Drawing.Size(148, 28);
+            this.lblTotalPrograms.TabIndex = 15;
+            this.lblTotalPrograms.Text = "Total programs:";
+            // 
+            // lblTotalQuestions
+            // 
+            this.lblTotalQuestions.AutoSize = true;
+            this.lblTotalQuestions.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalQuestions.Location = new System.Drawing.Point(48, 478);
+            this.lblTotalQuestions.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalQuestions.Name = "lblTotalQuestions";
+            this.lblTotalQuestions.Size = new System.Drawing.Size(147, 28);
+            this.lblTotalQuestions.TabIndex = 14;
+            this.lblTotalQuestions.Text = "Total questions:";
+            // 
+            // lblTotalUsers
+            // 
+            this.lblTotalUsers.AutoSize = true;
+            this.lblTotalUsers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalUsers.Location = new System.Drawing.Point(678, 478);
+            this.lblTotalUsers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalUsers.Name = "lblTotalUsers";
+            this.lblTotalUsers.Size = new System.Drawing.Size(107, 28);
+            this.lblTotalUsers.TabIndex = 11;
+            this.lblTotalUsers.Text = "Total users:";
+            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.lblTotalUsers);
             this.panel2.Controls.Add(this.lblTotalQuestions);
             this.panel2.Controls.Add(this.lblTotalPrograms);
@@ -158,6 +160,13 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(905, 531);
             this.panel2.TabIndex = 22;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(471, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(434, 464);
+            this.panel3.TabIndex = 16;
             // 
             // MainForm
             // 
@@ -182,10 +191,11 @@
         private MaterialSkin.Controls.MaterialButton btnViewQuestion;
         private MaterialSkin.Controls.MaterialButton btnViewPrograms;
         private MaterialSkin.Controls.MaterialButton btnViewUsers;
-        private Label lblTotalQuestions;
-        private Label lblTotalPrograms;
-        private Label lblTotalUsers;
         private Panel panel1;
+        private Label lblTotalPrograms;
+        private Label lblTotalQuestions;
+        private Label lblTotalUsers;
         private Panel panel2;
+        private Panel panel3;
     }
 }

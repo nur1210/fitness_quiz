@@ -9,5 +9,9 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c19d9e6e_002D3652_002D4083_002D8376_002D60e8b2a8afb8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetAllUsers_ValidCall" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::ABACF431-1EAA-4D1D-B788-78ECAF886C31::net6.0::Logic.Tests.UserManagerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::ABACF431-1EAA-4D1D-B788-78ECAF886C31::net6.0::Logic.Tests.ValidationTests.GetUserById_ValidCall&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::ABACF431-1EAA-4D1D-B788-78ECAF886C31::net6.0::Logic.Tests.ValidationTests.ValidUser_ValidCall&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::ABACF431-1EAA-4D1D-B788-78ECAF886C31::net6.0::Logic.Tests.ValidationTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+&lt;/SessionState&gt;</s:String>
+	</wpf:ResourceDictionary>

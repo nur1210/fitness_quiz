@@ -1,3 +1,4 @@
+using AspNetCoreHero.ToastNotification;
 using DAL.DB;
 using Logic.IDb;
 using Logic.Managers;
@@ -13,6 +14,15 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.LoginPath = new PathString("/Index");
         options.AccessDeniedPath = new PathString("/Index   ");
     });
+
+builder.Services.AddNotyf
+    (config =>
+    {
+        config.DurationInSeconds = 10; 
+        config.IsDismissable = true; 
+        config.Position = NotyfPosition.BottomRight;
+    });
+
 
 // Add services to the container.
 builder.Services.AddRazorPages();

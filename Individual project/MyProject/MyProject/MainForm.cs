@@ -60,7 +60,7 @@ namespace WinFormApp
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            var chart = new PieChart
+            var chartGender = new PieChart
             {
                 Series = new ObservableCollection<ISeries>() {
                     new PieSeries<int> {
@@ -74,24 +74,41 @@ namespace WinFormApp
                     }
                 }
             };
-            chart.Size = new Size(400, 400);
-            panel2.Controls.Add(chart);
+            chartGender.Size = new Size(400, 400);
+            panel2.Controls.Add(chartGender);
 
-            var barChart = new CartesianChart()
+            var chartAge = new PieChart
             {
-                Series = new ISeries[]
-                {
-                    new ColumnSeries<int>
-                    {
-                        Name = "bar",
-                        Values = new[] {4, 4, 7, 2, 8},
-                        Stroke = new SolidColorPaint(SKColors.Blue) {StrokeThickness = 4}, // mark
-                        Fill = null,
+                Series = new ObservableCollection<ISeries>() {
+                    new PieSeries<int> {
+                        Name = "Under 20",
+                        Values = new[] { _answerStatisticManager.SumOfUsersUnderTwenty() },
+                        Fill = new SolidColorPaint { Color = SKColors.GreenYellow } },
+                    new PieSeries<int> {
+                        Name = "20-30",
+                        Values = new[] { _answerStatisticManager.SumOfUsersBetweenTwentyToThirty() },
+                        Fill = new SolidColorPaint { Color = SKColors.LightGreen }},
+                    new PieSeries<int> {
+                        Name = "30-40",
+                        Values = new[] { _answerStatisticManager.SumOfUsersBetweenThirtyToForty() },
+                        Fill = new SolidColorPaint { Color = SKColors.AliceBlue } },
+                    new PieSeries<int> {
+                        Name = "40-50",
+                        Values = new[] { _answerStatisticManager.SumOfUsersBetweenFortyToFifty() },
+                        Fill = new SolidColorPaint { Color = SKColors.BlueViolet } },
+                    new PieSeries<int> {
+                        Name = "50-60",
+                        Values = new[] { _answerStatisticManager.SumOfUsersBetweenFiftyToSixty() },
+                        Fill = new SolidColorPaint { Color = SKColors.Cyan } },
+                    new PieSeries<int> {
+                        Name = "Above 60",
+                        Values = new[] { _answerStatisticManager.SumOfUsersAboveSixty() },
+                        Fill = new SolidColorPaint { Color = SKColors.DarkGray },
                     }
                 }
             };
-            //panel2.Controls.Add(barChart);
+            chartAge.Size = new Size(400, 400);
+            panel3.Controls.Add(chartAge);
         }
-
     }
 }

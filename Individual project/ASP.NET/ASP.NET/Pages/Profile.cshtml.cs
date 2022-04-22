@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Logic.Managers;
 using Logic.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -37,10 +38,14 @@ namespace WebApp.Pages
         [Compare(nameof(NewPassword))]
         public string? RepeatPassword { get; set; }
 
-        public ProfileModel(UserManager userManager, Validation validation)
+        private readonly INotyfService _toastNotification;
+
+
+        public ProfileModel(UserManager userManager, Validation validation, INotyfService toastNotification)
         {
             UserManager = userManager;
             Validation = validation;
+            _toastNotification = toastNotification;
         }
 
         public void OnGet()
@@ -68,6 +73,7 @@ namespace WebApp.Pages
                 }
                 User.Password = Hashing.HashPassword(NewPassword);
                 UserManager.UpdateUser(User);
+                _toastNotification.Success("Updated successfully");
                 return RedirectToPage(UserManager.HasProgram(User.ID) ? "/Programs" : "/Question");
             }
 
@@ -78,6 +84,7 @@ namespace WebApp.Pages
                 User.Email = Email;
             }
             UserManager.UpdateUser(User);
+            _toastNotification.Success("Updated successfully");
             return RedirectToPage(UserManager.HasProgram(User.ID) ? "/Programs" : "/Question");
         }
     }

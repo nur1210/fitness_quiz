@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Logic.Managers;
 
 namespace WebApp.Pages
@@ -14,10 +15,13 @@ namespace WebApp.Pages
 
         public UserManager UserManager { get; set; }
         public Validation Validation { get; set; }
-        public IndexModel(UserManager uM, Validation v)
+        private readonly INotyfService _toastNotification;
+
+        public IndexModel(UserManager uM, Validation v, INotyfService toastNotification)
         {
             UserManager = uM;
             Validation = v;
+            _toastNotification = toastNotification;
         }
 
         public IActionResult OnGet()
@@ -47,6 +51,7 @@ namespace WebApp.Pages
             };
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             HttpContext.SignInAsync(new ClaimsPrincipal(claimsIdentity));
+            _toastNotification.Success("Login successful!");
             return user.IsAdmin ? RedirectToPage("/UsersView") : RedirectToPage(UserManager.HasProgram(user.ID) ? "/Programs" : "/Question");
         }
 

@@ -12,10 +12,11 @@ namespace WinFormApp
         private readonly BindingSource _bindingSourceQuestions = new();
         private readonly BindingSource _bindingSourceAnswers = new();
 
-        public ViewQuestions(QuestionManager qM, AnswerManager aM)
+        public ViewQuestions(QuestionManager qM, AnswerManager aM, AddQuestion addQuestion)
         {
             InitializeComponent();
             _answerManager = aM;
+            _addQuestion = addQuestion;
             _questionManager = qM;
         }
 

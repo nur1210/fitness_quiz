@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "JnGsLCXeqSy+dTkXERCCbaNn2qCSUd8pwKnQ0ndDpvT3Il5yMT2qpzPVi+Mpa5PaEZHwenvRmOk0f0a9uD1dyQ==",
+  "dgSpecHash": "Qyx2ssifZf30kmmTbMBTSUpmJcmzmvGECb33HSFc2E+AXS9XagDR/p7raU4MEcDtViqIn+tQr9tJrsVPnz3Rnw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nur Nechushtan\\Documents\\Fontys\\Semester 2\\Individual Project\\wad-project\\Individual project\\ASP.NET\\ASP.NET\\WebApp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",
@@ -13,6 +14,7 @@
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\mysql.data\\8.0.28\\mysql.data.8.0.28.nupkg.sha512",
+    "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",
     "C:\\Users\\Nur Nechushtan\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",

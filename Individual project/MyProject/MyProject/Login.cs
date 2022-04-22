@@ -56,12 +56,6 @@ namespace WinFormApp
             }
         }
 
-
-        private void btnPassword_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
 

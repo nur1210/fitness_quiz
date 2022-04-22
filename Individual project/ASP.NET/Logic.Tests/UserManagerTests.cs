@@ -79,14 +79,14 @@ namespace Logic.Tests
             }
         }
 
-
+            
         private List<User> GetSampleUsers()
         {
             List<User> users = new List<User>
             {
                 new(1, "Mariia", "Parakhina", "mariia@gmail.com", "12345", false, false),
                 new(2, "Nur", "Nechuhstan", "nur@gmail.com", "12345", false, false),
-                new(3, "Alex", "Parakhina", "alex@gmail.com", "12345", false, false),
+                new(3, "Alex", "Dumi", "alex@gmail.com", "12345", false, false),
             };
             return users;
         }
